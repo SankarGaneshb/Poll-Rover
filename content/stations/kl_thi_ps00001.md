@@ -69,4 +69,4 @@ title: Vanchiyoor Govt LP School
 | Email | N/A |
 
 ---
-*Data confidence: 0.37 | Source: state_CEO*
+*Data confidence: 0.67 | Source: state_CEO*

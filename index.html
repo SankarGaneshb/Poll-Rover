@@ -33,6 +33,14 @@
       </div>
     </div>
 
+    <div class="header-search">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="station-search" placeholder="Search by Station Name or ID..." autocomplete="off">
+        <div id="search-results" class="search-results hidden"></div>
+      </div>
+    </div>
+
     <div class="header-stats">
       <div class="stat-pill">
         <span>🏫</span>
@@ -57,14 +65,12 @@
     </div>
 
     <div class="header-actions">
-      <button class="btn-theme" id="theme-toggle" onclick="toggleTheme()" title="Switch Theme">
-        🌓
+      <button class="action-btn help-trigger" onclick="openHelp()" title="Intelligence Mesh Guide">
+        <span class="icon">❓</span>
+        <span class="label">Help</span>
       </button>
-      <button class="btn-header" onclick="alert('Download feature coming in Phase 2')">
-        📥 Download CSV
-      </button>
-      <button class="btn-header" onclick="window.open('https://github.com/ooru-space/poll-rover', '_blank')">
-        ⭐ GitHub
+      <button class="action-btn theme-toggle" onclick="toggleTheme()" title="Switch Visual Mode">
+        <span class="icon">🌓</span>
       </button>
     </div>
   </header>
@@ -174,6 +180,32 @@
     <div class="chat-input-area">
       <input type="text" id="chat-input" placeholder="Ask about polling stations..." autocomplete="off">
       <button class="chat-send" onclick="sendMessage()">➤</button>
+    </div>
+  </div>
+
+  <!-- ===== INTELLIGENCE MESH MODAL ===== -->
+  <div id="help-modal" class="modal hidden">
+    <div class="modal-overlay" onclick="closeHelp()"></div>
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="mesh-branding">
+          <span class="mesh-icon">🧠</span>
+          <span>INTELLIGENCE MESH</span>
+        </div>
+        <button class="close-modal" onclick="closeHelp()">✕</button>
+      </div>
+      
+      <div id="help-content" class="modal-body">
+        <!-- Content injected via JS -->
+      </div>
+      
+      <div class="modal-footer">
+        <div class="step-dots" id="step-dots"></div>
+        <div class="modal-nav">
+          <button id="help-prev" onclick="prevHelpStep()" class="nav-btn secondary">Back</button>
+          <button id="help-next" onclick="nextHelpStep()" class="nav-btn primary">Next</button>
+        </div>
+      </div>
     </div>
   </div>
 

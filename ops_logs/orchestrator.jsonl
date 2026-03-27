@@ -9,3 +9,14 @@
 {"timestamp": "2026-03-27T12:26:30.680432+05:30", "level": "INFO", "agent": "llm_client", "message": "🏥 Stage 4: SRE Health Checks"}
 {"timestamp": "2026-03-27T12:26:30.712313+05:30", "level": "INFO", "agent": "llm_client", "message": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
 {"timestamp": "2026-03-27T12:26:30.712538+05:30", "level": "INFO", "agent": "llm_client", "message": "🎯 Pipeline complete in 0.8s | Status: success"}
+{"timestamp": "2026-03-27T14:01:23.013263+05:30", "level": "INFO", "agent": "llm_client", "message": "🎯 Orchestrator starting pipeline..."}
+{"timestamp": "2026-03-27T14:01:23.014099+05:30", "level": "INFO", "agent": "llm_client", "message": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"timestamp": "2026-03-27T14:01:23.014589+05:30", "level": "INFO", "agent": "llm_client", "message": "📥 Stage 1: Data Harvesting"}
+{"timestamp": "2026-03-27T14:01:23.854735+05:30", "level": "INFO", "agent": "llm_client", "message": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"timestamp": "2026-03-27T14:01:23.855124+05:30", "level": "INFO", "agent": "llm_client", "message": "🔍 Stage 2: Data Quality Audit"}
+{"timestamp": "2026-03-27T14:01:24.227476+05:30", "level": "INFO", "agent": "llm_client", "message": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"timestamp": "2026-03-27T14:01:24.227879+05:30", "level": "INFO", "agent": "llm_client", "message": "🏗️  Stage 3: Site Generation"}
+{"timestamp": "2026-03-27T14:01:24.355423+05:30", "level": "INFO", "agent": "llm_client", "message": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"timestamp": "2026-03-27T14:01:24.356220+05:30", "level": "INFO", "agent": "llm_client", "message": "🏥 Stage 4: SRE Health Checks"}
+{"timestamp": "2026-03-27T14:01:24.391147+05:30", "level": "INFO", "agent": "llm_client", "message": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"timestamp": "2026-03-27T14:01:24.391560+05:30", "level": "INFO", "agent": "llm_client", "message": "🎯 Pipeline complete in 1.38s | Status: success"}

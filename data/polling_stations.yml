@@ -228,6 +228,6 @@ polling_stations:
   longitude: 76.9
   metadata:
     data_source: state_CEO
-    confidence_score: 0.37
+    confidence_score: 0.67
     needs_update: true
     last_audit: '2026-03-27'

@@ -15,11 +15,11 @@ checks_run:
     quality: ok
   name: agent_health
   status: ok
-- details: 'Disk: 62.4%, Memory: 79.9%'
+- details: 'Disk: 62.4%, Memory: 88.9%'
   name: resource_usage
   status: ok
 hil_mode: optional
 incidents: []
 overall_status: healthy
 remediations: []
-timestamp: '2026-03-27T12:26:30.682577'
+timestamp: '2026-03-27T14:01:24.359164'

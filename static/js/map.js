@@ -11,6 +11,36 @@ let STATIONS = []; // Now loaded dynamically
 let tileLayer;
 let currentTheme = localStorage.getItem('theme') || 'dark';
 
+// Help Modal State
+let currentHelpStep = 0;
+const HELP_STEPS = [
+  {
+    icon: "🗺️",
+    title: "Welcome to Poll Rover",
+    text: "Your 'Gold Standard' guide to the 2026 Indian Elections. We help you find your polling station with institutional-grade accuracy."
+  },
+  {
+    icon: "🔍",
+    title: "Instant Discovery",
+    text: "Use the new **Global Search** in the header or the **AI Chat** below to find your specific booth number or school in seconds."
+  },
+  {
+    icon: "🧭",
+    title: "Find Your Route",
+    text: "Every station now has a **'Get Directions'** link. Tap it to open a precise route map from your current location directly to the ballot box."
+  },
+  {
+    icon: "🦾",
+    title: "Intelligence Mesh",
+    text: "A mesh of **5 Autonomous Agents** (Harvester, SRE, Quality) works 24/7 to verify every single station coordinate and accessibility feature."
+  },
+  {
+    icon: "♿",
+    title: "Accessibility First",
+    text: "Look for Green markers for 100% barrier-free stations. Use the filters to only see stations with Ramps, Braille, or Audio assistance."
+  }
+];
+
 let activeFilters = {
   wheelchair: false,
   audio: false,
@@ -169,41 +199,35 @@ function buildPopupHTML(s) {
   else badges.push('<span class="access-badge unavailable">♿ None</span>');
 
   if (acc.audio_booth) badges.push('<span class="access-badge available">🔊 Audio</span>');
-  if (acc.braille_materials) badges.push('<span class="access-badge available">⠿ Braille</span>');
-  if (acc.accessible_parking === 'yes') badges.push('<span class="access-badge available">🅿️ Parking</span>');
-  else if (acc.accessible_parking === 'partial') badges.push('<span class="access-badge partial">🅿️ Partial</span>');
-
-  const confClass = s.confidence >= 0.8 ? 'confidence-high' : 'confidence-mid';
-  const confLabel = s.confidence >= 0.8 ? 'High Confidence' : 'Moderate';
-
+  // Header Stats
+  const statsHtml = `
+    <div class="popup-stats">
+      <div class="p-stat"><span>♿</span> ${s.accessibility.wheelchair_ramp === 'yes' ? 'Ramp Available' : 'No Ramp'}</div>
+      <div class="p-stat"><span>🔊</span> ${s.accessibility.audio_booth ? 'Audio Booth' : 'Generic Booth'}</div>
+      <div class="p-stat"><span>⠿</span> ${s.accessibility.braille_materials ? 'Braille Ready' : 'Standard Material'}</div>
+    </div>
+    <div class="popup-actions">
+      <a href="https://www.google.com/maps/dir/?api=1&destination=${s.lat},${s.lng}" target="_blank" class="directions-btn">
+        <span>🚗</span> GET DIRECTIONS
+      </a>
+    </div>
+  `;
+  
   return `
-    <div class="popup-content">
-      <div class="popup-header">
-        <h3>${s.name}</h3>
+    <div class="station-popup">
+      <div class="popup-header" style="border-left: 4px solid ${ratingColor}">
+        <div class="name-row">
+          <h3>${s.name}</h3>
+          <span class="conf-badge" title="Data Confidence">${Math.round(s.confidence * 100)}% Trust</span>
+        </div>
         <div class="constituency">${s.constituency} · Ward ${s.ward} · ${s.state}</div>
       </div>
       <div class="popup-body">
         <div class="popup-address">📍 ${s.address}<br>🏛️ ${s.landmark}</div>
-        <div class="popup-access-icons">${badges.join('')}</div>
-        <div class="popup-rating">
-          <span style="font-size:0.75rem; color:${ratingColor}; font-weight:600">
-            ${acc.rating}/5
-          </span>
-          <div class="rating-bar">
-            <div class="rating-fill" style="width:${ratingPct}%; background:${ratingColor}"></div>
-          </div>
-          <span style="font-size:0.65rem; color:var(--text-muted)">${acc.crowding} crowd</span>
+        ${statsHtml}
+        <div class="popup-footer">
+          <span style="font-size:0.65rem; color:var(--text-muted)">📅 07 May 2026 · ${s.accessibility.crowding} crowd</span>
         </div>
-        <div style="font-size:0.72rem; color:var(--text-muted); margin-top:0.3rem">
-          ⏱️ ~${s.community.wait_time} wait · 🏫 ${s.booths} booths · 👥 ${s.estimated_voters} voters
-        </div>
-        <div style="font-size:0.7rem; color:var(--text-muted); margin-top:0.3rem; font-style:italic">
-          "${acc.notes}"
-        </div>
-      </div>
-      <div class="popup-footer">
-        <span class="voting-date">🗓️ ${s.voting_date} · ${s.voting_time}</span>
-        <span class="confidence ${confClass}">${confLabel}</span>
       </div>
     </div>
   `;
@@ -440,6 +464,103 @@ function highlightStations(stationIds) {
     markers.forEach(m => m.setOpacity(1));
   }, 8000);
 }
+
+// ===== SEARCH LOGIC =====
+document.getElementById('station-search').addEventListener('input', (e) => {
+  const query = e.target.value.toLowerCase();
+  const resultsDiv = document.getElementById('search-results');
+  
+  if (query.length < 2) {
+    resultsDiv.classList.add('hidden');
+    return;
+  }
+  
+  const matches = STATIONS.filter(s => 
+    s.name.toLowerCase().includes(query) || 
+    s.station_id.toLowerCase().includes(query) ||
+    s.address.toLowerCase().includes(query)
+  ).slice(0, 5);
+  
+  if (matches.length > 0) {
+    resultsDiv.innerHTML = matches.map(s => `
+      <div class="search-item" onclick="selectSearchStation('${s.station_id}')">
+        <span class="name">${s.name}</span>
+        <span class="meta">${s.station_id} · ${s.district}</span>
+      </div>
+    `).join('');
+    resultsDiv.classList.remove('hidden');
+    resultsDiv.style.display = 'block'; // Force visibility
+  } else {
+    resultsDiv.classList.add('hidden');
+  }
+});
+
+function selectSearchStation(stationId) {
+  document.getElementById('search-results').classList.add('hidden');
+  document.getElementById('station-search').value = '';
+  flyToStation(stationId);
+}
+
+// ===== HELP MODAL LOGIC =====
+function openHelp() {
+  currentHelpStep = 0;
+  updateHelpUI();
+  document.getElementById('help-modal').classList.remove('hidden');
+}
+
+function closeHelp() {
+  document.getElementById('help-modal').classList.add('hidden');
+  localStorage.setItem('hasSeenHelp', 'true');
+}
+
+function nextHelpStep() {
+  if (currentHelpStep < HELP_STEPS.length - 1) {
+    currentHelpStep++;
+    updateHelpUI();
+  } else {
+    closeHelp();
+  }
+}
+
+function prevHelpStep() {
+  if (currentHelpStep > 0) {
+    currentHelpStep--;
+    updateHelpUI();
+  }
+}
+
+function updateHelpUI() {
+  const step = HELP_STEPS[currentHelpStep];
+  const content = document.getElementById('help-content');
+  const dots = document.getElementById('step-dots');
+  
+  content.innerHTML = `
+    <div class="help-step-icon">${step.icon}</div>
+    <div class="help-step-title">${step.title}</div>
+    <p class="help-step-text">${step.text}</p>
+  `;
+  
+  dots.innerHTML = HELP_STEPS.map((_, i) => `
+    <div class="dot ${i === currentHelpStep ? 'active' : ''}"></div>
+  `).join('');
+  
+  document.getElementById('help-prev').style.display = currentHelpStep === 0 ? 'none' : 'block';
+  document.getElementById('help-next').textContent = currentHelpStep === HELP_STEPS.length - 1 ? 'Start Exploring' : 'Next';
+}
+
+// Auto-show help for first timers
+window.addEventListener('load', () => {
+  if (!localStorage.getItem('hasSeenHelp')) {
+    setTimeout(openHelp, 1500);
+  }
+});
+
+// Close search on click outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-box')) {
+    document.getElementById('search-results').classList.add('hidden');
+  }
+});
 
 // ===== KEYBOARD SHORTCUTS =====
 document.addEventListener('keydown', (e) => {

@@ -33,3 +33,10 @@
 {"timestamp": "2026-03-27T12:26:30.695452+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: agent_health"}
 {"timestamp": "2026-03-27T12:26:30.699033+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: resource_usage"}
 {"timestamp": "2026-03-27T12:26:30.712066+05:30", "level": "INFO", "agent": "llm_client", "message": "[SRE] check complete: status=HEALTHY | 0 incidents, 0 remediations"}
+{"timestamp": "2026-03-27T14:01:24.359099+05:30", "level": "INFO", "agent": "llm_client", "message": "[SRE] Ops Agent starting health checks..."}
+{"timestamp": "2026-03-27T14:01:24.359542+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: yaml_health"}
+{"timestamp": "2026-03-27T14:01:24.368735+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: build_health"}
+{"timestamp": "2026-03-27T14:01:24.371761+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: data_pipeline"}
+{"timestamp": "2026-03-27T14:01:24.372253+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: agent_health"}
+{"timestamp": "2026-03-27T14:01:24.374548+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: resource_usage"}
+{"timestamp": "2026-03-27T14:01:24.390711+05:30", "level": "INFO", "agent": "llm_client", "message": "[SRE] check complete: status=HEALTHY | 0 incidents, 0 remediations"}
