@@ -92,11 +92,11 @@ def _station_to_markdown(station: dict) -> str:
         "extra": {
             "station_id": station["station_id"],
             "state": station["state"],
-            "district": station["district"],
-            "latitude": station["latitude"],
-            "longitude": station["longitude"],
-            "assembly_constituency": station["assembly_constituency"],
-            "parliamentary_constituency": station.get("parliamentary_constituency", ""),
+            "district": station.get("district", "Unknown"),
+            "latitude": station.get("latitude", 0),
+            "longitude": station.get("longitude", 0),
+            "assembly_constituency": station.get("assembly_constituency", "Unknown"),
+            "parliamentary_constituency": station.get("parliamentary_constituency", "N/A"),
             "accessibility_rating": acc.get("accessibility_rating", 0),
             "wheelchair_ramp": acc.get("wheelchair_ramp", "no"),
             "audio_booth": acc.get("audio_booth", False),
@@ -105,8 +105,8 @@ def _station_to_markdown(station: dict) -> str:
         "template": "station.html",
         "taxonomies": {
             "states": [station["state"]],
-            "districts": [station["district"]],
-            "constituencies": [station["assembly_constituency"]],
+            "districts": [station.get("district", "Unknown")],
+            "constituencies": [station.get("assembly_constituency", "Unknown")],
         },
     }
 
@@ -119,11 +119,11 @@ def _station_to_markdown(station: dict) -> str:
 ## Electoral Information
 | Field | Value |
 |-------|-------|
-| Assembly Constituency | {station['assembly_constituency']} |
-| Parliamentary Constituency | {station['parliamentary_constituency']} |
+| Assembly Constituency | {station.get('assembly_constituency', 'Unknown')} |
+| Parliamentary Constituency | {station.get('parliamentary_constituency', 'N/A')} |
 | Ward | {station.get('ward', 'N/A')} |
 | State | {station['state']} |
-| District | {station['district']} |
+| District | {station.get('district', 'Unknown')} |
 
 ## Accessibility Features {' '.join(icons)}
 

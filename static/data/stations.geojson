@@ -6,43 +6,43 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          80.2341,
-          13.0418
+          80.2921,
+          13.1145
         ]
       },
       "properties": {
-        "station_id": "TN_CHN_PS00001",
-        "name": "Government Higher Secondary School, T. Nagar",
-        "address": "45 South Usman Road, T. Nagar, Chennai 600017",
-        "constituency": "Saidapet",
+        "station_id": "TN_CHENNAI_001",
+        "name": "Sir. Thiyagaraya College (North Block 1st Room)",
+        "address": "No.1047, Thiruvotriur High Road, Chennai - 600021",
+        "constituency": "Royapuram",
+        "state": "Tamil Nadu",
+        "accessibility_rating": 4.5,
+        "wheelchair_ramp": "yes",
+        "audio_booth": true,
+        "braille_materials": true,
+        "voting_date": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.2922,
+          13.1146
+        ]
+      },
+      "properties": {
+        "station_id": "TN_CHENNAI_002",
+        "name": "Sir. Thiyagaraya College (North Block 2nd Room)",
+        "address": "No.1047, Thiruvotriur High Road, Chennai - 600021",
+        "constituency": "Royapuram",
         "state": "Tamil Nadu",
         "accessibility_rating": 4.2,
         "wheelchair_ramp": "yes",
-        "audio_booth": true,
-        "braille_materials": true,
-        "voting_date": "2026-05-10"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          80.27,
-          13.0339
-        ]
-      },
-      "properties": {
-        "station_id": "TN_CHN_PS00002",
-        "name": "Corporation Primary School, Mylapore",
-        "address": "12 Kutchery Road, Mylapore, Chennai 600004",
-        "constituency": "Mylapore",
-        "state": "Tamil Nadu",
-        "accessibility_rating": 2.1,
-        "wheelchair_ramp": "partial",
         "audio_booth": false,
-        "braille_materials": false,
-        "voting_date": "2026-05-10"
+        "braille_materials": true,
+        "voting_date": ""
       }
     },
     {
@@ -50,21 +50,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          79.8306,
-          11.934
+          80.2895,
+          13.1112
         ]
       },
       "properties": {
-        "station_id": "PY_PDY_PS00001",
-        "name": "Government Middle School, White Town",
-        "address": "28 Rue Suffren, White Town, Puducherry 605001",
-        "constituency": "Puducherry",
-        "state": "Puducherry",
+        "station_id": "TN_CHENNAI_005",
+        "name": "Kennedy Matriculation Hr. Sec. School",
+        "address": "No.116, Bommi Sivaramalu Street, Old Washermenpet, Chennai - 600021",
+        "constituency": "Royapuram",
+        "state": "Tamil Nadu",
         "accessibility_rating": 4.8,
         "wheelchair_ramp": "yes",
         "audio_booth": true,
-        "braille_materials": true,
-        "voting_date": "2026-05-10"
+        "braille_materials": false,
+        "voting_date": ""
       }
     },
     {
@@ -72,21 +72,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          76.956,
-          8.498
+          76.9632,
+          8.5421
         ]
       },
       "properties": {
-        "station_id": "KL_TVM_PS00001",
-        "name": "Government LP School, Vanchiyoor",
-        "address": "MG Road, Vanchiyoor, Thiruvananthapuram 695035",
+        "station_id": "KL_TVM_001",
+        "name": "Govt. UPS Kudappanakunnu (Northern Portion)",
+        "address": "Kudappanakunnu, Trivandrum, Kerala",
         "constituency": "Vattiyoorkavu",
         "state": "Kerala",
-        "accessibility_rating": 3.6,
+        "accessibility_rating": 4.4,
         "wheelchair_ramp": "yes",
         "audio_booth": true,
-        "braille_materials": false,
-        "voting_date": "2026-05-10"
+        "braille_materials": true,
+        "voting_date": ""
       }
     },
     {
@@ -94,17 +94,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          79.8,
-          11.9
+          76.9688,
+          8.5455
         ]
       },
       "properties": {
-        "station_id": "PY_PUD_PS00001",
-        "name": "Govt. Girls Higher Secondary School",
-        "address": "Mahatma Gandhi Road, Puducherry",
-        "constituency": "Raj Bhavan",
-        "state": "Puducherry",
-        "accessibility_rating": 0,
+        "station_id": "KL_TVM_004",
+        "name": "Govt. UPS Kusavarkkal (West Building)",
+        "address": "Kudappanakunnu, Trivandrum, Kerala",
+        "constituency": "Vattiyoorkavu",
+        "state": "Kerala",
+        "accessibility_rating": 2.1,
         "wheelchair_ramp": "no",
         "audio_booth": false,
         "braille_materials": false,
@@ -116,19 +116,107 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          76.9,
-          8.5
+          76.9421,
+          8.5512
         ]
       },
       "properties": {
-        "station_id": "KL_THI_PS00001",
-        "name": "Vanchiyoor Govt LP School",
-        "address": "Trivandrum",
-        "constituency": "Unknown",
+        "station_id": "KL_TVM_007",
+        "name": "St. Goraithy’s HSS, Nalanchira",
+        "address": "Nalanchira, Trivandrum, Kerala",
+        "constituency": "Vattiyoorkavu",
         "state": "Kerala",
-        "accessibility_rating": 0,
+        "accessibility_rating": 3.8,
+        "wheelchair_ramp": "yes",
+        "audio_booth": false,
+        "braille_materials": true,
+        "voting_date": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.8145,
+          11.9322
+        ]
+      },
+      "properties": {
+        "station_id": "PY_PDY_001",
+        "name": "Govt. Primary School, Vennila Nagar",
+        "address": "Middle Street, Vennila Nagar, Puducherry-605013",
+        "constituency": "Nellithope",
+        "state": "Puducherry",
+        "accessibility_rating": 4.6,
+        "wheelchair_ramp": "yes",
+        "audio_booth": true,
+        "braille_materials": true,
+        "voting_date": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.8188,
+          11.9355
+        ]
+      },
+      "properties": {
+        "station_id": "PY_PDY_002",
+        "name": "Aditya Vidyashram",
+        "address": "First Main Road, Sathya Nagar (East), Puducherry-605013",
+        "constituency": "Nellithope",
+        "state": "Puducherry",
+        "accessibility_rating": 4.1,
+        "wheelchair_ramp": "yes",
+        "audio_booth": false,
+        "braille_materials": true,
+        "voting_date": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.8095,
+          11.9311
+        ]
+      },
+      "properties": {
+        "station_id": "PY_PDY_003",
+        "name": "Planning and Research Dept.",
+        "address": "Kamaraj Salai, Saram, Puducherry-605013",
+        "constituency": "Nellithope",
+        "state": "Puducherry",
+        "accessibility_rating": 2.5,
         "wheelchair_ramp": "no",
         "audio_booth": false,
+        "braille_materials": false,
+        "voting_date": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.2911,
+          13.1155
+        ]
+      },
+      "properties": {
+        "station_id": "TN_CHENNAI_010",
+        "name": "Sir. Thiyagaraya Primary School",
+        "address": "No.23, Basuvaian Street, Chennai - 600021",
+        "constituency": "Royapuram",
+        "state": "Tamil Nadu",
+        "accessibility_rating": 4.3,
+        "wheelchair_ramp": "yes",
+        "audio_booth": true,
         "braille_materials": false,
         "voting_date": ""
       }
