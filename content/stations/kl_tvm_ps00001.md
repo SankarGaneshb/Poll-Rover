@@ -1,4 +1,4 @@
-+++
+---
 date: '2026-03-27'
 description: Polling station at MG Road, Vanchiyoor, Thiruvananthapuram 695035
 extra:
@@ -22,7 +22,7 @@ taxonomies:
   - Kerala
 template: station.html
 title: Government LP School, Vanchiyoor
-+++
+---
 
 # Government LP School, Vanchiyoor
 

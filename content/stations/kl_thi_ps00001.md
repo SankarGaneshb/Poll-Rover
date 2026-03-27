@@ -1,4 +1,4 @@
-+++
+---
 date: '2026-03-27'
 description: Polling station at Trivandrum
 extra:
@@ -22,7 +22,7 @@ taxonomies:
   - Kerala
 template: station.html
 title: Vanchiyoor Govt LP School
-+++
+---
 
 # Vanchiyoor Govt LP School
 

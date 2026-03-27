@@ -1,4 +1,4 @@
-+++
+---
 date: '2026-03-27'
 description: Polling station at Mahatma Gandhi Road, Puducherry
 extra:
@@ -22,7 +22,7 @@ taxonomies:
   - Puducherry
 template: station.html
 title: Govt. Girls Higher Secondary School
-+++
+---
 
 # Govt. Girls Higher Secondary School
 

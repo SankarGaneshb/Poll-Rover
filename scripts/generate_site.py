@@ -164,7 +164,7 @@ def _station_to_markdown(station: dict) -> str:
     frontmatter_yaml = yaml.dump(
         frontmatter, default_flow_style=False, allow_unicode=True
     )
-    return f"+++\n{frontmatter_yaml}+++\n\n{body}"
+    return f"---\n{frontmatter_yaml}---\n\n{body}"
 
 
 def _status_badge(status: str) -> str:
@@ -236,7 +236,7 @@ def _generate_index_page(stations: list, output_dir: Path) -> None:
             body += f"- [{s['name']}](@/{s['station_id'].lower()}.md) — {s['assembly_constituency']}\n"
 
     frontmatter_yaml = yaml.dump(frontmatter, default_flow_style=False)
-    index_content = f"+++\n{frontmatter_yaml}+++\n\n{body}"
+    index_content = f"---\n{frontmatter_yaml}---\n\n{body}"
 
     with open(output_dir / "_index.md", "w", encoding="utf-8") as f:
         f.write(index_content)

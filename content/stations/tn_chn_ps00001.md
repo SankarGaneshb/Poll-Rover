@@ -1,4 +1,4 @@
-+++
+---
 date: '2026-03-27'
 description: Polling station at 45 South Usman Road, T. Nagar, Chennai 600017
 extra:
@@ -22,7 +22,7 @@ taxonomies:
   - Tamil Nadu
 template: station.html
 title: Government Higher Secondary School, T. Nagar
-+++
+---
 
 # Government Higher Secondary School, T. Nagar
 

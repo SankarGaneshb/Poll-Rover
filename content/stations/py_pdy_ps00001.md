@@ -1,4 +1,4 @@
-+++
+---
 date: '2026-03-27'
 description: Polling station at 28 Rue Suffren, White Town, Puducherry 605001
 extra:
@@ -22,7 +22,7 @@ taxonomies:
   - Puducherry
 template: station.html
 title: Government Middle School, White Town
-+++
+---
 
 # Government Middle School, White Town
 

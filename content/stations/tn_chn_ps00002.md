@@ -1,4 +1,4 @@
-+++
+---
 date: '2026-03-27'
 description: Polling station at 12 Kutchery Road, Mylapore, Chennai 600004
 extra:
@@ -22,7 +22,7 @@ taxonomies:
   - Tamil Nadu
 template: station.html
 title: Corporation Primary School, Mylapore
-+++
+---
 
 # Corporation Primary School, Mylapore
 
