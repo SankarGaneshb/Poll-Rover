@@ -1,5 +1,5 @@
 polling_stations:
-  # --- TAMIL NADU (CHENNAI - ROYAPURAM) ---
+  # --- TAMIL NADU (CHENNAI) ---
   - station_id: "TN_CHENNAI_001"
     name: "Sir. Thiyagaraya College (North Block 1st Room)"
     address: "No.1047, Thiruvotriur High Road, Chennai - 600021"
@@ -32,21 +32,21 @@ polling_stations:
       audio_booth: false
       braille_materials: true
 
-  - station_id: "TN_CHENNAI_005"
-    name: "Kennedy Matriculation Hr. Sec. School"
-    address: "No.116, Bommi Sivaramalu Street, Old Washermenpet, Chennai - 600021"
+  - station_id: "TN_CHENNAI_010"
+    name: "Sir. Thiyagaraya Primary School"
+    address: "No.23, Basuvaian Street, Chennai - 600021"
     state: "Tamil Nadu"
     district: "Chennai"
     assembly_constituency: "Royapuram"
-    latitude: 13.1112
-    longitude: 80.2895
+    latitude: 13.1155
+    longitude: 80.2911
     accessibility:
       wheelchair_ramp: "yes"
-      accessibility_rating: 4.8
+      accessibility_rating: 4.3
       audio_booth: true
       braille_materials: false
 
-  # --- KERALA (TRIVANDRUM - VATTIYOORKAVU) ---
+  # --- KERALA (TRIVANDRUM) ---
   - station_id: "KL_TVM_001"
     name: "Govt. UPS Kudappanakunnu (Northern Portion)"
     address: "Kudappanakunnu, Trivandrum, Kerala"
@@ -89,7 +89,7 @@ polling_stations:
       audio_booth: false
       braille_materials: true
 
-  # --- PUDUCHERRY (NELLITHOPE) ---
+  # --- PUDUCHERRY ---
   - station_id: "PY_PDY_001"
     name: "Govt. Primary School, Vennila Nagar"
     address: "Middle Street, Vennila Nagar, Puducherry-605013"
@@ -130,19 +130,4 @@ polling_stations:
       wheelchair_ramp: "no"
       accessibility_rating: 2.5
       audio_booth: false
-      braille_materials: false
-
-  # ... additional stations extracted ...
-  - station_id: "TN_CHENNAI_010"
-    name: "Sir. Thiyagaraya Primary School"
-    address: "No.23, Basuvaian Street, Chennai - 600021"
-    state: "Tamil Nadu"
-    district: "Chennai"
-    assembly_constituency: "Royapuram"
-    latitude: 13.1155
-    longitude: 80.2911
-    accessibility:
-      wheelchair_ramp: "yes"
-      accessibility_rating: 4.3
-      audio_booth: true
       braille_materials: false
