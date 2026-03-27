@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+      <h1 class="mb-4">{{ term.name }}</h1>h1>
+      <p class="lead">Stations in this area:</p>p>
+      <div class="list-group">
+                {% for page in term.pages %}
+                <a href="{{ page.permalink }}" class="list-group-item list-group-item-action">
+                              {{ page.title }}
+                </a>a>
+                {% endfor %}
+      </div>div>
+</div>div>
+{% endblock content %}
