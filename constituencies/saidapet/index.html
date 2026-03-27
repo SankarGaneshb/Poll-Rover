@@ -31,7 +31,15 @@
                 <a href="https://SankarGaneshb.github.io/Poll-Rover" style="text-decoration: none;">
                     <h1>Poll-Rover</h1>
                 </a>
-                <span class="subtitle">KNOW YOUR POLLING STATION</span>
+                <span class="subtitle">Democracy starts with knowing where to go</span>
+            </div>
+        </div>
+
+        <div class="header-search">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="station-search" placeholder="Search by Station Name or ID..." autocomplete="off">
+                <div id="search-results" class="search-results hidden"></div>
             </div>
         </div>
 
@@ -51,14 +59,23 @@
                 <span class="value">May 10</span>
                 <span>Voting Day</span>
             </div>
+            <div class="stat-pill">
+              <span>🤖</span>
+              <span class="value">5</span>
+              <span>AI Agents</span>
+            </div>
         </div>
 
         <div class="header-actions">
-            <button class="btn-theme" id="theme-toggle" onclick="toggleTheme()" title="Switch Theme" style="margin-right: 8px;">
+            <button class="action-btn help-trigger" onclick="openHelp()" title="Intelligence Mesh Guide">
+                <span class="icon">❓</span>
+                <span class="label">Help</span>
+            </button>
+            <button class="action-btn theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Switch Theme">
                 🌓
             </button>
-            <a href="https://SankarGaneshb.github.io/Poll-Rover/stations" class="btn-header">📋 List View</a>
-            <a href="https:&#x2F;&#x2F;github.com&#x2F;ooru-space&#x2F;poll-rover" target="_blank" class="btn-header">⭐ GitHub</a>
+            <a href="https://SankarGaneshb.github.io/Poll-Rover/stations" class="btn-header">📋 List</a>
+            <a href="https:&#x2F;&#x2F;github.com&#x2F;ooru-space&#x2F;poll-rover" target="_blank" class="btn-header">⭐ GH</a>
         </div>
     </header>
 
@@ -114,6 +131,28 @@
         </div>
     </div>
     
+
+    <!-- INTELLIGENCE MESH MODAL -->
+    <div id="help-modal" class="modal hidden">
+      <div class="modal-overlay" onclick="closeHelp()"></div>
+      <div class="modal-container">
+        <div class="modal-header">
+          <div class="mesh-branding">
+            <span class="mesh-icon">🧠</span>
+            <span>INTELLIGENCE MESH</span>
+          </div>
+          <button class="close-modal" onclick="closeHelp()">✕</button>
+        </div>
+        <div id="help-content" class="modal-body"></div>
+        <div class="modal-footer">
+          <div class="step-dots" id="step-dots"></div>
+          <div class="modal-nav">
+            <button id="help-prev" onclick="prevHelpStep()" class="nav-btn secondary">Back</button>
+            <button id="help-next" onclick="nextHelpStep()" class="nav-btn primary">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Scripts -->
     <script src="https://SankarGaneshb.github.io/Poll-Rover/js/map.js"></script>
