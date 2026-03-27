@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poll-Rover — Know Your Polling Station</title>
+    <meta name="description" content="AI-powered civic tech for the 2026 Indian Elections. Discover your polling station and its accessibility features.">
+
+    <!-- Leaflet.js -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://SankarGaneshb.github.io/Poll-Rover/css/index.css">
+    
+    
+
+    <script>
+        // Apply theme immediately to prevent flash
+        const theme = localStorage.getItem('theme') || 'dark';
+        if (theme === 'light') {
+            document.documentElement.classList.add('light-theme');
+        }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-brand">
+            <span class="logo">🗳️</span>
+            <div>
+                <a href="https://SankarGaneshb.github.io/Poll-Rover" style="text-decoration: none;">
+                    <h1>Poll-Rover</h1>
+                </a>
+                <span class="subtitle">KNOW YOUR POLLING STATION</span>
+            </div>
+        </div>
+
+        <div class="header-stats">
+            <div class="stat-pill">
+                <span>🏫</span>
+                <span id="station-count" class="value">0</span>
+                <span>Stations</span>
+            </div>
+            <div class="stat-pill">
+                <span>🗺️</span>
+                <span id="state-count" class="value">0</span>
+                <span>States</span>
+            </div>
+            <div class="stat-pill">
+                <span>📅</span>
+                <span class="value">May 10</span>
+                <span>Voting Day</span>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <button class="btn-theme" id="theme-toggle" onclick="toggleTheme()" title="Switch Theme" style="margin-right: 8px;">
+                🌓
+            </button>
+            <a href="https://SankarGaneshb.github.io/Poll-Rover/stations" class="btn-header">📋 List View</a>
+            <a href="https:&#x2F;&#x2F;github.com&#x2F;ooru-space&#x2F;poll-rover" target="_blank" class="btn-header">⭐ GitHub</a>
+        </div>
+    </header>
+
+    <main>
+        
+<div class="container mt-5">
+      <h1 class="mb-4">Unknown</h1>h1>
+      <p class="lead">Stations in this area:</p>p>
+      <div class="list-group">
+                
+                <a href="https:&#x2F;&#x2F;SankarGaneshb.github.io&#x2F;Poll-Rover&#x2F;stations&#x2F;kl-thi-ps00001&#x2F;" class="list-group-item list-group-item-action">
+                              Vanchiyoor Govt LP School
+                </a>a>
+                
+      </div>div>
+</div>div>
+
+    </main>
+
+    
+    <!-- CHAT TOGGLE -->
+    <button class="chat-toggle" id="chat-toggle" onclick="toggleChat()" title="Ask the AI Assistant">
+        💬
+    </button>
+
+    <!-- CHAT WIDGET -->
+    <div class="chat-widget" id="chat-widget">
+        <div class="chat-header">
+            <div class="avatar">🧑‍🤝‍🧑</div>
+            <div class="chat-header-text">
+                <h4>Citizen Assist AI</h4>
+                <span>Online · AI Powered</span>
+            </div>
+        </div>
+
+        <div class="chat-messages" id="chat-messages">
+            <div class="chat-message bot">
+                👋 Namaste! I'm your <b>Citizen Assist AI</b>.<br><br>
+                I can help you find your polling station and check accessibility features.<br><br>
+                Try asking "Stations in Chennai with ramps" ♿
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <button class="quick-btn" onclick="handleQuickAction('Wheelchair accessible stations')">♿ Accessible</button>
+            <button class="quick-btn" onclick="handleQuickAction('Stations in Chennai')">📍 Chennai</button>
+            <button class="quick-btn" onclick="handleQuickAction('When is voting?')">📅 Voting Date</button>
+        </div>
+
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Ask about polling stations..." autocomplete="off">
+            <button class="chat-send" onclick="sendMessage()">➤</button>
+        </div>
+    </div>
+    
+
+    <!-- Scripts -->
+    <script src="https://SankarGaneshb.github.io/Poll-Rover/js/map.js"></script>
+    
+</body>
+</html>

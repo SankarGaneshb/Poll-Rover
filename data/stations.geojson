@@ -1,0 +1,137 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.2341,
+          13.0418
+        ]
+      },
+      "properties": {
+        "station_id": "TN_CHN_PS00001",
+        "name": "Government Higher Secondary School, T. Nagar",
+        "address": "45 South Usman Road, T. Nagar, Chennai 600017",
+        "constituency": "Saidapet",
+        "state": "Tamil Nadu",
+        "accessibility_rating": 4.2,
+        "wheelchair_ramp": "yes",
+        "audio_booth": true,
+        "braille_materials": true,
+        "voting_date": "2026-05-10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.27,
+          13.0339
+        ]
+      },
+      "properties": {
+        "station_id": "TN_CHN_PS00002",
+        "name": "Corporation Primary School, Mylapore",
+        "address": "12 Kutchery Road, Mylapore, Chennai 600004",
+        "constituency": "Mylapore",
+        "state": "Tamil Nadu",
+        "accessibility_rating": 2.1,
+        "wheelchair_ramp": "partial",
+        "audio_booth": false,
+        "braille_materials": false,
+        "voting_date": "2026-05-10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.8306,
+          11.934
+        ]
+      },
+      "properties": {
+        "station_id": "PY_PDY_PS00001",
+        "name": "Government Middle School, White Town",
+        "address": "28 Rue Suffren, White Town, Puducherry 605001",
+        "constituency": "Puducherry",
+        "state": "Puducherry",
+        "accessibility_rating": 4.8,
+        "wheelchair_ramp": "yes",
+        "audio_booth": true,
+        "braille_materials": true,
+        "voting_date": "2026-05-10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.956,
+          8.498
+        ]
+      },
+      "properties": {
+        "station_id": "KL_TVM_PS00001",
+        "name": "Government LP School, Vanchiyoor",
+        "address": "MG Road, Vanchiyoor, Thiruvananthapuram 695035",
+        "constituency": "Vattiyoorkavu",
+        "state": "Kerala",
+        "accessibility_rating": 3.6,
+        "wheelchair_ramp": "yes",
+        "audio_booth": true,
+        "braille_materials": false,
+        "voting_date": "2026-05-10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.8,
+          11.9
+        ]
+      },
+      "properties": {
+        "station_id": "PY_PUD_PS00001",
+        "name": "Govt. Girls Higher Secondary School",
+        "address": "Mahatma Gandhi Road, Puducherry",
+        "constituency": "Raj Bhavan",
+        "state": "Puducherry",
+        "accessibility_rating": 0,
+        "wheelchair_ramp": "no",
+        "audio_booth": false,
+        "braille_materials": false,
+        "voting_date": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9,
+          8.5
+        ]
+      },
+      "properties": {
+        "station_id": "KL_THI_PS00001",
+        "name": "Vanchiyoor Govt LP School",
+        "address": "Trivandrum",
+        "constituency": "Unknown",
+        "state": "Kerala",
+        "accessibility_rating": 0,
+        "wheelchair_ramp": "no",
+        "audio_booth": false,
+        "braille_materials": false,
+        "voting_date": ""
+      }
+    }
+  ]
+}
