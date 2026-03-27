@@ -25,9 +25,8 @@ jobs:
 
       - name: Run Harvester Pipeline
         run: |
-          # Orchestrate all 5 agents (Simulated for CI without local hardware)
-          python agents/cli.py harvest --all
-          python agents/cli.py quality
+          # Orchestrate all 5 agents (Scale Extractors + Health Audit)
+          python -m agents.cli pipeline
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
