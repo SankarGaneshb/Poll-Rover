@@ -2,13 +2,13 @@
 
 title = "Poll-Rover — Know Your Polling Station"
 description = "AI-powered civic tech for the 2026 Indian Elections. Discover your polling station and its accessibility features."
-base_url = "https://poll-rover.ooru.space"
+base_url = "https://SankarGaneshb.github.io/Poll-Rover/"
 
 # The language used in the site
 default_language = "en"
 
-# Whether to generate a feed for the site
-generate_feed = false
+# Whether to generate feeds for the site
+generate_feeds = false
 
 # Taxonomies for categorization
 taxonomies = [
