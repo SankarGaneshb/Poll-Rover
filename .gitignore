@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+.env
+
+# Zola & Build
+public/
+.sass-cache/
+
+# Data & OS
+.DS_Store
+Thumbs.db
+*.log
+data/source_pdfs/
+!data/source_pdfs/.gitkeep

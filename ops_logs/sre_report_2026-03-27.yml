@@ -1,0 +1,25 @@
+checks_run:
+- details: 'YAML healthy: 6 stations loaded'
+  name: yaml_health
+  status: ok
+- details: Zola not found in PATH (install via 'scoop install zola' or download from
+    getzola.org)
+  name: build_health
+  status: warning
+- details: Data pipeline dependencies available
+  name: data_pipeline
+  status: ok
+- details:
+    citizen_assist: ok
+    harvester: ok
+    quality: ok
+  name: agent_health
+  status: ok
+- details: 'Disk: 62.4%, Memory: 79.9%'
+  name: resource_usage
+  status: ok
+hil_mode: optional
+incidents: []
+overall_status: healthy
+remediations: []
+timestamp: '2026-03-27T12:26:30.682577'

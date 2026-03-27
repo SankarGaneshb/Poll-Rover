@@ -1,0 +1,637 @@
+PRODUCT REQUIREMENTS DOCUMENT (PRD) 
+Know Your Polling Station - PRD 
+ 
+Build Date: March 26, 2026 
+Project Type: Civic Tech / Open Data Initiative 
+ 
+ 
+1. EXECUTIVE SUMMARY 
+ 
+"Know Your Polling Station" is a civic technology platform that empowers Indian voters to 
+discover their assigned polling stations, understand voting logistics, and access accessibility 
+information—all built as an open-source, open-data extension of the ooru.space project. 
+ 
+This solution addresses a critical information gap where millions of voters lack easy access 
+to basic polling station details, leading to confusion, missed votes, and unequal access for 
+differently-abled citizens. By leveraging the existing ooru.space infrastructure and data 
+model, we create a scalable, community-driven directory that works offline and can be 
+deployed pan-India. 
+ 
+Key Differentiators: 
+• Open-source model aligned with democratic principles 
+• Offline-capable static site (privacy-respecting) 
+• Seamless integration with ooru.space ecosystem 
+• Community-contributed data with verification 
+• Multi-language support (Hindi, Tamil, Telugu, Kannada, English) 
+• Accessibility-first design for differently-abled voters 
+ 
+ 
+2. PROBLEM STATEMENT 
+ 
+ 
+2.1 Primary Pain Points 
+ 
+1. Information Fragmentation 
+Polling station details are scattered across: 
+• Election Commission of India (ECI) publications (PDF format, constituency-wise) 
+• State electoral websites (inconsistent UI/UX across states) 
+• Local media reports (scattered, not comprehensive) 
+• Word-of-mouth (unreliable, outdated) 
+ 
+Voters must hunt across multiple sources or visit local offices in person. 
+ 
+2. Accessibility Barriers 
+Differently-abled voters face particular challenges: 
+• No standardized accessibility information 
+• Ramp/wheelchair access details unavailable 
+• Braille materials and assistant availability unknown 
+• Audio-booth facilities not clearly marked 
+• Crowding patterns and waiting times not disclosed 
+ 
+3. Geographic & Digital Divide 
+• Rural voters with limited internet access 
+• Inconsistent digital literacy across demographics 
+• Need for offline-capable resources 
+ 
+4. Language Barrier 
+• Official materials mostly in Hindi + local language mix 
+• English-only websites exclude non-English speakers 
+• South Indian states underrepresented in Hindi-centric platforms 
+ 
+2.2 Impact 
+• Voter participation drop due to confusion 
+• Unequal voting access for marginalized groups 
+• Election administration burden with voter inquiries 
+• Social media misinformation filling the void 
+ 
+ 
+3. VISION & GOALS 
+ 
+ 
+3.1 Vision 
+"Every Indian voter, regardless of location, language, or ability, can discover and access their 
+polling station with confidence." 
+ 
+3.2 Goals (12-Month Roadmap) 
+ 
+Phase 1: MVP (Months 1-4) 
+• Build data schema for polling stations aligned with ooru.space 
+• Collect data for 2-3 pilot states (Bengaluru, Chennai, Hyderabad pilot districts) 
+• Implement Python generation script to create Zola pages 
+• Launch basic search by constituency/ward 
+• Deploy static site 
+ 
+Phase 2: Scale & Polish (Months 5-8) 
+• Expand to 10 states 
+• Add multi-language support (5 languages) 
+• Implement accessibility features 
+• Add map-based discovery 
+• Community contribution system 
+• Offline download capability 
+ 
+Phase 3: Enhancement (Months 9-12) 
+• Expand to all states and UTs 
+• Add real-time updates for election dates 
+• Integrate voter ID verification (optional) 
+• Analytics dashboard for election teams 
+• Mobile-optimized app wrapper 
+ 
+Key Success Metrics: 
+• 500K+ unique visitors during election period 
+• 95%+ data accuracy (verified by community) 
+• 50+ states/UTs covered 
+• 10+ language support 
+• <2 second page load time (offline capability) 
+ 
+ 
+4. TARGET USERS & USER PERSONAS 
+ 
+ 
+Primary Users: 
+ 
+1. First-Time Urban Voters 
+Age: 18-25 | Education: High school to college 
+Profile: Voting in a new city/area, digitally native, search-driven 
+Needs: "Where do I vote?" + "What do I need to bring?" 
+Behavior: Mobile-first, uses Google Maps, wants instant answers 
+ 
+2. Non-Resident Indians (NRIs) & Return-to-Roots Voters 
+Age: 25-60 | Located: Outside home state/country 
+Profile: Sporadic voters, nostalgia-driven, information-hungry 
+Needs: Detailed logistics + accessibility info for elderly family members 
+Behavior: Desktop research, deep reading, time-flexible 
+ 
+3. Differently-Abled Voters 
+Age: Any | Physical/visual/hearing accessibility needs 
+Profile: Often overlooked in standard platforms 
+Needs: Wheelchair ramps, audio booths, assistance availability, crowd info 
+Behavior: Accessibility-tool dependent, needs explicit information 
+ 
+4. Rural & Under-Resourced Voters 
+Age: Any | Location: Rural areas, limited connectivity 
+Profile: Offline preference, lower digital literacy 
+Needs: Downloadable PDFs, simple interface, offline maps 
+Behavior: Community leaders as intermediaries, print-friendly 
+ 
+5. Election Administration & NGOs 
+Age: Professional | Role: Election officers, voter education NGOs 
+Profile: Institutional users 
+Needs: Bulk data export, update mechanisms, accuracy verification 
+Behavior: API usage, automated workflows 
+ 
+Secondary Users: 
+ 
+6. Researchers & Civic Tech Community 
+Age: 20-50 | Motivation: Open data, research 
+Needs: Historical data, analytics, API access 
+Behavior: GitHub users, developers, data scientists 
+ 
+ 
+5. CORE FEATURES & REQUIREMENTS 
+ 
+ 
+5.1 Must-Have Features (MVP) 
+ 
+F1: Polling Station Directory 
+Description: Searchable, filterable directory of all polling stations 
+Search Methods: 
+  - By Voter ID (optional verification) 
+  - By Address/PIN code 
+  - By Constituency name 
+  - By Ward number 
+Data Fields (per station): 
+  - Station ID & Name 
+  - Complete address with coordinates (lat/long) 
+  - Assembly constituency 
+  - Parliamentary constituency 
+  - Ward/Zone 
+  - Designated voter segments 
+ 
+F2: Accessibility Information 
+Description: Standardized accessibility features per station 
+Data Attributes: 
+  - Wheelchair ramp availability (yes/no/partial) 
+  - Accessible parking 
+  - Audio booth for visually impaired 
+  - Braille materials available 
+  - Assistance services (BSL interpreter, attendant, etc.) 
+  - Accessibility rating (1-5 stars) 
+  - User-contributed accessibility notes 
+  - Crowding difficulty (elderly/disabled friendly) 
+ 
+F3: Interactive Map 
+Description: Visual discovery of nearby polling stations 
+Capabilities: 
+  - Show all stations within radius 
+  - "Find my station" using current location 
+  - Station details on click/hover 
+  - Accessibility filter layer 
+  - Offline map support 
+ 
+F4: Multi-Language Support 
+MVP Languages: English, Hindi, Tamil, Telugu, Kannada 
+Phase 2: +5 languages (Bengali, Gujarati, Marathi, Punjabi, Urdu) 
+Implementation: i18n framework with crowdsourced translations 
+ 
+F5: Mobile-Responsive Design 
+Requirements: 
+  - Fully functional on 4" screens 
+  - Touch-optimized buttons & navigation 
+  - Fast loading on 3G connections 
+  - Offline functionality (PWA) 
+  - High contrast mode for visibility 
+ 
+F6: Offline-Capable Download 
+Description: Downloadable station data for offline access 
+Formats: 
+  - PDF (printable station lists by constituency) 
+  - CSV (for bulk processing) 
+  - GeoJSON (for mapping tools) 
+  - SQLite (mobile app compatibility) 
+Features: 
+  - Select by state/district/constituency 
+  - Automatic updates when online 
+ 
+5.2 Should-Have Features (Phase 2) 
+ 
+F7: Community Verification & Contributions 
+  - User can flag incorrect information 
+  - Crowdsourced accessibility updates 
+  - Photo uploads of station entrance/ramps 
+  - Rating system based on actual voter experience 
+  - Moderation workflow for data accuracy 
+ 
+F8: Voting Information Hub 
+  - Documents needed (ID types, OBC certificate, etc.) 
+  - Voting process explanation (video + text) 
+  - VVPAT explanation 
+  - Spoilt ballot procedures 
+  - Grievance redressal contact info 
+ 
+F9: Election Timeline 
+  - Voting dates and times 
+  - Phase-wise polling station assignments 
+  - Advance voting (postal, absentee) info 
+  - Registration deadline info 
+ 
+F10: Real-Time Crowding Information 
+  - User-reported wait times 
+  - Peak-hours heatmap 
+  - "Best time to vote" suggestions 
+  - Crowd density visualization 
+ 
+ 
+5.3 Nice-to-Have Features (Phase 3) 
+ 
+F11: Analytics Dashboard (for election officials) 
+  - Visitor heatmaps by station 
+  - Search trend analysis 
+  - Accessibility bottleneck identification 
+  - Mobile vs. desktop usage 
+ 
+F12: Voter ID Integration 
+  - Secure lookup (encrypted, no personal data storage) 
+  - "This is your assigned polling station" confirmation 
+  - VVPAT tracking (if applicable) 
+ 
+F13: Multilingual Audio Guides 
+  - Audio narration of polling station details 
+  - Accessibility for low-literacy users 
+  - Video tours for first-time voters 
+ 
+ 
+6. DATA MODEL & SCHEMA 
+ 
+6.1 Polling Station Data Schema (YAML Format) 
+ 
+Example entry for polling station: 
+ 
+--- 
+station_id: "KA_BAN_PS001"  # State_District_PSxxxxx 
+state: "Karnataka" 
+district: "Bangalore Urban" 
+name: "Government Primary School, Indiranagar" 
+address: "123 100 Feet Road, Indiranagar, Bangalore 560038" 
+landmark: "Near CMH Hospital" 
+latitude: 13.0219 
+longitude: 77.6245 
+ 
+# Electoral boundaries 
+assembly_constituency: "Bangalore South" 
+parliamentary_constituency: "Bangalore South" 
+ward: "86" 
+ 
+# Accessibility features 
+accessibility: 
+  wheelchair_ramp: "yes"  # yes/no/partial 
+  accessible_parking: "partial" 
+  audio_booth: "yes" 
+  braille_materials: "yes" 
+  assistance_services: ["lip_reader", "attendant"] 
+  accessibility_rating: 4.2  # 1-5 stars 
+  last_verified: "2026-01-15" 
+  verified_by: "community"  # ECI/community/NGO 
+ 
+# Voting information 
+election_details: 
+  voting_date: "2026-04-06" 
+  voting_phase: 2 
+  start_time: "07:00" 
+  end_time: "18:00" 
+  number_of_booths: 3 
+  estimated_voters: 1250 
+ 
+# Contact & Operations 
+contact: 
+  election_officer: "Ramesh Kumar" 
+  phone: "+91-080-XXXX-XXXX" 
+  email: "officer@election.gov.in" 
+  presiding_officer: "Name on election day" 
+ 
+# Community contributions 
+community_data: 
+  wait_time_estimate: "15 mins" 
+  crowd_level_rating: 2.8 
+  accessibility_notes: "Ramp is steep but functional. Attendant friendly." 
+  last_updated: "2026-03-25" 
+  updates_count: 5 
+  active: true 
+ 
+# Data quality flags 
+metadata: 
+  data_source: "ECI + community verification" 
+  confidence_score: 0.95 
+  last_audit: "2026-03-20" 
+  needs_update: false 
+  notes: "Booth location changed in Phase 2" 
+ 
+ 
+6.2 Integration with ooru.space 
+ 
+The data schema mirrors ooru.space entry structure: 
+ 
+• YAML for source-of-truth (data/polling_stations.yml) 
+• CSV export for easy consumption 
+• Python script to generate Zola markdown pages 
+• Filter-based navigation (state > district > constituency > station) 
+• Map visualization using Leaflet.js (existing ooru.space implementation) 
+• Static HTML pages (one per polling station) 
+ 
+ 
+7. TECHNICAL ARCHITECTURE 
+ 
+ 
+7.1 Technology Stack 
+ 
+Data Layer: 
+• Source: YAML (data/polling_stations.yml) + community contributions 
+• Validation: Python schema validator 
+• Version control: Git (GitHub/Gitea) 
+• Backup: Regular database snapshots 
+ 
+Processing Layer: 
+• Python 3.8+ with libraries: 
+  - PyYAML (data parsing) 
+  - Pandas (bulk operations) 
+  - Geopy (geocoding, distance calculations) 
+  - Requests (API calls to ECI data) 
+ 
+Build & Generation: 
+• Zola static site generator (existing ooru.space setup) 
+• Python scripts for markdown generation (scripts/generate_polling_stations.py) 
+• Make or GitHub Actions for CI/CD automation 
+ 
+Frontend: 
+• HTML5/CSS3 (semantic markup for accessibility) 
+• JavaScript (vanilla or Preact for lightweight PWA) 
+• Leaflet.js for interactive maps 
+• Highlight.js for code blocks 
+• i18n-js for multi-language support 
+ 
+Deployment: 
+• Static hosting: Netlify, Vercel, or GitHub Pages 
+• CDN: Cloudflare (free tier for DDoS protection + edge caching) 
+• Backup hosting: India-based server (Vultr, AWS Bangalore) 
+• No backend server required (static generation) 
+ 
+7.2 System Architecture Diagram 
+ 
+[Data Sources] 
+   ✓ ECI APIs 
+   ✓ Community forms 
+   ✓ NGO reports 
+        ↓ 
+   [Data Storage: YAML] 
+        ↓ 
+   [Python Build Scripts] 
+   (generate_polling_stations.py) 
+        ↓ 
+   [Zola Static Generator] 
+        ↓ 
+   [Static HTML Output] 
+        ↓ 
+   [Deployment] 
+   (Netlify, GitHub Pages) 
+        ↓ 
+   [CDN: Cloudflare] 
+        ↓ 
+   [Browser/Offline Copy] 
+ 
+7.3 Data Collection Pipeline 
+ 
+Phase 1 (Months 1-2): 
+• ECI data extraction: Parse state-wise PDFs, official lists 
+• Geocoding: Use Google Maps/OpenStreetMap to get coordinates 
+• Cross-reference: Match with constituency boundaries 
+• Quality check: Manual verification for sample stations 
+ 
+Phase 2 (Months 2-4): 
+• Community crowdsourcing: Web form for accessibility updates 
+• NGO partnerships: Electoral commissions, disability orgs 
+• Photo verification: Community uploads of station signage 
+• Confidence scoring: Rate data quality per station 
+ 
+Phase 3 (Ongoing): 
+• Real-time updates: Election commission coordination 
+• Election-day monitoring: Volunteers report live updates 
+• Post-election feedback: Archive successful practices 
+ 
+ 
+8. SUCCESS METRICS & KPIs 
+ 
+8.1 Usage Metrics 
+• Unique visitors: 500K+ during election period 
+• Session duration: > 2 minutes average 
+• Station detail page views: > 1M 
+• Map interactions: > 300K radius searches 
+• Offline downloads: > 100K 
+• Return visitor rate: > 25% 
+• Mobile traffic: 70%+ of total 
+ 
+8.2 Quality Metrics 
+• Data accuracy: 95%+ verified by ground truth 
+• Page load time: < 2 seconds (3G) 
+• Accessibility score: WCAG AA compliance 
+• Search precision: 98% correct station identification 
+• Community contributions: > 10K updates per election 
+ 
+8.3 Impact Metrics 
+• Voter confidence: Pre/post survey (target: 80%+ clarity) 
+• Accessibility awareness: Differently-abled voter feedback 
+• Social media reach: > 1M impressions 
+• Media coverage: > 50 articles 
+• Government partnerships: 5+ election commissions using data 
+ 
+8.4 Business/Community Metrics 
+• GitHub stars: > 100 (community adoption) 
+• Contributors: > 50 active contributors 
+• Open data downloads: > 50K (researchers, NGOs) 
+• Translations: 10+ languages completed 
+• NGO partnerships: 10+ organizations 
+ 
+ 
+9. IMPLEMENTATION ROADMAP 
+ 
+ 
+9.1 Phase 1: MVP (Months 1-4) 
+ 
+Month 1: Foundation & Setup 
+• Week 1-2: Repository setup, governance, contributor guidelines 
+• Week 2-3: Data schema design finalization, ECI data licensing discussions 
+• Week 3-4: Python tooling setup, initial data collection from 2 states 
+Deliverables: GitHub repo, data schema docs, sample YAML entries (50+ stations) 
+ 
+Month 2: Data & Build Pipeline 
+• Week 1-2: Complete pilot state data (Bangalore, Chennai, Hyderabad) 
+• Week 2-3: Zola templates, Python generation script 
+• Week 3-4: Frontend search UI, basic map integration 
+Deliverables: 500+ stations indexed, MVP website live (internal preview) 
+ 
+Month 3: Public Launch & Testing 
+• Week 1-2: Accessibility audit (WCAG AA), performance optimization 
+• Week 2-3: Public beta launch, community feedback collection 
+• Week 3-4: Bug fixes, documentation finalization 
+Deliverables: Public MVP at polling-stations.ooru.space, user guide 
+ 
+Month 4: Polish & Scale 
+• Week 1-2: Analytics setup, crowdsourcing form deployment 
+• Week 2-3: Initial media outreach, NGO partnerships 
+• Week 3-4: Performance monitoring, first iteration improvements 
+Deliverables: 1000+ stations, 2-3 NGO pilots 
+ 
+9.2 Phase 2: Scale & Localization (Months 5-8) 
+ 
+Month 5: Multi-Language Support 
+• i18n framework implementation 
+• Crowdsourced translation setup 
+• 5 language translations (English, Hindi, Tamil, Telugu, Kannada) 
+Deliverables: Site fully functional in 5 languages 
+ 
+Month 6: Expanded Coverage 
+• Data collection for 10 states 
+• Community moderation tools 
+• Accuracy verification workflows 
+Deliverables: 3000+ stations, community platform 
+ 
+Month 7: Accessibility Focus 
+• Accessibility feature crowdsourcing 
+• Partnerships with disability organizations 
+• Audio guide pilot 
+Deliverables: 70%+ stations with accessibility data 
+ 
+Month 8: Offline Capability 
+• PWA implementation 
+• Offline map support (Mapbox GL) 
+• PDF/CSV export tools 
+Deliverables: Fully offline-capable version 
+ 
+9.3 Phase 3: Pan-India & Enhancement (Months 9-12) 
+ 
+Month 9-10: All States Coverage 
+• Expand to remaining states/UTs 
+• Government coordination setup• Real-time update infrastructure 
+Deliverables: 50+ states, 30K+ polling stations 
+ 
+Month 11: Advanced Features 
+• Live crowding updates 
+• Voter ID integration (optional, secure) 
+• Analytics dashboard 
+Deliverables: Election-day capabilities active 
+ 
+Month 12: Sustainability & Handoff 
+• Maintenance documentation 
+• Transition to community stewardship 
+• Post-election retrospective 
+Deliverables: Long-term operation plan 
+ 
+ 
+10. RISKS & MITIGATION 
+ 
+10.1 Key Risks 
+ 
+Risk 1: Data Accuracy Challenges 
+Impact: High (incorrect polling station info loses user trust) 
+Mitigation: 
+• Multi-source verification (ECI official + ground truth) 
+• Community flagging system 
+• Regular audit cycles 
+• Confidence scoring transparency 
+ 
+Risk 2: Low Adoption in Non-Digital Segments 
+Impact: High (excludes rural/elderly voters) 
+Mitigation: 
+• Offline-first design from start 
+• Print-friendly materials 
+• NGO & community leader engagement 
+• Radio/TV outreach 
+ 
+Risk 3: Government Resistance or Regulation 
+Impact: Medium (access restrictions) 
+Mitigation: 
+• Transparency in data sources 
+• Early coordination with election officials 
+• Open-source accountability 
+• Data neutrality assurance 
+ 
+Risk 4: Misinformation/Vandalism of Community Data 
+Impact: Medium (data integrity) 
+Mitigation: 
+• Moderation team 
+• Commit history transparency (Git) 
+• Reputation system 
+• ECI partnership for authority checks 
+ 
+Risk 5: Maintenance Burden (Long-term Sustainability) 
+Impact: Medium (project continuity) 
+Mitigation: 
+• Community governance model 
+• Non-profit partnership (partner with established org like IPF, Daksh) 
+• Documentation for handoff 
+• Diverse contributor base 
+ 
+ 
+11. OPEN QUESTIONS & NEXT STEPS 
+ 
+11.1 To Be Resolved 
+ 
+1. Data Licensing: Permission from Election Commission of India to republish polling station 
+data? 
+   • Action: Legal review, contact ECI directorate 
+ 
+2. Privacy Compliance: Does Voter ID integration require specific approvals? 
+   • Action: Consult with privacy experts, potentially defer to Phase 3 
+ 
+3. NGO Partnerships: Which disability/accessibility organizations to involve from Day 1? 
+   • Action: Stakeholder mapping with civic tech community 
+ 
+4. Funding Model: Grants vs. volunteer-run open source? 
+   • Action: Explore Ford Foundation, Mozilla grants, Omidyar Network 
+ 
+5. Verification Partner: Who verifies data accuracy at scale? 
+   • Action: Discussions with election commissions, citizen platforms 
+ 
+11.2 Immediate Next Steps (Week 1) 
+ 
+1. Share this PRD with ooru.space maintainers for feedback 
+2. Reach out to 2-3 election commissions for data partnerships 
+3. Identify potential co-founders / lead contributors 
+4. Create GitHub repo with initial structure 
+5. Set up community Slack/Discord for collaboration 
+ 
+ 
+12. APPENDIX 
+ 
+12.1 References 
+ 
+• ooru.space GitHub: https://gitea.samagata.org/ooru.space/ooru.space 
+• Election Commission of India: https://www.eci.gov.in 
+• Zola Documentation: https://www.getzola.org 
+• WCAG 2.1 Accessibility: https://www.w3.org/WAI/WCAG21/quickref/ 
+• Leaflet.js Maps: https://leafletjs.com 
+• Similar Project: voter.orc.org (US-based, open-source) 
+ 
+12.2 Glossary 
+ 
+• ECI: Election Commission of India 
+• Zola: Static site generator written in Rust 
+• YAML: Human-readable data serialization format 
+• VVPAT: Voter-Verified Paper Audit Trail 
+• PWA: Progressive Web App (works offline, app-like experience) 
+• CDN: Content Delivery Network 
+• WCAG: Web Content Accessibility Guidelines 
+ 
+12.3 Document Version History 
+ 
+Version 1.0 - March 26, 2026 
+• Initial PRD draft 
+• Alignment with ooru.space model 
+• Ready for community review 
+ 
+--- 
+END OF DOCUMENT 
+ 
+Created by: [Your Name] 
+Last Updated: March 26, 2026 
+Next Review: April 15, 2026 (Post-initial feedback) 
+ 
+ 

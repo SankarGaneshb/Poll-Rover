@@ -1,0 +1,32 @@
+# Poll-Rover Dependencies
+# AI for Good — Zero Cost Civic Tech
+
+# --- Data Layer ---
+PyYAML>=6.0.1
+pydantic>=2.5.0          # Schema validation with dataclass-like syntax
+
+# --- Agents: Data Harvester ---
+PyMuPDF>=1.24.0          # PDF text extraction (fitz)
+beautifulsoup4>=4.12.0   # Web scraping
+requests>=2.31.0         # HTTP client
+geopy>=2.4.0             # Geocoding (Nominatim - free)
+thefuzz>=0.22.1          # Fuzzy string matching for dedup
+
+# --- Agents: LLM Client ---
+ollama>=0.4.0            # Local LLM (primary - zero cost)
+google-generativeai>=0.8.0  # Gemini free tier (fallback)
+
+# --- Agents: SRE Ops ---
+psutil>=5.9.0            # System resource monitoring
+
+# --- Build & Generation ---
+jinja2>=3.1.0            # Template rendering for Zola markdown
+pandas>=2.1.0            # Bulk data operations
+
+# --- Testing ---
+pytest>=7.4.0
+pytest-asyncio>=0.23.0
+
+# --- CLI ---
+click>=8.1.0             # CLI interface for agents
+rich>=13.7.0             # Pretty terminal output

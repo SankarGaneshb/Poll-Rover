@@ -1,0 +1,233 @@
+polling_stations:
+- station_id: TN_CHN_PS00001
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHN
+  name: Government Higher Secondary School, T. Nagar
+  address: 45 South Usman Road, T. Nagar, Chennai 600017
+  landmark: Near Panagal Park
+  pin_code: '600017'
+  latitude: 13.0418
+  longitude: 80.2341
+  assembly_constituency: Saidapet
+  parliamentary_constituency: Chennai South
+  ward: '134'
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessible_parking: partial
+    audio_booth: true
+    braille_materials: true
+    assistance_services:
+    - attendant
+    - braille_assistant
+    accessibility_rating: 4.2
+    crowding_difficulty: moderate
+    last_verified: '2026-03-15'
+    verified_by: ECI
+    notes: Ground floor booths are fully accessible. Ramp gradient is gentle.
+  election_details:
+    voting_date: '2026-05-10'
+    voting_phase: 1
+    start_time: 07:00
+    end_time: '18:00'
+    number_of_booths: 4
+    estimated_voters: 1850
+  contact:
+    election_officer: S. Lakshmi
+    phone: +91-044-2434-XXXX
+    email: saidapet.ero@elections.tn.gov.in
+  community_data:
+    wait_time_estimate: 20 mins
+    crowd_level_rating: 3.5
+    accessibility_notes: Volunteer available to help visually impaired voters.
+    last_updated: '2026-03-20'
+    updates_count: 3
+    active: true
+  metadata:
+    data_source: ECI_official
+    confidence_score: 0.91
+    last_audit: '2026-03-27'
+    needs_update: false
+- station_id: TN_CHN_PS00002
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHN
+  name: Corporation Primary School, Mylapore
+  address: 12 Kutchery Road, Mylapore, Chennai 600004
+  landmark: Behind Kapaleeshwarar Temple
+  pin_code: '600004'
+  latitude: 13.0339
+  longitude: 80.27
+  assembly_constituency: Mylapore
+  parliamentary_constituency: Chennai South
+  ward: '149'
+  accessibility:
+    wheelchair_ramp: partial
+    accessible_parking: 'no'
+    audio_booth: false
+    braille_materials: false
+    assistance_services:
+    - attendant
+    accessibility_rating: 2.1
+    crowding_difficulty: high
+    last_verified: '2026-02-28'
+    verified_by: community
+    notes: Narrow entrance. Ramp is steep and may need assistance.
+  election_details:
+    voting_date: '2026-05-10'
+    voting_phase: 1
+    start_time: 07:00
+    end_time: '18:00'
+    number_of_booths: 3
+    estimated_voters: 1420
+  contact:
+    election_officer: K. Ramesh
+    phone: +91-044-2464-XXXX
+  community_data:
+    wait_time_estimate: 35 mins
+    crowd_level_rating: 4.2
+    accessibility_notes: Very crowded during morning hours. Come after 2 PM.
+    last_updated: '2026-03-18'
+    updates_count: 7
+    active: true
+  metadata:
+    data_source: mixed
+    confidence_score: 0.66
+    last_audit: '2026-03-27'
+    needs_update: false
+- station_id: PY_PDY_PS00001
+  state: Puducherry
+  state_code: PY
+  district: Puducherry
+  district_code: PDY
+  name: Government Middle School, White Town
+  address: 28 Rue Suffren, White Town, Puducherry 605001
+  landmark: Near Promenade Beach
+  pin_code: '605001'
+  latitude: 11.934
+  longitude: 79.8306
+  assembly_constituency: Puducherry
+  parliamentary_constituency: Puducherry
+  ward: '7'
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessible_parking: 'yes'
+    audio_booth: true
+    braille_materials: true
+    assistance_services:
+    - attendant
+    - sign_language
+    - braille_assistant
+    accessibility_rating: 4.8
+    crowding_difficulty: low
+    last_verified: '2026-03-10'
+    verified_by: ECI
+    notes: Model accessible station. All facilities available.
+  election_details:
+    voting_date: '2026-05-10'
+    voting_phase: 1
+    start_time: 07:00
+    end_time: '18:00'
+    number_of_booths: 2
+    estimated_voters: 680
+  contact:
+    election_officer: R. Anand
+    phone: +91-0413-222-XXXX
+    email: ward7.ero@ceopuducherry.py.gov.in
+  community_data:
+    wait_time_estimate: 10 mins
+    crowd_level_rating: 1.8
+    accessibility_notes: Very well maintained. Staff is helpful and patient.
+    last_updated: '2026-03-22'
+    updates_count: 2
+    active: true
+  metadata:
+    data_source: ECI_official
+    confidence_score: 0.89
+    last_audit: '2026-03-27'
+    needs_update: false
+- station_id: KL_TVM_PS00001
+  state: Kerala
+  state_code: KL
+  district: Thiruvananthapuram
+  district_code: TVM
+  name: Government LP School, Vanchiyoor
+  address: MG Road, Vanchiyoor, Thiruvananthapuram 695035
+  landmark: Near District Court
+  pin_code: '695035'
+  latitude: 8.498
+  longitude: 76.956
+  assembly_constituency: Vattiyoorkavu
+  parliamentary_constituency: Thiruvananthapuram
+  ward: '42'
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessible_parking: partial
+    audio_booth: true
+    braille_materials: false
+    assistance_services:
+    - attendant
+    - volunteer
+    accessibility_rating: 3.6
+    crowding_difficulty: moderate
+    last_verified: '2026-03-01'
+    verified_by: NGO
+    notes: Ramp available but audio booth is in a separate room on ground floor.
+  election_details:
+    voting_date: '2026-05-10'
+    voting_phase: 1
+    start_time: 07:00
+    end_time: '18:00'
+    number_of_booths: 3
+    estimated_voters: 1100
+  contact:
+    election_officer: M. Vijayan
+    phone: +91-0471-273-XXXX
+    email: vattiyoorkavu.ero@ceo.kerala.gov.in
+  community_data:
+    wait_time_estimate: 15 mins
+    crowd_level_rating: 2.9
+    accessibility_notes: Morning rush between 9-11 AM. Quieter in afternoon.
+    last_updated: '2026-03-19'
+    updates_count: 4
+    active: true
+  metadata:
+    data_source: NGO_report
+    confidence_score: 0.68
+    last_audit: '2026-03-27'
+    needs_update: false
+    notes: Verified by Disability Rights Kerala
+- station_id: PY_PUD_PS00001
+  state: Puducherry
+  state_code: PY
+  district: Puducherry
+  district_code: PUD
+  name: Govt. Girls Higher Secondary School
+  address: Mahatma Gandhi Road, Puducherry
+  assembly_constituency: Raj Bhavan
+  parliamentary_constituency: Unknown
+  latitude: 11.9
+  longitude: 79.8
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.67
+    needs_update: true
+    last_audit: '2026-03-27'
+- station_id: KL_THI_PS00001
+  state: Kerala
+  state_code: KL
+  district: Thiruvananthapuram
+  district_code: THI
+  name: Vanchiyoor Govt LP School
+  address: Trivandrum
+  assembly_constituency: Unknown
+  parliamentary_constituency: Unknown
+  latitude: 8.5
+  longitude: 76.9
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.37
+    needs_update: true
+    last_audit: '2026-03-27'

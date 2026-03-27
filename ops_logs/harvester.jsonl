@@ -1,0 +1,31 @@
+{"timestamp": "2026-03-27T12:24:28.017625+05:30", "level": "INFO", "agent": "llm_client", "message": "🕷️  Data Harvester Agent starting..."}
+{"timestamp": "2026-03-27T12:24:28.027107+05:30", "level": "INFO", "agent": "llm_client", "message": "Processing state: TN"}
+{"timestamp": "2026-03-27T12:24:28.027297+05:30", "level": "INFO", "agent": "llm_client", "message": "  Using specialized TN PDF extractor"}
+{"timestamp": "2026-03-27T12:24:28.027478+05:30", "level": "DEBUG", "agent": "llm_client", "message": "No PDF directory found for TN"}
+{"timestamp": "2026-03-27T12:24:28.027518+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Web scraping for TN from https://www.elections.tn.gov.in (TODO: implement scraper)"}
+{"timestamp": "2026-03-27T12:24:28.675835+05:30", "level": "INFO", "agent": "llm_client", "message": "  TN: 0 found → 0 new stations after dedup"}
+{"timestamp": "2026-03-27T12:24:28.676049+05:30", "level": "INFO", "agent": "llm_client", "message": "Processing state: PY"}
+{"timestamp": "2026-03-27T12:24:28.676172+05:30", "level": "INFO", "agent": "llm_client", "message": "  Using specialized PY PDF extractor"}
+{"timestamp": "2026-03-27T12:24:28.676371+05:30", "level": "DEBUG", "agent": "llm_client", "message": "No PDF directory found for PY"}
+{"timestamp": "2026-03-27T12:24:28.676425+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Web scraping for PY from https://ceopuducherry.py.gov.in (TODO: implement scraper)"}
+{"timestamp": "2026-03-27T12:24:28.899169+05:30", "level": "INFO", "agent": "llm_client", "message": "  PY: 1 found → 1 new stations after dedup"}
+{"timestamp": "2026-03-27T12:24:28.906618+05:30", "level": "INFO", "agent": "llm_client", "message": "✅ Wrote 1 new stations to YAML"}
+{"timestamp": "2026-03-27T12:24:28.906896+05:30", "level": "INFO", "agent": "llm_client", "message": "🕷️  Harvest complete: {'states_processed': ['TN', 'PY'], 'stations_found': 1, 'stations_added': 1, 'stations_updated': 0, 'errors': [], 'timestamp': '2026-03-27'}"}
+{"timestamp": "2026-03-27T12:26:30.122641+05:30", "level": "INFO", "agent": "llm_client", "message": "🕷️  Data Harvester Agent starting..."}
+{"timestamp": "2026-03-27T12:26:30.134875+05:30", "level": "INFO", "agent": "llm_client", "message": "Processing state: TN"}
+{"timestamp": "2026-03-27T12:26:30.135062+05:30", "level": "INFO", "agent": "llm_client", "message": "  Using specialized TN PDF extractor"}
+{"timestamp": "2026-03-27T12:26:30.135229+05:30", "level": "DEBUG", "agent": "llm_client", "message": "No PDF directory found for TN"}
+{"timestamp": "2026-03-27T12:26:30.135265+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Web scraping for TN from https://www.elections.tn.gov.in (TODO: implement scraper)"}
+{"timestamp": "2026-03-27T12:26:30.350031+05:30", "level": "INFO", "agent": "llm_client", "message": "  TN: 0 found → 0 new stations after dedup"}
+{"timestamp": "2026-03-27T12:26:30.350242+05:30", "level": "INFO", "agent": "llm_client", "message": "Processing state: PY"}
+{"timestamp": "2026-03-27T12:26:30.350377+05:30", "level": "INFO", "agent": "llm_client", "message": "  Using specialized PY PDF extractor"}
+{"timestamp": "2026-03-27T12:26:30.350532+05:30", "level": "DEBUG", "agent": "llm_client", "message": "No PDF directory found for PY"}
+{"timestamp": "2026-03-27T12:26:30.350586+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Web scraping for PY from https://ceopuducherry.py.gov.in (TODO: implement scraper)"}
+{"timestamp": "2026-03-27T12:26:30.366372+05:30", "level": "INFO", "agent": "llm_client", "message": "  PY: 1 found → 0 new stations after dedup"}
+{"timestamp": "2026-03-27T12:26:30.366589+05:30", "level": "INFO", "agent": "llm_client", "message": "Processing state: KL"}
+{"timestamp": "2026-03-27T12:26:30.366741+05:30", "level": "INFO", "agent": "llm_client", "message": "  Using specialized KL Web scraper"}
+{"timestamp": "2026-03-27T12:26:30.366915+05:30", "level": "DEBUG", "agent": "llm_client", "message": "No PDF directory found for KL"}
+{"timestamp": "2026-03-27T12:26:30.366958+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Web scraping for KL from https://www.ceo.kerala.gov.in (TODO: implement scraper)"}
+{"timestamp": "2026-03-27T12:26:30.404357+05:30", "level": "INFO", "agent": "llm_client", "message": "  KL: 1 found → 1 new stations after dedup"}
+{"timestamp": "2026-03-27T12:26:30.411629+05:30", "level": "INFO", "agent": "llm_client", "message": "✅ Wrote 1 new stations to YAML"}
+{"timestamp": "2026-03-27T12:26:30.411887+05:30", "level": "INFO", "agent": "llm_client", "message": "🕷️  Harvest complete: {'states_processed': ['TN', 'PY', 'KL'], 'stations_found': 2, 'stations_added': 1, 'stations_updated': 0, 'errors': [], 'timestamp': '2026-03-27'}"}

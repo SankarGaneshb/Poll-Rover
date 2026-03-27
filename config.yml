@@ -1,0 +1,96 @@
+# Poll-Rover Global Configuration
+# AI for Good Civic Tech Platform
+
+project:
+  name: "Poll-Rover"
+  version: "0.1.0"
+  description: "Know Your Polling Station - Agentic AI for Indian Elections"
+
+# --- Pilot Scope (Phase 1 MVP) ---
+pilot:
+  states:
+    - name: "Tamil Nadu"
+      pilot_city: "Chennai"
+      state_code: "TN"
+    - name: "Puducherry"
+      pilot_city: "Puducherry"
+      state_code: "PY"
+    - name: "Kerala"
+      pilot_city: "Thiruvananthapuram"
+      state_code: "KL"
+
+# --- LLM Configuration (Zero-Cost Strategy) ---
+llm:
+  primary:
+    provider: "ollama"
+    model: "llama3.2"
+    base_url: "http://localhost:11434"
+    timeout_seconds: 30
+  fallback:
+    provider: "gemini"
+    model: "gemini-2.0-flash"
+    api_key_env: "GEMINI_API_KEY"  # Read from environment
+    timeout_seconds: 15
+  max_retries: 3
+
+# --- Data Sources ---
+data_sources:
+  eci:
+    base_url: "https://www.eci.gov.in"
+    trust_score: 1.0
+  state_ceo:
+    trust_score: 0.8
+    urls:
+      TN: "https://www.elections.tn.gov.in"
+      KL: "https://www.ceo.kerala.gov.in"
+      PY: "https://ceopuducherry.py.gov.in"
+  openstreetmap:
+    geocoder: "nominatim"
+    base_url: "https://nominatim.openstreetmap.org"
+    rate_limit_per_second: 1
+    trust_score: 0.7
+  community:
+    trust_score: 0.4
+
+# --- Agent Schedules ---
+agents:
+  harvester:
+    enabled: true
+    schedule: "weekly"
+    batch_size: 50
+  quality:
+    enabled: true
+    trigger: "post_harvest"  # Runs after every harvest
+    staleness_threshold_days: 90
+  sre_ops:
+    enabled: true
+    trigger: "on_build"
+    hil_mode: "optional"  # "required" | "optional" | "disabled"
+    auto_remediate: true
+  citizen_assist:
+    enabled: true
+    trigger: "on_demand"
+    supported_languages:
+      - "en"
+      - "hi"
+      - "ta"
+      - "te"
+      - "kn"
+
+# --- Confidence Scoring Weights ---
+confidence:
+  source_trust_weight: 0.4
+  verification_recency_weight: 0.3
+  field_completeness_weight: 0.2
+  cross_reference_weight: 0.1
+
+# --- Paths ---
+paths:
+  data_dir: "data"
+  polling_stations_file: "data/polling_stations.yml"
+  boundaries_dir: "data/boundaries"
+  content_dir: "content/stations"
+  ops_logs_dir: "ops_logs"
+  reports_dir: "reports"
+  templates_dir: "templates"
+  static_dir: "static"

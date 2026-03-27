@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="padding: 2rem; max-width: 1200px; margin: 0 auto; padding-top: 80px;">
+    <h1>{{ section.title }}</h1>
+    
+    <div style="margin-top: 2rem;">
+        {{ section.content | safe }}
+    </div>
+
+    <table style="width: 100%; border-collapse: collapse; margin-top: 2rem; color: var(--text-secondary);">
+        <thead>
+            <tr style="border-bottom: 1px solid var(--border); text-align: left;">
+                <th style="padding: 1rem;">Station Name</th>
+                <th style="padding: 1rem;">State</th>
+                <th style="padding: 1rem;">Constituency</th>
+                <th style="padding: 1rem;">Accessibility</th>
+                <th style="padding: 1rem;">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for page in section.pages %}
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 1rem; color: var(--text-primary);">{{ page.title }}</td>
+                <td style="padding: 1rem;">{{ page.extra.state }}</td>
+                <td style="padding: 1rem;">{{ page.extra.assembly_constituency }}</td>
+                <td style="padding: 1rem;">
+                    {% if page.extra.wheelchair_ramp == "yes" %}♿{% endif %}
+                    {% if page.extra.audio_booth %}🔊{% endif %}
+                    {% if page.extra.braille_materials %}⠿{% endif %}
+                    ⭐ {{ page.extra.accessibility_rating }}
+                </td>
+                <td style="padding: 1rem;">
+                    <a href="{{ page.permalink }}" style="color: var(--accent); text-decoration: none;">View Detail →</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

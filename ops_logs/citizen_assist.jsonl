@@ -1,0 +1,3 @@
+{"timestamp": "2026-03-27T12:25:34.630882+05:30", "level": "INFO", "agent": "llm_client", "message": "🧑‍🤝‍🧑 Query [en]: Show me accessible polling stations in Chennai with ramps..."}
+{"timestamp": "2026-03-27T12:25:45.355437+05:30", "level": "WARNING", "agent": "llm_client", "message": "LLM response failed: All LLM providers failed. Check Ollama is running (ollama serve) or GEMINI_API_KEY is set.. Using template response."}
+{"timestamp": "2026-03-27T12:25:45.355693+05:30", "level": "INFO", "agent": "llm_client", "message": "  Found 4 matching stations"}

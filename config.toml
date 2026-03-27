@@ -1,0 +1,33 @@
+# Zola configuration for Poll-Rover
+
+title = "Poll-Rover — Know Your Polling Station"
+description = "AI-powered civic tech for the 2026 Indian Elections. Discover your polling station and its accessibility features."
+base_url = "https://poll-rover.ooru.space"
+
+# The language used in the site
+default_language = "en"
+
+# Whether to generate a feed for the site
+generate_feed = false
+
+# Taxonomies for categorization
+taxonomies = [
+    {name = "states", feed = false},
+    {name = "districts", feed = false},
+    {name = "constituencies", feed = false},
+]
+
+[extra]
+# Global metadata
+project_name = "Poll-Rover"
+election_year = 2026
+author = "ooru.space"
+github_url = "https://github.com/ooru-space/poll-rover"
+
+# Pilot regions
+pilot_states = ["Tamil Nadu", "Puducherry", "Kerala"]
+pilot_cities = ["Chennai", "Puducherry", "Thiruvananthapuram"]
+
+# Chat widget settings
+chat_enabled = true
+chat_api_url = "/api/chat"
