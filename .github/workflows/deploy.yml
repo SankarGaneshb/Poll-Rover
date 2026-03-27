@@ -4,8 +4,11 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: '0 0 * * *' # Daily harv at midnight
+    - cron: '30 18 * * *' # Daily harvest at Midnight IST (18:30 UTC)
   workflow_dispatch: # Manual trigger
+
+env:
+  TZ: Asia/Kolkata
 
 jobs:
   harvest-and-deploy:
