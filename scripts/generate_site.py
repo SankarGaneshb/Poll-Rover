@@ -233,7 +233,7 @@ def _generate_index_page(stations: list, output_dir: Path) -> None:
     for state, state_stations in sorted(by_state.items()):
         body += f"\n## {state} ({len(state_stations)} stations)\n\n"
         for s in state_stations:
-            body += f"- [{s['name']}](@/{s['station_id'].lower()}.md) — {s['assembly_constituency']}\n"
+            body += f"- [{s['name']}](@/stations/{s['station_id'].lower()}.md) — {s['assembly_constituency']}\n"
 
     frontmatter_yaml = yaml.dump(frontmatter, default_flow_style=False)
     index_content = f"---\n{frontmatter_yaml}---\n\n{body}"
