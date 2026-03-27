@@ -58,9 +58,8 @@ def generate_site(yaml_path: str, output_dir: str, dry_run: bool = False) -> dic
 
     # Generate index page with all stations as JSON (for Leaflet map)
     if not dry_run:
-        # Zola static data
-        _generate_map_data(stations, output.parent / "static" / "data")
-        # Root static data (for standalone preview)
+        # Generate GeoJSON for Zola's static directory
+        # This will be served at /data/stations.geojson in the final build
         _generate_map_data(stations, Path("static/data"))
         
         _generate_index_page(stations, output)

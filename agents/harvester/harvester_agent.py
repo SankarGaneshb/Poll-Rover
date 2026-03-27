@@ -16,7 +16,7 @@ import yaml
 
 from agents.common.config import get_agent_config, get_paths, load_config
 from agents.common.llm_client import LLMClient
-from agents.common.logger import get_logger, log_incident
+from agents.common.logger import get_logger, log_incident, log_kpi
 
 # State-specific extractors
 try:
@@ -60,6 +60,7 @@ class DataHarvesterAgent:
             Harvest report with counts and issues.
         """
         logger.info("🕷️  Data Harvester Agent starting...")
+        start_time = time.time()
 
         if states is None:
             states = [s["state_code"] for s in self._config["pilot"]["states"]]
@@ -120,6 +121,17 @@ class DataHarvesterAgent:
             logger.info(f"🔍 Dry run: {len(new_stations)} stations would be added")
 
         logger.info(f"🕷️  Harvest complete: {report}")
+        
+        # Log KPIs
+        execution_time = round(time.time() - start_time, 2)
+        log_kpi(logger, "stations_found", report["stations_found"], unit="count")
+        log_kpi(logger, "stations_added", report["stations_added"], unit="count")
+        log_kpi(logger, "execution_time", execution_time, unit="seconds")
+        
+        if report["stations_found"] > 0:
+            success_rate = round((report["stations_added"] / report["stations_found"]) * 100, 2)
+            log_kpi(logger, "success_rate", success_rate, unit="percent")
+
         return report
 
     def _load_existing_stations(self) -> List[dict]:

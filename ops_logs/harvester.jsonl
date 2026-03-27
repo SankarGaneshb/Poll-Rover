@@ -46,3 +46,14 @@
 {"timestamp": "2026-03-27T14:01:23.835967+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Web scraping for KL from https://www.ceo.kerala.gov.in (TODO: implement scraper)"}
 {"timestamp": "2026-03-27T14:01:23.853236+05:30", "level": "INFO", "agent": "llm_client", "message": "  KL: 1 found → 0 new stations after dedup"}
 {"timestamp": "2026-03-27T14:01:23.854230+05:30", "level": "INFO", "agent": "llm_client", "message": "🕷️  Harvest complete: {'states_processed': ['TN', 'PY', 'KL'], 'stations_found': 2, 'stations_added': 0, 'stations_updated': 0, 'errors': [], 'timestamp': '2026-03-27'}"}
+{"timestamp": "2026-03-27T16:52:02.131779+05:30", "level": "INFO", "agent": "llm_client", "message": "🕷️  Data Harvester Agent starting..."}
+{"timestamp": "2026-03-27T16:52:02.166656+05:30", "level": "INFO", "agent": "llm_client", "message": "Processing state: TN"}
+{"timestamp": "2026-03-27T16:52:02.168380+05:30", "level": "INFO", "agent": "llm_client", "message": "  Using specialized TN PDF extractor"}
+{"timestamp": "2026-03-27T16:52:02.168953+05:30", "level": "DEBUG", "agent": "llm_client", "message": "No PDF directory found for TN"}
+{"timestamp": "2026-03-27T16:52:02.169104+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Web scraping for TN from https://www.elections.tn.gov.in (TODO: implement scraper)"}
+{"timestamp": "2026-03-27T16:52:03.560119+05:30", "level": "INFO", "agent": "llm_client", "message": "  TN: 0 found → 0 new stations after dedup"}
+{"timestamp": "2026-03-27T16:52:03.561809+05:30", "level": "INFO", "agent": "llm_client", "message": "🔍 Dry run: 0 stations would be added"}
+{"timestamp": "2026-03-27T16:52:03.563231+05:30", "level": "INFO", "agent": "llm_client", "message": "🕷️  Harvest complete: {'states_processed': ['TN'], 'stations_found': 0, 'stations_added': 0, 'stations_updated': 0, 'errors': [], 'timestamp': '2026-03-27'}"}
+{"timestamp": "2026-03-27T16:52:03.564970+05:30", "level": "INFO", "agent": "llm_client", "message": "KPI: stations_found = 0 count", "data": null, "kpi_name": "stations_found", "kpi_value": 0, "kpi_unit": "count"}
+{"timestamp": "2026-03-27T16:52:03.566421+05:30", "level": "INFO", "agent": "llm_client", "message": "KPI: stations_added = 0 count", "data": null, "kpi_name": "stations_added", "kpi_value": 0, "kpi_unit": "count"}
+{"timestamp": "2026-03-27T16:52:03.567678+05:30", "level": "INFO", "agent": "llm_client", "message": "KPI: execution_time = 1.43 seconds", "data": null, "kpi_name": "execution_time", "kpi_value": 1.43, "kpi_unit": "seconds"}

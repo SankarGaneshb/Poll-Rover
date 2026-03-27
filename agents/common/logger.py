@@ -35,6 +35,14 @@ class StructuredFormatter(logging.Formatter):
             log_entry["action_taken"] = record.action_taken
         if hasattr(record, "extra_data"):
             log_entry["data"] = record.extra_data
+        
+        # KPI fields
+        if hasattr(record, "kpi_name"):
+            log_entry["kpi_name"] = record.kpi_name
+        if hasattr(record, "kpi_value"):
+            log_entry["kpi_value"] = record.kpi_value
+        if hasattr(record, "kpi_unit"):
+            log_entry["kpi_unit"] = record.kpi_unit
 
         return json.dumps(log_entry, ensure_ascii=False)
 
@@ -152,6 +160,33 @@ def log_incident(
             "incident_type": incident_type,
             "action_taken": action_taken or "none",
             "station_id": station_id or "N/A",
+            "extra_data": extra_data if extra_data else None,
+        },
+    )
+
+
+def log_kpi(
+    logger: logging.Logger,
+    kpi_name: str,
+    value: float,
+    unit: str = "count",
+    **extra_data,
+) -> None:
+    """Log a structured KPI metric.
+
+    Args:
+        logger: Logger instance.
+        kpi_name: Name of the KPI (e.g., 'success_rate', 'latency').
+        value: Numeric value of the KPI.
+        unit: Unit of measurement (e.g., 'percent', 'ms', 'count').
+        **extra_data: Additional context data.
+    """
+    logger.info(
+        f"KPI: {kpi_name} = {value} {unit}",
+        extra={
+            "kpi_name": kpi_name,
+            "kpi_value": value,
+            "kpi_unit": unit,
             "extra_data": extra_data if extra_data else None,
         },
     )
