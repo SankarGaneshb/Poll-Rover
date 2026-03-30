@@ -15,10 +15,10 @@ checks_run:
     quality: ok
   name: agent_health
   status: ok
-- details: 'Memory usage critical: 92.3%'
+- details: 'Memory usage critical: 96.3%'
   name: resource_usage
   status: warning
-- details: Found 19 recent agent runtime errors
+- details: Found 18 recent agent runtime errors
   name: agent_logs
   status: error
 - details: LLM healthy, gemma3:4b is available
@@ -29,9 +29,8 @@ checks_run:
   status: ok
 hil_mode: optional
 incidents:
-- message: 'harvester: Failed to harvest TN: name ''matches'' is not defined | quality:
-    Schema error in TN_CHENNAI_001: 5 issues | quality: Schema error in TN_CHENNAI_002:
-    4 issues...'
+- message: 'quality: Schema error in TN_CHENNAI_001: 5 issues | quality: Schema error
+    in TN_CHENNAI_002: 4 issues | quality: Schema error in TN_CHENNAI_010: 4 issues...'
   playbook: agent_error
   severity: high
   type: agent_runtime_error
@@ -42,5 +41,5 @@ remediations:
   incident_type: agent_runtime_error
   playbook: agent_error
   success: false
-  timestamp: '2026-03-30T14:53:32.280593'
-timestamp: '2026-03-30T14:53:31.989692'
+  timestamp: '2026-03-30T15:39:50.299524'
+timestamp: '2026-03-30T15:39:49.956657'

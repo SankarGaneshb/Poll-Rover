@@ -81,4 +81,4 @@ title: "Booth 2: Immediate Next Steps (Week 1) \n \n1. Share this PRD with ooru.
 | Email | N/A |
 
 ---
-*Data confidence: 0.8 | Source: state_CEO*
+*Data confidence: 0.39 | Source: state_CEO*

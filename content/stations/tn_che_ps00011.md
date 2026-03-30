@@ -75,4 +75,4 @@ title: "Booth 5: stars) \n  - User-contributed accessibility notes \n  - Crowdin
 | Email | N/A |
 
 ---
-*Data confidence: 0.95 | Source: state_CEO*
+*Data confidence: 0.42 | Source: state_CEO*

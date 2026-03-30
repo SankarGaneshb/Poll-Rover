@@ -69,4 +69,4 @@ title: 'Booth 50: active contributors'
 | Email | N/A |
 
 ---
-*Data confidence: 0.8 | Source: state_CEO*
+*Data confidence: 0.39 | Source: state_CEO*

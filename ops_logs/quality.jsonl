@@ -129,3 +129,15 @@
 {"timestamp": "2026-03-30T15:04:24.260945+05:30", "level": "WARNING", "agent": "llm_client", "message": "Schema error in PY_PDY_002: 4 issues", "station_id": "PY_PDY_002", "incident_type": "schema_validation_error", "action_taken": "none", "data": null}
 {"timestamp": "2026-03-30T15:04:24.261295+05:30", "level": "ERROR", "agent": "llm_client", "message": "Schema error in PY_PDY_003: 4 issues"}
 {"timestamp": "2026-03-30T15:04:24.261633+05:30", "level": "WARNING", "agent": "llm_client", "message": "Schema error in PY_PDY_003: 4 issues", "station_id": "PY_PDY_003", "incident_type": "schema_validation_error", "action_taken": "none", "data": null}
+{"timestamp": "2026-03-30T15:34:06.035938+05:30", "level": "INFO", "agent": "llm_client", "message": "Applied auto-fixes and updated confidence scores."}
+{"timestamp": "2026-03-30T15:34:06.048491+05:30", "level": "INFO", "agent": "llm_client", "message": "Report saved to reports\\quality_report_2026-03-30.yml"}
+{"timestamp": "2026-03-30T15:34:06.048887+05:30", "level": "INFO", "agent": "llm_client", "message": "KPI: audit_passed_rate = 1.59 percent", "data": null, "kpi_name": "audit_passed_rate", "kpi_value": 1.59, "kpi_unit": "percent"}
+{"timestamp": "2026-03-30T15:34:06.049383+05:30", "level": "INFO", "agent": "llm_client", "message": "KPI: audit_errors = 9 count", "data": null, "kpi_name": "audit_errors", "kpi_value": 9, "kpi_unit": "count"}
+{"timestamp": "2026-03-30T15:34:06.049778+05:30", "level": "INFO", "agent": "llm_client", "message": "KPI: audit_warnings = 55 count", "data": null, "kpi_name": "audit_warnings", "kpi_value": 55, "kpi_unit": "count"}
+{"timestamp": "2026-03-30T15:34:06.050074+05:30", "level": "INFO", "agent": "llm_client", "message": "[Quality Audit] complete: 1/63 passed, 55 warnings, 9 errors"}
+{"timestamp": "2026-03-30T15:39:49.877059+05:30", "level": "INFO", "agent": "llm_client", "message": "Applied auto-fixes and updated confidence scores."}
+{"timestamp": "2026-03-30T15:39:49.884972+05:30", "level": "INFO", "agent": "llm_client", "message": "Report saved to reports\\quality_report_2026-03-30.yml"}
+{"timestamp": "2026-03-30T15:39:49.885583+05:30", "level": "INFO", "agent": "llm_client", "message": "KPI: audit_passed_rate = 1.59 percent", "data": null, "kpi_name": "audit_passed_rate", "kpi_value": 1.59, "kpi_unit": "percent"}
+{"timestamp": "2026-03-30T15:39:49.886006+05:30", "level": "INFO", "agent": "llm_client", "message": "KPI: audit_errors = 9 count", "data": null, "kpi_name": "audit_errors", "kpi_value": 9, "kpi_unit": "count"}
+{"timestamp": "2026-03-30T15:39:49.886295+05:30", "level": "INFO", "agent": "llm_client", "message": "KPI: audit_warnings = 55 count", "data": null, "kpi_name": "audit_warnings", "kpi_value": 55, "kpi_unit": "count"}
+{"timestamp": "2026-03-30T15:39:49.886609+05:30", "level": "INFO", "agent": "llm_client", "message": "[Quality Audit] complete: 1/63 passed, 55 warnings, 9 errors"}

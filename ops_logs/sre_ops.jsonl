@@ -84,3 +84,31 @@
 {"timestamp": "2026-03-30T14:53:34.353695+05:30", "level": "INFO", "agent": "llm_client", "message": "KPI: harvest_quality_rate = 1.59 percent", "data": {"agent_target": "harvester"}, "kpi_name": "harvest_quality_rate", "kpi_value": 1.59, "kpi_unit": "percent"}
 {"timestamp": "2026-03-30T14:53:34.354389+05:30", "level": "INFO", "agent": "llm_client", "message": "KPI: llm_reliability = 33.33 percent", "data": {"agent_target": "llm_client"}, "kpi_name": "llm_reliability", "kpi_value": 33.33, "kpi_unit": "percent"}
 {"timestamp": "2026-03-30T14:53:34.359027+05:30", "level": "INFO", "agent": "llm_client", "message": "[SRE] check complete: status=DEGRADED | 1 incidents, 1 remediations"}
+{"timestamp": "2026-03-30T15:34:06.673667+05:30", "level": "INFO", "agent": "llm_client", "message": "[SRE] Ops Agent starting health checks..."}
+{"timestamp": "2026-03-30T15:34:06.674981+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: yaml_health"}
+{"timestamp": "2026-03-30T15:34:06.810047+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: build_health"}
+{"timestamp": "2026-03-30T15:34:06.822885+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: data_pipeline"}
+{"timestamp": "2026-03-30T15:34:06.823574+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: agent_health"}
+{"timestamp": "2026-03-30T15:34:06.844534+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: resource_usage"}
+{"timestamp": "2026-03-30T15:34:06.933681+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: agent_logs"}
+{"timestamp": "2026-03-30T15:34:07.105345+05:30", "level": "INFO", "agent": "llm_client", "message": "  [Remediation] Executing: agent_runtime_error (playbook: agent_error)"}
+{"timestamp": "2026-03-30T15:34:07.105961+05:30", "level": "WARNING", "agent": "llm_client", "message": "Remediation: no_playbook_matched", "station_id": "N/A", "incident_type": "agent_runtime_error", "action_taken": "no_playbook_matched", "data": null}
+{"timestamp": "2026-03-30T15:34:07.106314+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: llm_health"}
+{"timestamp": "2026-03-30T15:34:09.271346+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: cross_agent_kpis"}
+{"timestamp": "2026-03-30T15:34:09.275235+05:30", "level": "INFO", "agent": "llm_client", "message": "KPI: harvest_quality_rate = 1.59 percent", "data": {"agent_target": "harvester"}, "kpi_name": "harvest_quality_rate", "kpi_value": 1.59, "kpi_unit": "percent"}
+{"timestamp": "2026-03-30T15:34:09.279958+05:30", "level": "INFO", "agent": "llm_client", "message": "KPI: llm_reliability = 97.89 percent", "data": {"agent_target": "llm_client"}, "kpi_name": "llm_reliability", "kpi_value": 97.89, "kpi_unit": "percent"}
+{"timestamp": "2026-03-30T15:34:09.291056+05:30", "level": "INFO", "agent": "llm_client", "message": "[SRE] check complete: status=DEGRADED | 1 incidents, 1 remediations"}
+{"timestamp": "2026-03-30T15:39:49.956143+05:30", "level": "INFO", "agent": "llm_client", "message": "[SRE] Ops Agent starting health checks..."}
+{"timestamp": "2026-03-30T15:39:49.957018+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: yaml_health"}
+{"timestamp": "2026-03-30T15:39:50.104880+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: build_health"}
+{"timestamp": "2026-03-30T15:39:50.125423+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: data_pipeline"}
+{"timestamp": "2026-03-30T15:39:50.126846+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: agent_health"}
+{"timestamp": "2026-03-30T15:39:50.146200+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: resource_usage"}
+{"timestamp": "2026-03-30T15:39:50.224354+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: agent_logs"}
+{"timestamp": "2026-03-30T15:39:50.299005+05:30", "level": "INFO", "agent": "llm_client", "message": "  [Remediation] Executing: agent_runtime_error (playbook: agent_error)"}
+{"timestamp": "2026-03-30T15:39:50.299931+05:30", "level": "WARNING", "agent": "llm_client", "message": "Remediation: no_playbook_matched", "station_id": "N/A", "incident_type": "agent_runtime_error", "action_taken": "no_playbook_matched", "data": null}
+{"timestamp": "2026-03-30T15:39:50.300193+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: llm_health"}
+{"timestamp": "2026-03-30T15:39:52.435198+05:30", "level": "INFO", "agent": "llm_client", "message": "  Running: cross_agent_kpis"}
+{"timestamp": "2026-03-30T15:39:52.436967+05:30", "level": "INFO", "agent": "llm_client", "message": "KPI: harvest_quality_rate = 1.59 percent", "data": {"agent_target": "harvester"}, "kpi_name": "harvest_quality_rate", "kpi_value": 1.59, "kpi_unit": "percent"}
+{"timestamp": "2026-03-30T15:39:52.438071+05:30", "level": "INFO", "agent": "llm_client", "message": "KPI: llm_reliability = 98.17 percent", "data": {"agent_target": "llm_client"}, "kpi_name": "llm_reliability", "kpi_value": 98.17, "kpi_unit": "percent"}
+{"timestamp": "2026-03-30T15:39:52.446233+05:30", "level": "INFO", "agent": "llm_client", "message": "[SRE] check complete: status=DEGRADED | 1 incidents, 1 remediations"}

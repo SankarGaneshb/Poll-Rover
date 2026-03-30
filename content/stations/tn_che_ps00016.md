@@ -70,4 +70,4 @@ title: 'Booth 100: Feet Road, Indiranagar, Bangalore 560038'
 | Email | N/A |
 
 ---
-*Data confidence: 0.95 | Source: state_CEO*
+*Data confidence: 0.42 | Source: state_CEO*

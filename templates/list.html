@@ -1,6 +1,75 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
+    /* Hide scrollbars but keep functionality */
+    html {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;  /* IE/Edge */
+    }
+    html::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+    body {
+        overflow-y: auto;
+    }
+    .state-group {
+        margin-bottom: 3rem;
+        animation: fadeIn 0.5s ease-out;
+    }
+    .state-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--accent);
+    }
+    .state-header h2 {
+        font-family: 'Outfit', sans-serif;
+        color: var(--text-primary);
+        margin: 0;
+    }
+    .state-badge {
+        background: var(--bg-glass);
+        color: var(--accent);
+        padding: 0.2rem 0.8rem;
+        border-radius: 100px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        border: 1px solid var(--border);
+    }
+    .station-table {
+        width: 100%;
+        border-collapse: collapse;
+        color: var(--text-secondary);
+    }
+    .station-table tr.hidden-row {
+        display: none;
+    }
+    .load-more-btn {
+        margin-top: 1rem;
+        width: 100%;
+        padding: 0.8rem;
+        background: var(--bg-glass);
+        border: 1px dashed var(--accent);
+        color: var(--accent);
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        font-weight: 600;
+        transition: var(--transition);
+    }
+    .load-more-btn:hover {
+        background: var(--accent-glow);
+        border-style: solid;
+        transform: translateY(-2px);
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
 <div style="padding: 2rem; max-width: 1200px; margin: 0 auto; padding-top: 80px;">
     <h1>{{ section.title }}</h1>
     
@@ -8,34 +77,62 @@
         {{ section.content | safe }}
     </div>
 
-    <table style="width: 100%; border-collapse: collapse; margin-top: 2rem; color: var(--text-secondary);">
-        <thead>
-            <tr style="border-bottom: 1px solid var(--border); text-align: left;">
-                <th style="padding: 1rem;">Station Name</th>
-                <th style="padding: 1rem;">State</th>
-                <th style="padding: 1rem;">Constituency</th>
-                <th style="padding: 1rem;">Accessibility</th>
-                <th style="padding: 1rem;">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for page in section.pages %}
-            <tr style="border-bottom: 1px solid var(--border);">
-                <td style="padding: 1rem; color: var(--text-primary);">{{ page.title }}</td>
-                <td style="padding: 1rem;">{{ page.extra.state }}</td>
-                <td style="padding: 1rem;">{{ page.extra.assembly_constituency }}</td>
-                <td style="padding: 1rem;">
-                    {% if page.extra.wheelchair_ramp == "yes" %}♿{% endif %}
-                    {% if page.extra.audio_booth %}🔊{% endif %}
-                    {% if page.extra.braille_materials %}⠿{% endif %}
-                    ⭐ {{ page.extra.accessibility_rating }}
-                </td>
-                <td style="padding: 1rem;">
-                    <a href="{{ page.permalink }}" style="color: var(--accent); text-decoration: none;">View Detail →</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    {% set pages_by_state = section.pages | group_by(attribute="extra.state") %}
+    
+    {% for state, state_pages in pages_by_state %}
+    <div class="state-group" id="group-{{ state | slugify }}">
+        <div class="state-header">
+            <h2>{{ state }}</h2>
+            <span class="state-badge">{{ state_pages | length }} Stations</span>
+        </div>
+
+        <table class="station-table">
+            <thead>
+                <tr style="border-bottom: 1px solid var(--border); text-align: left;">
+                    <th style="padding: 1rem;">Station Name</th>
+                    <th style="padding: 1rem;">Constituency</th>
+                    <th style="padding: 1rem;">Accessibility</th>
+                    <th style="padding: 1rem;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for page in state_pages %}
+                <tr class="station-row {% if loop.index > 5 %}hidden-row{% endif %}" style="border-bottom: 1px solid var(--border);">
+                    <td style="padding: 1rem; color: var(--text-primary);">{{ page.title }}</td>
+                    <td style="padding: 1rem;">{{ page.extra.assembly_constituency }}</td>
+                    <td style="padding: 1rem;">
+                        <span class="access-badge {% if page.extra.accessibility_rating >= 4.0 %}available{% elif page.extra.accessibility_rating >= 2.5 %}partial{% else %}unavailable{% endif %}">
+                            ⭐ {{ page.extra.accessibility_rating }}
+                        </span>
+                    </td>
+                    <td style="padding: 1rem;">
+                        <a href="{{ page.permalink }}" style="color: var(--accent); text-decoration: none; font-weight: 600;">View Detail →</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% if state_pages | length > 5 %}
+        <button class="load-more-btn" onclick="showMoreStations(this, '{{ state | slugify }}')">
+            📂 Show {{ state_pages | length - 5 }} More Stations in {{ state }}
+        </button>
+        {% endif %}
+    </div>
+    {% endfor %}
 </div>
+
+<script>
+function showMoreStations(btn, stateId) {
+    const group = document.getElementById('group-' + stateId);
+    const hiddenRows = group.querySelectorAll('.hidden-row');
+    
+    hiddenRows.forEach(row => {
+        row.classList.remove('hidden-row');
+        row.style.display = 'table-row';
+    });
+    
+    btn.style.display = 'none';
+}
+</script>
 {% endblock content %}

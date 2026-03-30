@@ -69,4 +69,4 @@ title: 'Booth 95: last'
 | Email | N/A |
 
 ---
-*Data confidence: 0.95 | Source: state_CEO*
+*Data confidence: 0.42 | Source: state_CEO*

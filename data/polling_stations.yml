@@ -168,7 +168,7 @@ polling_stations:
   longitude: 79.8297
   metadata:
     data_source: state_CEO
-    confidence_score: 0.39
+    confidence_score: 0.69
     needs_update: true
     last_audit: '2026-03-30'
   accessibility:
@@ -188,7 +188,7 @@ polling_stations:
   longitude: 76.9412
   metadata:
     data_source: state_CEO
-    confidence_score: 0.42
+    confidence_score: 0.72
     needs_update: true
     last_audit: '2026-03-30'
   accessibility:
@@ -208,8 +208,9 @@ polling_stations:
   longitude: 80.43260000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.95
+    confidence_score: 0.42
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'yes'
     accessibility_rating: 4
@@ -229,8 +230,9 @@ polling_stations:
   longitude: 80.23010000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.95
+    confidence_score: 0.42
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'yes'
     accessibility_rating: 4
@@ -248,8 +250,9 @@ polling_stations:
   longitude: 80.23020000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -267,8 +270,9 @@ polling_stations:
   longitude: 80.23010000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -286,8 +290,9 @@ polling_stations:
   longitude: 80.23020000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -306,8 +311,9 @@ polling_stations:
   longitude: 80.2303
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -325,8 +331,9 @@ polling_stations:
   longitude: 80.23100000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -344,8 +351,9 @@ polling_stations:
   longitude: 80.2305
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -365,8 +373,9 @@ polling_stations:
   longitude: 80.23020000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.95
+    confidence_score: 0.42
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'yes'
     accessibility_rating: 2
@@ -384,8 +393,9 @@ polling_stations:
   longitude: 80.23010000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.95
+    confidence_score: 0.42
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'yes'
     accessibility_rating: 2
@@ -405,8 +415,9 @@ polling_stations:
   longitude: 80.2305
   metadata:
     data_source: state_CEO
-    confidence_score: 0.95
+    confidence_score: 0.42
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'yes'
     accessibility_rating: 2
@@ -425,8 +436,9 @@ polling_stations:
   longitude: 80.2305
   metadata:
     data_source: state_CEO
-    confidence_score: 0.95
+    confidence_score: 0.42
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'yes'
     accessibility_rating: 2
@@ -444,8 +456,9 @@ polling_stations:
   longitude: 80.23020000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.95
+    confidence_score: 0.42
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'yes'
     accessibility_rating: 2
@@ -463,8 +476,9 @@ polling_stations:
   longitude: 80.2303
   metadata:
     data_source: state_CEO
-    confidence_score: 0.95
+    confidence_score: 0.42
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'yes'
     accessibility_rating: 2
@@ -484,8 +498,9 @@ polling_stations:
   longitude: 80.23010000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.95
+    confidence_score: 0.42
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'yes'
     accessibility_rating: 2
@@ -503,8 +518,9 @@ polling_stations:
   longitude: 80.24000000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.95
+    confidence_score: 0.42
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'yes'
     accessibility_rating: 2
@@ -522,8 +538,9 @@ polling_stations:
   longitude: 80.2519
   metadata:
     data_source: state_CEO
-    confidence_score: 0.95
+    confidence_score: 0.42
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'yes'
     accessibility_rating: 2
@@ -541,8 +558,9 @@ polling_stations:
   longitude: 80.2305
   metadata:
     data_source: state_CEO
-    confidence_score: 0.95
+    confidence_score: 0.42
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'yes'
     accessibility_rating: 4
@@ -560,8 +578,9 @@ polling_stations:
   longitude: 80.23020000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.95
+    confidence_score: 0.42
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'yes'
     accessibility_rating: 4
@@ -579,8 +598,9 @@ polling_stations:
   longitude: 80.2303
   metadata:
     data_source: state_CEO
-    confidence_score: 0.95
+    confidence_score: 0.42
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'yes'
     accessibility_rating: 4
@@ -598,8 +618,9 @@ polling_stations:
   longitude: 80.2315
   metadata:
     data_source: state_CEO
-    confidence_score: 0.95
+    confidence_score: 0.42
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'yes'
     accessibility_rating: 4
@@ -617,8 +638,9 @@ polling_stations:
   longitude: 80.2308
   metadata:
     data_source: state_CEO
-    confidence_score: 0.95
+    confidence_score: 0.42
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'yes'
     accessibility_rating: 4
@@ -636,8 +658,9 @@ polling_stations:
   longitude: 80.2305
   metadata:
     data_source: state_CEO
-    confidence_score: 0.95
+    confidence_score: 0.42
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'yes'
     accessibility_rating: 4
@@ -655,8 +678,9 @@ polling_stations:
   longitude: 80.2395
   metadata:
     data_source: state_CEO
-    confidence_score: 0.95
+    confidence_score: 0.42
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'yes'
     accessibility_rating: 4
@@ -676,8 +700,9 @@ polling_stations:
   longitude: 80.23020000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.95
+    confidence_score: 0.42
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'yes'
     accessibility_rating: 4
@@ -695,8 +720,9 @@ polling_stations:
   longitude: 80.23010000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -714,8 +740,9 @@ polling_stations:
   longitude: 80.23020000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -733,8 +760,9 @@ polling_stations:
   longitude: 80.2303
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -752,8 +780,9 @@ polling_stations:
   longitude: 80.23010000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -771,8 +800,9 @@ polling_stations:
   longitude: 80.23020000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -790,8 +820,9 @@ polling_stations:
   longitude: 80.23020000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -809,8 +840,9 @@ polling_stations:
   longitude: 80.23020000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -828,8 +860,9 @@ polling_stations:
   longitude: 80.2303
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -847,8 +880,9 @@ polling_stations:
   longitude: 80.235
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -866,8 +900,9 @@ polling_stations:
   longitude: 80.2304
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -885,8 +920,9 @@ polling_stations:
   longitude: 80.235
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -904,8 +940,9 @@ polling_stations:
   longitude: 80.23010000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -923,8 +960,9 @@ polling_stations:
   longitude: 80.23020000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -942,8 +980,9 @@ polling_stations:
   longitude: 80.2303
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -961,8 +1000,9 @@ polling_stations:
   longitude: 80.23020000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -982,8 +1022,9 @@ polling_stations:
   longitude: 80.2305
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -1001,8 +1042,9 @@ polling_stations:
   longitude: 80.2305
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -1020,8 +1062,9 @@ polling_stations:
   longitude: 80.23100000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -1039,8 +1082,9 @@ polling_stations:
   longitude: 80.2303
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -1058,8 +1102,9 @@ polling_stations:
   longitude: 80.23010000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -1077,8 +1122,9 @@ polling_stations:
   longitude: 80.23010000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -1100,8 +1146,9 @@ polling_stations:
   longitude: 80.23020000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -1119,8 +1166,9 @@ polling_stations:
   longitude: 80.23010000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -1138,8 +1186,9 @@ polling_stations:
   longitude: 80.23010000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -1157,8 +1206,9 @@ polling_stations:
   longitude: 80.23020000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -1176,8 +1226,9 @@ polling_stations:
   longitude: 80.2303
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2
@@ -1195,8 +1246,9 @@ polling_stations:
   longitude: 80.43260000000001
   metadata:
     data_source: state_CEO
-    confidence_score: 0.8
+    confidence_score: 0.39
     needs_update: true
+    last_audit: '2026-03-30'
   accessibility:
     wheelchair_ramp: 'no'
     accessibility_rating: 2

@@ -75,4 +75,4 @@ Example entry for polling station, Chennai, Tamil Nadu**
 | Email | N/A |
 
 ---
-*Data confidence: 0.95 | Source: state_CEO*
+*Data confidence: 0.42 | Source: state_CEO*

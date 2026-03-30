@@ -69,4 +69,4 @@ title: Vanchiyoor Govt LP School (Main Building)
 | Email | N/A |
 
 ---
-*Data confidence: 0.42 | Source: state_CEO*
+*Data confidence: 0.72 | Source: state_CEO*
