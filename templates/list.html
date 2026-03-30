@@ -232,8 +232,8 @@
                                 data-station-name="{{ page.title }}" 
                                 data-station-id="{{ page.extra.station_id | default(value='') }}" 
                                 onclick="openFeedbackModal(this)" 
-                                title="Flag data issue for Quality Agent">
-                            🚩 Report
+                                title="Provide feedback for the Quality Agent">
+                            💬 Feedback
                         </button>
                     </td>
                 </tr>
@@ -260,36 +260,42 @@
 <div id="feedbackModal" class="modal">
     <div class="modal-content">
         <span class="close-btn" onclick="closeFeedbackModal()">&times;</span>
-        <h3 style="margin-top:0; color:var(--text-primary); font-family: 'Outfit', sans-serif;">Report Data Anomaly</h3>
+        <h3 style="margin-top:0; color:var(--text-primary); font-family: 'Outfit', sans-serif;">Provide Station Feedback</h3>
         <p style="color:var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">
-            Help the <strong style="color:var(--accent);">Quality Agent</strong> improve data accuracy for:
+            Your feedback builds trust! Help the <strong style="color:var(--accent);">Quality Agent</strong> validate data for:
             <br><span id="feedbackStationName" style="color:var(--text-primary); font-weight:600;"></span>
         </p>
         <form id="feedbackForm" onsubmit="submitFeedback(event)">
             <input type="hidden" id="feedbackStationId">
             <div style="margin-bottom: 1rem;">
-                <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Anomaly Type</label>
+                <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Feedback Type</label>
                 <select id="issueType" class="form-input" required>
-                    <option value="">Select an issue...</option>
-                    <option value="location">📍 Incorrect Address or Map Location</option>
-                    <option value="accessibility">♿ Inaccurate Accessibility Rating</option>
-                    <option value="nonexistent">🚫 Station Does Not Exist Here</option>
-                    <option value="name">✍️ Station Name Misspelled</option>
-                    <option value="other">❓ Other Data Quality Issue</option>
+                    <option value="">Select feedback type...</option>
+                    <optgroup label="✅ Positive Validations">
+                        <option value="perfect">⭐ All Data is 100% Correct</option>
+                        <option value="good_access">🤝 Great Accessibility Info</option>
+                    </optgroup>
+                    <optgroup label="🚩 Anomaly Reports">
+                        <option value="location">📍 Incorrect Address or Map Location</option>
+                        <option value="accessibility">♿ Inaccurate Accessibility Rating</option>
+                        <option value="nonexistent">🚫 Station Does Not Exist Here</option>
+                        <option value="name">✍️ Station Name Misspelled</option>
+                        <option value="other">❓ Other Issue / Suggestion</option>
+                    </optgroup>
                 </select>
             </div>
             <div style="margin-bottom: 1.5rem;">
-                <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Details for Quality Agent Validation</label>
-                <textarea id="issueDetails" class="form-input" rows="4" placeholder="Please provide specific details so the agent can cross-verify..." required></textarea>
+                <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Additional Details (Optional)</label>
+                <textarea id="issueDetails" class="form-input" rows="4" placeholder="Any additional notes for the Quality Agent..."></textarea>
             </div>
             <button type="submit" class="page-btn" style="width: 100%; justify-content: center; background: var(--accent); color: white; border: none; padding: 1rem;">
-                Submit to Quality Pipeline
+                Submit Feedback
             </button>
         </form>
     </div>
 </div>
 
-<div id="toast" class="toast">✅ Flagged! Quality Agent will audit this station.</div>
+<div id="toast" class="toast">✅ Saved! The Quality Agent appreciates your input.</div>
 
 <script>
 const PAGE_SIZE = 10;
