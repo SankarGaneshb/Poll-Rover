@@ -1,11 +1,10 @@
 checks_run:
-- details: 'YAML healthy: 63 stations loaded'
+- details: 'YAML healthy: 341 stations loaded'
   name: yaml_health
   status: ok
-- details: Zola not found in PATH (install via 'scoop install zola' or download from
-    getzola.org)
+- details: Build toolchain healthy
   name: build_health
-  status: warning
+  status: ok
 - details: Data pipeline dependencies available
   name: data_pipeline
   status: ok
@@ -15,10 +14,10 @@ checks_run:
     quality: ok
   name: agent_health
   status: ok
-- details: 'Memory usage critical: 96.3%'
+- details: 'Disk: 62.6%, Memory: 88.8%'
   name: resource_usage
-  status: warning
-- details: Found 18 recent agent runtime errors
+  status: ok
+- details: Found 21 recent agent runtime errors
   name: agent_logs
   status: error
 - details: LLM healthy, gemma3:4b is available
@@ -29,8 +28,8 @@ checks_run:
   status: ok
 hil_mode: optional
 incidents:
-- message: 'quality: Schema error in TN_CHENNAI_001: 5 issues | quality: Schema error
-    in TN_CHENNAI_002: 4 issues | quality: Schema error in TN_CHENNAI_010: 4 issues...'
+- message: 'quality: Schema error in PY_PDY_002: 4 issues | quality: Schema error
+    in PY_PDY_003: 4 issues | quality: Schema error in TN_CHENNAI_001: 5 issues...'
   playbook: agent_error
   severity: high
   type: agent_runtime_error
@@ -41,5 +40,5 @@ remediations:
   incident_type: agent_runtime_error
   playbook: agent_error
   success: false
-  timestamp: '2026-03-30T15:39:50.299524'
-timestamp: '2026-03-30T15:39:49.956657'
+  timestamp: '2026-03-30T20:31:03.608897'
+timestamp: '2026-03-30T20:31:00.387349'

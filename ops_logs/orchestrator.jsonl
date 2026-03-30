@@ -71,3 +71,27 @@
 {"timestamp": "2026-03-30T19:59:17.964612+05:30", "level": "INFO", "agent": "llm_client", "message": "📥 Stage 1: Data Harvesting"}
 {"timestamp": "2026-03-30T19:59:59.542066+05:30", "level": "INFO", "agent": "llm_client", "message": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
 {"timestamp": "2026-03-30T19:59:59.542450+05:30", "level": "INFO", "agent": "llm_client", "message": "🔍 Stage 2: Data Quality Audit"}
+{"timestamp": "2026-03-30T20:13:04.136624+05:30", "level": "INFO", "agent": "llm_client", "message": "🎯 Orchestrator starting pipeline..."}
+{"timestamp": "2026-03-30T20:13:04.136945+05:30", "level": "INFO", "agent": "llm_client", "message": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"timestamp": "2026-03-30T20:13:04.137121+05:30", "level": "INFO", "agent": "llm_client", "message": "📥 Stage 1: Data Harvesting"}
+{"timestamp": "2026-03-30T20:20:15.401233+05:30", "level": "INFO", "agent": "llm_client", "message": "🎯 Orchestrator starting pipeline..."}
+{"timestamp": "2026-03-30T20:20:15.402136+05:30", "level": "INFO", "agent": "llm_client", "message": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"timestamp": "2026-03-30T20:20:15.402394+05:30", "level": "INFO", "agent": "llm_client", "message": "📥 Stage 1: Data Harvesting"}
+{"timestamp": "2026-03-30T20:20:19.768531+05:30", "level": "INFO", "agent": "llm_client", "message": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"timestamp": "2026-03-30T20:20:19.769029+05:30", "level": "INFO", "agent": "llm_client", "message": "🔍 Stage 2: Data Quality Audit"}
+{"timestamp": "2026-03-30T20:26:00.925345+05:30", "level": "INFO", "agent": "llm_client", "message": "🎯 Orchestrator starting pipeline..."}
+{"timestamp": "2026-03-30T20:26:00.925929+05:30", "level": "INFO", "agent": "llm_client", "message": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"timestamp": "2026-03-30T20:26:00.926120+05:30", "level": "INFO", "agent": "llm_client", "message": "📥 Stage 1: Data Harvesting"}
+{"timestamp": "2026-03-30T20:26:04.662408+05:30", "level": "INFO", "agent": "llm_client", "message": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"timestamp": "2026-03-30T20:26:04.662735+05:30", "level": "INFO", "agent": "llm_client", "message": "🔍 Stage 2: Data Quality Audit"}
+{"timestamp": "2026-03-30T20:30:45.310703+05:30", "level": "INFO", "agent": "llm_client", "message": "🎯 Orchestrator starting pipeline..."}
+{"timestamp": "2026-03-30T20:30:45.311710+05:30", "level": "INFO", "agent": "llm_client", "message": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"timestamp": "2026-03-30T20:30:45.312147+05:30", "level": "INFO", "agent": "llm_client", "message": "📥 Stage 1: Data Harvesting"}
+{"timestamp": "2026-03-30T20:30:49.893784+05:30", "level": "INFO", "agent": "llm_client", "message": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"timestamp": "2026-03-30T20:30:49.894206+05:30", "level": "INFO", "agent": "llm_client", "message": "🔍 Stage 2: Data Quality Audit"}
+{"timestamp": "2026-03-30T20:30:53.896470+05:30", "level": "INFO", "agent": "llm_client", "message": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"timestamp": "2026-03-30T20:30:53.896911+05:30", "level": "INFO", "agent": "llm_client", "message": "🏗️  Stage 3: Site Generation"}
+{"timestamp": "2026-03-30T20:31:00.375794+05:30", "level": "INFO", "agent": "llm_client", "message": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"timestamp": "2026-03-30T20:31:00.376488+05:30", "level": "INFO", "agent": "llm_client", "message": "🏥 Stage 4: SRE Health Checks"}
+{"timestamp": "2026-03-30T20:31:05.727965+05:30", "level": "INFO", "agent": "llm_client", "message": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"timestamp": "2026-03-30T20:31:05.728201+05:30", "level": "INFO", "agent": "llm_client", "message": "🎯 Pipeline complete in 20.42s | Status: success"}

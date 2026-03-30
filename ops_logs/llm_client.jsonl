@@ -111,3 +111,10 @@
 {"timestamp": "2026-03-30T19:59:54.968340+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (2356 chars)"}
 {"timestamp": "2026-03-30T20:02:55.803110+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (668 chars)"}
 {"timestamp": "2026-03-30T20:03:21.224072+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (463 chars)"}
+{"timestamp": "2026-03-30T20:16:20.994854+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (786 chars)"}
+{"timestamp": "2026-03-30T20:28:59.755398+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (463 chars)"}
+{"timestamp": "2026-03-30T20:29:26.627555+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (392 chars)"}
+{"timestamp": "2026-03-30T20:29:48.055327+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (386 chars)"}
+{"timestamp": "2026-03-30T20:30:11.324934+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (402 chars)"}
+{"timestamp": "2026-03-30T20:30:34.153301+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (340 chars)"}
+{"timestamp": "2026-03-30T20:31:04.179233+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (422 chars)"}

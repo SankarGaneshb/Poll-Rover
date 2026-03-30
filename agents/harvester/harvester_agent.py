@@ -384,15 +384,15 @@ Return ONLY valid YAML, no explanations. Use this format:
             return new_entries
 
         existing_ids = {s["station_id"] for s in existing}
-        existing_names = {s["name"].lower().strip() for s in existing}
+        existing_names = {f"{s.get('district', '')} {s['name']}".lower().strip() for s in existing}
 
         unique = []
         for entry in new_entries:
             if entry["station_id"] in existing_ids:
                 continue
 
-            # Fuzzy name matching
-            name_lower = entry["name"].lower().strip()
+            # Fuzzy name matching with district context
+            name_lower = f"{entry.get('district', '')} {entry['name']}".lower().strip()
             is_duplicate = False
 
             try:
