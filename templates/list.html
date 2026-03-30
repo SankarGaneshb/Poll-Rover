@@ -46,7 +46,11 @@
     }
     .state-group {
         display: none;
-        .load-more-btn:hover {
+    }
+    .state-group.active {
+        display: block;
+    }
+    .load-more-btn:hover {
         background: var(--accent-glow);
         border-style: solid;
         transform: translateY(-2px);
@@ -110,7 +114,7 @@
     
     {% for state, state_pages in pages_by_state %}
     <div class="state-group {% if state == 'Tamil Nadu' %}active{% endif %}" id="group-{{ state | slugify }}">
-        <div class="state-header">
+        <div class="state-header" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--accent);">
             <h2>{{ state }}</h2>
             <span class="state-badge">{{ state_pages | length }} Stations</span>
         </div>
