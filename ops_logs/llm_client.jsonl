@@ -107,3 +107,7 @@
 {"timestamp": "2026-03-30T15:39:07.179658+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (351 chars)"}
 {"timestamp": "2026-03-30T15:39:27.774268+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (421 chars)"}
 {"timestamp": "2026-03-30T15:39:49.736046+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (346 chars)"}
+{"timestamp": "2026-03-30T19:54:01.999577+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (813 chars)"}
+{"timestamp": "2026-03-30T19:59:54.968340+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (2356 chars)"}
+{"timestamp": "2026-03-30T20:02:55.803110+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (668 chars)"}
+{"timestamp": "2026-03-30T20:03:21.224072+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (463 chars)"}

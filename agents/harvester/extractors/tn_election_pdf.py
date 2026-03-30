@@ -14,6 +14,16 @@ def extract_from_tn_pdf(pdf_path: str) -> List[dict]:
     Layout usually contains:
     S.No | Name | Location | Building | Male | Female | Total
     """
+    import os
+    filename = os.path.basename(pdf_path).lower()
+    
+    if "thanjavur" in filename:
+        district = "Thanjavur"
+        dist_prefix = "TN_THA"
+    else:
+        district = "Chennai"
+        dist_prefix = "TN_CHE"
+
     doc = fitz.open(pdf_path)
     stations = []
     
@@ -44,11 +54,11 @@ def extract_from_tn_pdf(pdf_path: str) -> List[dict]:
             lng = 80.23 + (int(booth_num) * 0.0001)
             
             stations.append({
-                "station_id": f"TN_CHENNAI_{booth_num}",
+                "station_id": f"{dist_prefix}_{booth_num}",
                 "name": f"Booth {booth_num}: {name}",
-                "address": f"{name}, Chennai, Tamil Nadu",
+                "address": f"{name}, {district}, Tamil Nadu",
                 "state": "Tamil Nadu",
-                "district": "Chennai",
+                "district": district,
                 "assembly_constituency": "Pending AC Audit",
                 "latitude": lat,
                 "longitude": lng,
