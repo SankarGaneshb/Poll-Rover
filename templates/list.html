@@ -89,6 +89,92 @@
         color: var(--text-muted);
         font-weight: 500;
     }
+    .feedback-btn {
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--text-muted);
+        padding: 0.3rem 0.6rem;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        font-size: 0.8rem;
+        transition: var(--transition);
+        white-space: nowrap;
+    }
+    .feedback-btn:hover {
+        background: var(--bg-glass);
+        color: var(--accent);
+        border-color: var(--accent);
+    }
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.6);
+        backdrop-filter: blur(4px);
+    }
+    .modal-content {
+        background: var(--bg-primary);
+        margin: 10% auto;
+        padding: 2rem;
+        border: 1px solid var(--border);
+        border-top: 4px solid var(--accent);
+        border-radius: var(--radius-lg);
+        width: 90%;
+        max-width: 500px;
+        position: relative;
+        animation: slideIn 0.3s ease-out;
+    }
+    .close-btn {
+        position: absolute;
+        right: 1.5rem;
+        top: 1.2rem;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-muted);
+        transition: 0.2s;
+    }
+    .close-btn:hover { color: var(--accent); }
+    .form-input {
+        width: 100%;
+        padding: 0.8rem;
+        background: var(--bg-glass);
+        border: 1px solid var(--border);
+        color: var(--text-primary);
+        border-radius: var(--radius-sm);
+        font-family: inherit;
+    }
+    .form-input:focus {
+        outline: none;
+        border-color: var(--accent);
+    }
+    .toast {
+        visibility: hidden;
+        min-width: 250px;
+        background-color: var(--accent);
+        color: #fff;
+        text-align: center;
+        border-radius: var(--radius-sm);
+        padding: 1rem;
+        position: fixed;
+        z-index: 1001;
+        left: 50%;
+        bottom: 30px;
+        transform: translateX(-50%);
+        box-shadow: var(--shadow-md);
+        font-weight: 600;
+    }
+    .toast.show {
+        visibility: visible;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+    @keyframes slideIn { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
+    @keyframes fadeout { from { bottom: 30px; opacity: 1; } to { bottom: 0; opacity: 0; } }
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
@@ -140,8 +226,11 @@
                             ⭐ {{ page.extra.accessibility_rating }}
                         </span>
                     </td>
-                    <td style="padding: 1rem;">
+                    <td style="padding: 1rem; display: flex; gap: 0.8rem; align-items: center;">
                         <a href="{{ page.permalink }}" style="color: var(--accent); text-decoration: none; font-weight: 600;">View Detail →</a>
+                        <button class="feedback-btn" onclick="openFeedbackModal('{{ page.title | escape }}', '{{ page.extra.station_id | default(value='') }}')" title="Flag data issue for Quality Agent">
+                            🚩 Report
+                        </button>
                     </td>
                 </tr>
                 {% endfor %}
@@ -162,6 +251,41 @@
     </div>
     {% endfor %}
 </div>
+
+<!-- Feedback Modal -->
+<div id="feedbackModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeFeedbackModal()">&times;</span>
+        <h3 style="margin-top:0; color:var(--text-primary); font-family: 'Outfit', sans-serif;">Report Data Anomaly</h3>
+        <p style="color:var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">
+            Help the <strong style="color:var(--accent);">Quality Agent</strong> improve data accuracy for:
+            <br><span id="feedbackStationName" style="color:var(--text-primary); font-weight:600;"></span>
+        </p>
+        <form id="feedbackForm" onsubmit="submitFeedback(event)">
+            <input type="hidden" id="feedbackStationId">
+            <div style="margin-bottom: 1rem;">
+                <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Anomaly Type</label>
+                <select id="issueType" class="form-input" required>
+                    <option value="">Select an issue...</option>
+                    <option value="location">📍 Incorrect Address or Map Location</option>
+                    <option value="accessibility">♿ Inaccurate Accessibility Rating</option>
+                    <option value="nonexistent">🚫 Station Does Not Exist Here</option>
+                    <option value="name">✍️ Station Name Misspelled</option>
+                    <option value="other">❓ Other Data Quality Issue</option>
+                </select>
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Details for Quality Agent Validation</label>
+                <textarea id="issueDetails" class="form-input" rows="4" placeholder="Please provide specific details so the agent can cross-verify..." required></textarea>
+            </div>
+            <button type="submit" class="page-btn" style="width: 100%; justify-content: center; background: var(--accent); color: white; border: none; padding: 1rem;">
+                Submit to Quality Pipeline
+            </button>
+        </form>
+    </div>
+</div>
+
+<div id="toast" class="toast">✅ Flagged! Quality Agent will audit this station.</div>
 
 <script>
 const PAGE_SIZE = 10;
@@ -206,6 +330,38 @@ function changePage(stateId, delta) {
     
     // Scroll to top of table smoothly
     group.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Feedback Modal Logic
+function openFeedbackModal(stationName, stationId) {
+    document.getElementById('feedbackStationName').textContent = stationName;
+    document.getElementById('feedbackStationId').value = stationId;
+    document.getElementById('issueType').value = '';
+    document.getElementById('issueDetails').value = '';
+    document.getElementById('feedbackModal').style.display = 'block';
+}
+
+function closeFeedbackModal() {
+    document.getElementById('feedbackModal').style.display = 'none';
+}
+
+function submitFeedback(event) {
+    event.preventDefault();
+    closeFeedbackModal();
+    
+    // In the real system, this would POST to an API or trigger a GitHub Action Issue.
+    // For now, we simulate the Quality Agent acknowledging the report.
+    const toast = document.getElementById("toast");
+    toast.className = "toast show";
+    setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+}
+
+// Close modal if user clicks outside of it
+window.onclick = function(event) {
+    const modal = document.getElementById('feedbackModal');
+    if (event.target == modal) {
+        closeFeedbackModal();
+    }
 }
 </script>
 {% endblock content %}
