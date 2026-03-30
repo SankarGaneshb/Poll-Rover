@@ -97,7 +97,7 @@
             </thead>
             <tbody>
                 {% for page in state_pages %}
-                <tr class="station-row {% if loop.index > 15 %}hidden-row{% endif %}" style="border-bottom: 1px solid var(--border);">
+                <tr class="station-row {% if loop.index > 5 %}hidden-row{% endif %}" style="border-bottom: 1px solid var(--border);">
                     <td style="padding: 1rem; color: var(--text-primary);">{{ page.title }}</td>
                     <td style="padding: 1rem;">{{ page.extra.assembly_constituency }}</td>
                     <td style="padding: 1rem;">
@@ -113,9 +113,9 @@
             </tbody>
         </table>
 
-        {% if state_pages | length > 15 %}
+        {% if state_pages | length > 5 %}
         <button class="load-more-btn" onclick="showMoreStations(this, '{{ state | slugify }}')">
-            📂 Show {{ state_pages | length - 15 }} More Stations in {{ state }}
+            📂 Show {{ state_pages | length - 5 }} More Stations in {{ state }}
         </button>
         {% endif %}
     </div>
