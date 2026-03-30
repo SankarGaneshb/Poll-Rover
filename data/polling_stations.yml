@@ -1,133 +1,1203 @@
 polling_stations:
-  # --- TAMIL NADU (CHENNAI) ---
-  - station_id: "TN_CHENNAI_001"
-    name: "Sir. Thiyagaraya College (North Block 1st Room)"
-    address: "No.1047, Thiruvotriur High Road, Chennai - 600021"
-    state: "Tamil Nadu"
-    district: "Chennai"
-    assembly_constituency: "Royapuram"
-    latitude: 13.1145
-    longitude: 80.2921
-    accessibility:
-      wheelchair_ramp: "yes"
-      accessibility_rating: 4.5
-      audio_booth: true
-      braille_materials: true
-    metadata:
-      data_source: "CEO_TamilNadu"
-      last_verified: "2024-03-27"
-      confidence_score: 0.95
-
-  - station_id: "TN_CHENNAI_002"
-    name: "Sir. Thiyagaraya College (North Block 2nd Room)"
-    address: "No.1047, Thiruvotriur High Road, Chennai - 600021"
-    state: "Tamil Nadu"
-    district: "Chennai"
-    assembly_constituency: "Royapuram"
-    latitude: 13.1146
-    longitude: 80.2922
-    accessibility:
-      wheelchair_ramp: "yes"
-      accessibility_rating: 4.2
-      audio_booth: false
-      braille_materials: true
-
-  - station_id: "TN_CHENNAI_010"
-    name: "Sir. Thiyagaraya Primary School"
-    address: "No.23, Basuvaian Street, Chennai - 600021"
-    state: "Tamil Nadu"
-    district: "Chennai"
-    assembly_constituency: "Royapuram"
-    latitude: 13.1155
-    longitude: 80.2911
-    accessibility:
-      wheelchair_ramp: "yes"
-      accessibility_rating: 4.3
-      audio_booth: true
-      braille_materials: false
-
-  # --- KERALA (TRIVANDRUM) ---
-  - station_id: "KL_TVM_001"
-    name: "Govt. UPS Kudappanakunnu (Northern Portion)"
-    address: "Kudappanakunnu, Trivandrum, Kerala"
-    state: "Kerala"
-    district: "Thiruvananthapuram"
-    assembly_constituency: "Vattiyoorkavu"
-    latitude: 8.5421
-    longitude: 76.9632
-    accessibility:
-      wheelchair_ramp: "yes"
-      accessibility_rating: 4.4
-      audio_booth: true
-      braille_materials: true
-
-  - station_id: "KL_TVM_004"
-    name: "Govt. UPS Kusavarkkal (West Building)"
-    address: "Kudappanakunnu, Trivandrum, Kerala"
-    state: "Kerala"
-    district: "Thiruvananthapuram"
-    assembly_constituency: "Vattiyoorkavu"
-    latitude: 8.5455
-    longitude: 76.9688
-    accessibility:
-      wheelchair_ramp: "no"
-      accessibility_rating: 2.1
-      audio_booth: false
-      braille_materials: false
-
-  - station_id: "KL_TVM_007"
-    name: "St. Goraithy’s HSS, Nalanchira"
-    address: "Nalanchira, Trivandrum, Kerala"
-    state: "Kerala"
-    district: "Thiruvananthapuram"
-    assembly_constituency: "Vattiyoorkavu"
-    latitude: 8.5512
-    longitude: 76.9421
-    accessibility:
-      wheelchair_ramp: "yes"
-      accessibility_rating: 3.8
-      audio_booth: false
-      braille_materials: true
-
-  # --- PUDUCHERRY ---
-  - station_id: "PY_PDY_001"
-    name: "Govt. Primary School, Vennila Nagar"
-    address: "Middle Street, Vennila Nagar, Puducherry-605013"
-    state: "Puducherry"
-    district: "Puducherry"
-    assembly_constituency: "Nellithope"
-    latitude: 11.9322
-    longitude: 79.8145
-    accessibility:
-      wheelchair_ramp: "yes"
-      accessibility_rating: 4.6
-      audio_booth: true
-      braille_materials: true
-
-  - station_id: "PY_PDY_002"
-    name: "Aditya Vidyashram"
-    address: "First Main Road, Sathya Nagar (East), Puducherry-605013"
-    state: "Puducherry"
-    district: "Puducherry"
-    assembly_constituency: "Nellithope"
-    latitude: 11.9355
-    longitude: 79.8188
-    accessibility:
-      wheelchair_ramp: "yes"
-      accessibility_rating: 4.1
-      audio_booth: false
-      braille_materials: true
-
-  - station_id: "PY_PDY_003"
-    name: "Planning and Research Dept."
-    address: "Kamaraj Salai, Saram, Puducherry-605013"
-    state: "Puducherry"
-    district: "Puducherry"
-    assembly_constituency: "Nellithope"
-    latitude: 11.9311
-    longitude: 79.8095
-    accessibility:
-      wheelchair_ramp: "no"
-      accessibility_rating: 2.5
-      audio_booth: false
-      braille_materials: false
+- station_id: TN_CHENNAI_001
+  name: Sir. Thiyagaraya College (North Block 1st Room)
+  address: No.1047, Thiruvotriur High Road, Chennai - 600021
+  state: Tamil Nadu
+  district: Chennai
+  assembly_constituency: Royapuram
+  latitude: 13.1145
+  longitude: 80.2921
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 4.5
+    audio_booth: true
+    braille_materials: true
+  metadata:
+    data_source: CEO_TamilNadu
+    last_verified: '2024-03-27'
+    confidence_score: 0.95
+  election_details: {}
+  contact: {}
+  community_data: {}
+- station_id: TN_CHENNAI_002
+  name: Sir. Thiyagaraya College (North Block 2nd Room)
+  address: No.1047, Thiruvotriur High Road, Chennai - 600021
+  state: Tamil Nadu
+  district: Chennai
+  assembly_constituency: Royapuram
+  latitude: 13.1146
+  longitude: 80.2922
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 4.2
+    audio_booth: false
+    braille_materials: true
+  election_details: {}
+  contact: {}
+  community_data: {}
+  metadata: {}
+- station_id: TN_CHENNAI_010
+  name: Sir. Thiyagaraya Primary School
+  address: No.23, Basuvaian Street, Chennai - 600021
+  state: Tamil Nadu
+  district: Chennai
+  assembly_constituency: Royapuram
+  latitude: 13.1155
+  longitude: 80.2911
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 4.3
+    audio_booth: true
+    braille_materials: false
+  election_details: {}
+  contact: {}
+  community_data: {}
+  metadata: {}
+- station_id: KL_TVM_001
+  name: Govt. UPS Kudappanakunnu (Northern Portion)
+  address: Kudappanakunnu, Trivandrum, Kerala
+  state: Kerala
+  district: Thiruvananthapuram
+  assembly_constituency: Vattiyoorkavu
+  latitude: 8.5421
+  longitude: 76.9632
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 4.4
+    audio_booth: true
+    braille_materials: true
+  election_details: {}
+  contact: {}
+  community_data: {}
+  metadata: {}
+- station_id: KL_TVM_004
+  name: Govt. UPS Kusavarkkal (West Building)
+  address: Kudappanakunnu, Trivandrum, Kerala
+  state: Kerala
+  district: Thiruvananthapuram
+  assembly_constituency: Vattiyoorkavu
+  latitude: 8.5455
+  longitude: 76.9688
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2.1
+    audio_booth: false
+    braille_materials: false
+  election_details: {}
+  contact: {}
+  community_data: {}
+  metadata: {}
+- station_id: KL_TVM_007
+  name: St. Goraithy’s HSS, Nalanchira
+  address: Nalanchira, Trivandrum, Kerala
+  state: Kerala
+  district: Thiruvananthapuram
+  assembly_constituency: Vattiyoorkavu
+  latitude: 8.5512
+  longitude: 76.9421
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 3.8
+    audio_booth: false
+    braille_materials: true
+  election_details: {}
+  contact: {}
+  community_data: {}
+  metadata: {}
+- station_id: PY_PDY_001
+  name: Govt. Primary School, Vennila Nagar
+  address: Middle Street, Vennila Nagar, Puducherry-605013
+  state: Puducherry
+  district: Puducherry
+  assembly_constituency: Nellithope
+  latitude: 11.9322
+  longitude: 79.8145
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 4.6
+    audio_booth: true
+    braille_materials: true
+  election_details: {}
+  contact: {}
+  community_data: {}
+  metadata: {}
+- station_id: PY_PDY_002
+  name: Aditya Vidyashram
+  address: First Main Road, Sathya Nagar (East), Puducherry-605013
+  state: Puducherry
+  district: Puducherry
+  assembly_constituency: Nellithope
+  latitude: 11.9355
+  longitude: 79.8188
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 4.1
+    audio_booth: false
+    braille_materials: true
+  election_details: {}
+  contact: {}
+  community_data: {}
+  metadata: {}
+- station_id: PY_PDY_003
+  name: Planning and Research Dept.
+  address: Kamaraj Salai, Saram, Puducherry-605013
+  state: Puducherry
+  district: Puducherry
+  assembly_constituency: Nellithope
+  latitude: 11.9311
+  longitude: 79.8095
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2.5
+    audio_booth: false
+    braille_materials: false
+  election_details: {}
+  contact: {}
+  community_data: {}
+  metadata: {}
+- station_id: PY_PUD_PS00001
+  state: Puducherry
+  state_code: PY
+  district: Puducherry
+  district_code: PUD
+  name: G.G.H.S, Pondicherry
+  address: Heritage Town, Puducherry
+  assembly_constituency: Unknown
+  parliamentary_constituency: Unknown
+  latitude: 11.9338
+  longitude: 79.8297
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.39
+    needs_update: true
+    last_audit: '2026-03-30'
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Heritage building - limited access
+- station_id: KL_THI_PS00001
+  state: Kerala
+  state_code: KL
+  district: Thiruvananthapuram
+  district_code: THI
+  name: Vanchiyoor Govt LP School (Main Building)
+  address: Vanchiyoor, Thiruvananthapuram, Kerala
+  assembly_constituency: Unknown
+  parliamentary_constituency: Unknown
+  latitude: 8.4905
+  longitude: 76.9412
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.42
+    needs_update: true
+    last_audit: '2026-03-30'
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 5
+    notes: Premium accessibility facilities
+- station_id: TN_CHE_PS00001
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 2026: Project Type'
+  address: Project Type, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.2426
+  longitude: 80.43260000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.95
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 4
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00002
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: "Booth 1: Primary Pain Points \n \n1. Information Fragmentation \nPolling\
+    \ station details are scattered across"
+  address: "Primary Pain Points \n \n1. Information Fragmentation \nPolling station\
+    \ details are scattered across, Chennai, Tamil Nadu"
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040099999999999
+  longitude: 80.23010000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.95
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 4
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00003
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 2: Impact'
+  address: Impact, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040199999999999
+  longitude: 80.23020000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00004
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 1: Vision'
+  address: Vision, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040099999999999
+  longitude: 80.23010000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00005
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: "Booth 2: Goals (12-Month Roadmap) \n \nPhase 1"
+  address: "Goals (12-Month Roadmap) \n \nPhase 1, Chennai, Tamil Nadu"
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040199999999999
+  longitude: 80.23020000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00006
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 3: pilot states (Bengaluru, Chennai, Hyderabad pilot districts)'
+  address: pilot states (Bengaluru, Chennai, Hyderabad pilot districts), Chennai,
+    Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040299999999998
+  longitude: 80.2303
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00007
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 10: states'
+  address: states, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040999999999999
+  longitude: 80.23100000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00008
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 5: languages)'
+  address: languages), Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.0405
+  longitude: 80.2305
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00009
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: "Booth 2: second page load time (offline capability) \n \n \n4. TARGET USERS\
+    \ & USER PERSONAS \n \n \nPrimary Users"
+  address: "second page load time (offline capability) \n \n \n4. TARGET USERS & USER\
+    \ PERSONAS \n \n \nPrimary Users, Chennai, Tamil Nadu"
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040199999999999
+  longitude: 80.23020000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.95
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00010
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: "Booth 1: Must-Have Features (MVP) \n \nF1"
+  address: "Must-Have Features (MVP) \n \nF1, Chennai, Tamil Nadu"
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040099999999999
+  longitude: 80.23010000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.95
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00011
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: "Booth 5: stars) \n  - User-contributed accessibility notes \n  - Crowding\
+    \ difficulty (elderly"
+  address: "stars) \n  - User-contributed accessibility notes \n  - Crowding difficulty\
+    \ (elderly, Chennai, Tamil Nadu"
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.0405
+  longitude: 80.2305
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.95
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00012
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: "Booth 5: languages (Bengali, Gujarati, Marathi, Punjabi, Urdu) \nImplementation"
+  address: "languages (Bengali, Gujarati, Marathi, Punjabi, Urdu) \nImplementation,\
+    \ Chennai, Tamil Nadu"
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.0405
+  longitude: 80.2305
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.95
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00013
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: "Booth 2: Should-Have Features (Phase 2) \n \nF7"
+  address: "Should-Have Features (Phase 2) \n \nF7, Chennai, Tamil Nadu"
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040199999999999
+  longitude: 80.23020000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.95
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00014
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: "Booth 3: Nice-to-Have Features (Phase 3) \n \nF11"
+  address: "Nice-to-Have Features (Phase 3) \n \nF11, Chennai, Tamil Nadu"
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040299999999998
+  longitude: 80.2303
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.95
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00015
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: "Booth 1: Polling Station Data Schema (YAML Format) \n \nExample entry for\
+    \ polling station"
+  address: "Polling Station Data Schema (YAML Format) \n \nExample entry for polling\
+    \ station, Chennai, Tamil Nadu"
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040099999999999
+  longitude: 80.23010000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.95
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00016
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 100: Feet Road, Indiranagar, Bangalore 560038'
+  address: Feet Road, Indiranagar, Bangalore 560038, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.049999999999999
+  longitude: 80.24000000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.95
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00017
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 0219: longitude'
+  address: longitude, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.0619
+  longitude: 80.2519
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.95
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00018
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: "Booth 5: stars \n  last"
+  address: "stars \n  last, Chennai, Tamil Nadu"
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.0405
+  longitude: 80.2305
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.95
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 4
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00019
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 2: start'
+  address: start, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040199999999999
+  longitude: 80.23020000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.95
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 4
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00020
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 3: estimated'
+  address: estimated, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040299999999998
+  longitude: 80.2303
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.95
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 4
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00021
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 15: mins'
+  address: mins, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.0415
+  longitude: 80.2315
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.95
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 4
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00022
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 8: accessibility'
+  address: accessibility, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040799999999999
+  longitude: 80.2308
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.95
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 4
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00023
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 5: active'
+  address: active, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.0405
+  longitude: 80.2305
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.95
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 4
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00024
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 95: last'
+  address: last, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.049499999999998
+  longitude: 80.2395
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.95
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 4
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00025
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: "Booth 2: Integration with ooru.space \n \nThe data schema mirrors ooru.space\
+    \ entry structure"
+  address: "Integration with ooru.space \n \nThe data schema mirrors ooru.space entry\
+    \ structure, Chennai, Tamil Nadu"
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040199999999999
+  longitude: 80.23020000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.95
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'yes'
+    accessibility_rating: 4
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00026
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: "Booth 1: Technology Stack \n \nData Layer"
+  address: "Technology Stack \n \nData Layer, Chennai, Tamil Nadu"
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040099999999999
+  longitude: 80.23010000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00027
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 2: System Architecture Diagram'
+  address: System Architecture Diagram, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040199999999999
+  longitude: 80.23020000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00028
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: "Booth 3: Data Collection Pipeline \n \nPhase 1 (Months 1-2)"
+  address: "Data Collection Pipeline \n \nPhase 1 (Months 1-2), Chennai, Tamil Nadu"
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040299999999998
+  longitude: 80.2303
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00029
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 1: Usage Metrics'
+  address: Usage Metrics, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040099999999999
+  longitude: 80.23010000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00030
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 2: minutes average'
+  address: minutes average, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040199999999999
+  longitude: 80.23020000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00031
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 2: Quality Metrics'
+  address: Quality Metrics, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040199999999999
+  longitude: 80.23020000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00032
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 2: seconds (3G)'
+  address: seconds (3G), Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040199999999999
+  longitude: 80.23020000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00033
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 3: Impact Metrics'
+  address: Impact Metrics, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040299999999998
+  longitude: 80.2303
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00034
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 50: articles'
+  address: articles, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.045
+  longitude: 80.235
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00035
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 4: Business'
+  address: Business, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.0404
+  longitude: 80.2304
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00036
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 50: active contributors'
+  address: active contributors, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.045
+  longitude: 80.235
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00037
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 1: Phase 1'
+  address: Phase 1, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040099999999999
+  longitude: 80.23010000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00038
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: "Booth 2: states \nDeliverables"
+  address: "states \nDeliverables, Chennai, Tamil Nadu"
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040199999999999
+  longitude: 80.23020000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00039
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 3: NGO pilots'
+  address: NGO pilots, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040299999999998
+  longitude: 80.2303
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00040
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 2: Phase 2'
+  address: Phase 2, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040199999999999
+  longitude: 80.23020000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00041
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: "Booth 5: language translations (English, Hindi, Tamil, Telugu, Kannada) \n\
+    Deliverables"
+  address: "language translations (English, Hindi, Tamil, Telugu, Kannada) \nDeliverables,\
+    \ Chennai, Tamil Nadu"
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.0405
+  longitude: 80.2305
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00042
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: "Booth 5: languages \n \nMonth 6"
+  address: "languages \n \nMonth 6, Chennai, Tamil Nadu"
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.0405
+  longitude: 80.2305
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00043
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 10: states'
+  address: states, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040999999999999
+  longitude: 80.23100000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00044
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 3: Phase 3'
+  address: Phase 3, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040299999999998
+  longitude: 80.2303
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00045
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: "Booth 1: Key Risks \n \nRisk 1"
+  address: "Key Risks \n \nRisk 1, Chennai, Tamil Nadu"
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040099999999999
+  longitude: 80.23010000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00046
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 1: To Be Resolved'
+  address: To Be Resolved, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040099999999999
+  longitude: 80.23010000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00047
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: "Booth 2: Immediate Next Steps (Week 1) \n \n1. Share this PRD with ooru.space\
+    \ maintainers for feedback \n2. Reach out to 2-3 election commissions for data\
+    \ partnerships \n3. Identify potential co-founders"
+  address: "Immediate Next Steps (Week 1) \n \n1. Share this PRD with ooru.space maintainers\
+    \ for feedback \n2. Reach out to 2-3 election commissions for data partnerships\
+    \ \n3. Identify potential co-founders, Chennai, Tamil Nadu"
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040199999999999
+  longitude: 80.23020000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00048
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 1: References'
+  address: References, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040099999999999
+  longitude: 80.23010000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00049
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 1: Accessibility'
+  address: Accessibility, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040099999999999
+  longitude: 80.23010000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00050
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 2: Glossary'
+  address: Glossary, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040199999999999
+  longitude: 80.23020000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00051
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 3: Document Version History'
+  address: Document Version History, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.040299999999998
+  longitude: 80.2303
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout
+- station_id: TN_CHE_PS00052
+  state: Tamil Nadu
+  state_code: TN
+  district: Chennai
+  district_code: CHE
+  name: 'Booth 2026: Next Review'
+  address: Next Review, Chennai, Tamil Nadu
+  assembly_constituency: Pending AC Audit
+  parliamentary_constituency: Unknown
+  latitude: 13.2426
+  longitude: 80.43260000000001
+  metadata:
+    data_source: state_CEO
+    confidence_score: 0.8
+    needs_update: true
+  accessibility:
+    wheelchair_ramp: 'no'
+    accessibility_rating: 2
+    notes: Verified via standard election roll layout

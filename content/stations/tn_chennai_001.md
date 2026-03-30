@@ -1,5 +1,5 @@
 ---
-date: '2026-03-27'
+date: '2026-03-30'
 description: Polling station at No.1047, Thiruvotriur High Road, Chennai - 600021
 extra:
   accessibility_rating: 4.5

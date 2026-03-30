@@ -31,7 +31,12 @@ def aggregate_kpis(log_dir: Path, days_back: int = 7):
                         continue
                         
                     if "kpi_name" in entry:
-                        stats[agent_name][entry["kpi_name"]].append({
+                        # Use agent_target from metadata if this is a cross-agent metric
+                        target_agent = agent_name
+                        if "data" in entry and isinstance(entry["data"], dict):
+                            target_agent = entry["data"].get("agent_target", agent_name)
+                            
+                        stats[target_agent][entry["kpi_name"]].append({
                             "value": entry["kpi_value"],
                             "unit": entry["kpi_unit"]
                         })

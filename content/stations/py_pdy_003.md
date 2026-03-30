@@ -1,5 +1,5 @@
 ---
-date: '2026-03-27'
+date: '2026-03-30'
 description: Polling station at Kamaraj Salai, Saram, Puducherry-605013
 extra:
   accessibility_rating: 2.5

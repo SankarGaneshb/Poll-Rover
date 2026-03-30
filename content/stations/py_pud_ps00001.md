@@ -1,38 +1,38 @@
 ---
-date: '2026-03-27'
-description: Polling station at Mahatma Gandhi Road, Puducherry
+date: '2026-03-30'
+description: Polling station at Heritage Town, Puducherry
 extra:
-  accessibility_rating: 0
-  assembly_constituency: Raj Bhavan
+  accessibility_rating: 2
+  assembly_constituency: Unknown
   audio_booth: false
   braille_materials: false
   district: Puducherry
-  latitude: 11.9
-  longitude: 79.8
+  latitude: 11.9338
+  longitude: 79.8297
   parliamentary_constituency: Unknown
   state: Puducherry
   station_id: PY_PUD_PS00001
   wheelchair_ramp: 'no'
 taxonomies:
   constituencies:
-  - Raj Bhavan
+  - Unknown
   districts:
   - Puducherry
   states:
   - Puducherry
 template: station.html
-title: Govt. Girls Higher Secondary School
+title: G.G.H.S, Pondicherry
 ---
 
-# Govt. Girls Higher Secondary School
+# G.G.H.S, Pondicherry
 
-📍 **Mahatma Gandhi Road, Puducherry**
+📍 **Heritage Town, Puducherry**
 
 
 ## Electoral Information
 | Field | Value |
 |-------|-------|
-| Assembly Constituency | Raj Bhavan |
+| Assembly Constituency | Unknown |
 | Parliamentary Constituency | Unknown |
 | Ward | N/A |
 | State | Puducherry |
@@ -47,7 +47,7 @@ title: Govt. Girls Higher Secondary School
 | Audio Booth | ❌ |
 | Braille Materials | ❌ |
 | Assistance Services | None |
-| Accessibility Rating |  (N/A/5) |
+| Accessibility Rating | ⭐⭐ (2/5) |
 | Crowding Level | N/A |
 
 ## Voting Details
@@ -69,4 +69,4 @@ title: Govt. Girls Higher Secondary School
 | Email | N/A |
 
 ---
-*Data confidence: 0.67 | Source: state_CEO*
+*Data confidence: 0.39 | Source: state_CEO*

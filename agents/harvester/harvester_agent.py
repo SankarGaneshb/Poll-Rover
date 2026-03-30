@@ -81,6 +81,7 @@ class DataHarvesterAgent:
             logger.info(f"Processing state: {state_code}")
             try:
                 # Step 1: Extract raw data from sources
+                state_start = time.time()
                 raw_entries = self._extract_from_sources(state_code)
                 report["stations_found"] += len(raw_entries)
 
@@ -96,6 +97,12 @@ class DataHarvesterAgent:
                 new_stations.extend(unique)
                 report["stations_added"] += len(unique)
                 report["states_processed"].append(state_code)
+
+                # Performance tracking per station
+                state_duration = time.time() - state_start
+                if len(raw_entries) > 0:
+                    time_per_station = round(state_duration / len(raw_entries), 3)
+                    log_kpi(logger, "time_per_station", time_per_station, unit="seconds", state=state_code)
 
                 logger.info(
                     f"  {state_code}: {len(raw_entries)} found → "

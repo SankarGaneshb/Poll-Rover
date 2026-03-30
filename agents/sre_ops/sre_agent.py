@@ -4,10 +4,12 @@ Monitors, diagnoses, and auto-remediates pipeline and deployment issues.
 Supports both fully autonomous and human-in-the-loop (HIL) modes.
 """
 
+import json
 import subprocess
 import sys
 import time
-from datetime import date, datetime
+import urllib.request
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -63,6 +65,9 @@ class SREOpsAgent:
                 "data_pipeline",
                 "agent_health",
                 "resource_usage",
+                "agent_logs",
+                "llm_health",
+                "cross_agent_kpis",
             ]
 
         report = {
@@ -80,6 +85,9 @@ class SREOpsAgent:
             "data_pipeline": self._check_data_pipeline,
             "agent_health": self._check_agent_health,
             "resource_usage": self._check_resource_usage,
+            "agent_logs": self._check_agent_logs,
+            "llm_health": self._check_llm_health,
+            "cross_agent_kpis": self._calculate_cross_agent_kpis,
         }
 
         for check_name in checks:
@@ -291,6 +299,125 @@ class SREOpsAgent:
         except ImportError:
             return {"status": "warning", "details": "psutil not installed, skipping resource check"}
 
+    def _check_agent_logs(self) -> dict:
+        """Scan recent ops logs for errors from other agents."""
+        logs_dir = Path(self._paths.get("ops_logs_dir", "ops_logs"))
+        if not logs_dir.exists():
+            return {"status": "ok", "details": "No ops logs to scan"}
+
+        issues = []
+        for log_file in logs_dir.glob("*.jsonl"):
+            try:
+                with open(log_file, "r", encoding="utf-8") as f:
+                    lines = f.readlines()
+                    # Check last 50 lines for ERROR or CRITICAL
+                    for line in lines[-50:]:
+                        entry = json.loads(line)
+                        if entry.get("level") in ("ERROR", "CRITICAL"):
+                            # Check if the error is recent (last 2 hours)
+                            ts_str = entry.get("timestamp", "")
+                            try:
+                                ts = datetime.fromisoformat(ts_str)
+                                if datetime.now(ts.tzinfo) - ts < timedelta(hours=24): # Increased to 24h to catch recent failures
+                                    issues.append(f"{log_file.stem}: {entry.get('message', 'Unknown error')}")
+                            except Exception:
+                                issues.append(f"{log_file.stem}: {entry.get('message', 'Unknown error')}")
+            except Exception as e:
+                logger.debug(f"Failed to scan {log_file}: {e}")
+
+        if issues:
+            return {
+                "status": "error",
+                "details": f"Found {len(issues)} recent agent runtime errors",
+                "incident": {
+                    "type": "agent_runtime_error",
+                    "severity": "high",
+                    "message": " | ".join(issues[:3]) + ("..." if len(issues) > 3 else ""),
+                    "playbook": "agent_error",
+                },
+            }
+
+        return {"status": "ok", "details": "No recent errors in ops logs"}
+
+    def _check_llm_health(self) -> dict:
+        """Ping the configured LLM to verify it is reachable."""
+        llm_config = self._config.get("llm", {}).get("primary", {})
+        if llm_config.get("provider") != "ollama":
+            return {"status": "ok", "details": "Using non-local LLM, skipping local health check"}
+
+        base_url = llm_config.get("base_url", "http://localhost:11434")
+        expected_model = llm_config.get("model", "llama3.2")
+        
+        try:
+            req = urllib.request.Request(f"{base_url}/api/tags")
+            with urllib.request.urlopen(req, timeout=5) as response:
+                tags_data = json.loads(response.read().decode())
+            
+            models = [m.get("name") for m in tags_data.get("models", [])]
+            if not any(expected_model in m for m in models):
+                return {
+                    "status": "error",
+                    "details": f"Configured model '{expected_model}' not found in Ollama",
+                    "incident": {
+                        "type": "llm_missing",
+                        "severity": "critical",
+                        "message": f"Ollama model '{expected_model}' missing. Available: {', '.join(models)}",
+                        "playbook": "llm_recovery",
+                    },
+                }
+            return {"status": "ok", "details": f"LLM healthy, {expected_model} is available"}
+        except Exception as e:
+            return {
+                "status": "error",
+                "details": f"Could not connect to Ollama at {base_url}: {e}",
+                "incident": {
+                    "type": "llm_service_down",
+                    "severity": "critical",
+                    "message": f"Ollama service down: {e}",
+                    "playbook": "llm_recovery",
+                },
+            }
+
+    def _calculate_cross_agent_kpis(self) -> dict:
+        """Evaluate KPIs based on cross-agent feedback from reports/logs."""
+        reports_dir = Path(self._paths.get("reports_dir", "reports"))
+        kpis_logged = 0
+
+        # 1. Harvest Quality KPI (Feedback from Quality agent)
+        try:
+            report_files = sorted(reports_dir.glob("quality_report_*.yml"))
+            if report_files:
+                with open(report_files[-1], "r", encoding="utf-8") as f:
+                    q_report = yaml.safe_load(f)
+                
+                audited = q_report.get("stations_audited", 0)
+                passed = q_report.get("passed", 0)
+                if audited > 0:
+                    quality_kpi = round((passed / audited) * 100, 2)
+                    from agents.common.logger import log_kpi
+                    log_kpi(logger, "harvest_quality_rate", quality_kpi, unit="percent", agent_target="harvester")
+                    kpis_logged += 1
+        except Exception as e:
+            logger.debug(f"Failed to calculate harvest_quality_rate: {e}")
+
+        # 2. LLM Reliability KPI
+        try:
+            llm_log = Path(self._paths.get("ops_logs_dir", "ops_logs")) / "llm_client.jsonl"
+            if llm_log.exists():
+                with open(llm_log, "r", encoding="utf-8") as f:
+                    lines = f.readlines()
+                errors = sum(1 for line in lines if "ERROR" in line or "WARNING" in line)
+                total = len(lines)
+                if total > 0:
+                    reliability = round(100 - ((errors / total) * 100), 2)
+                    from agents.common.logger import log_kpi
+                    log_kpi(logger, "llm_reliability", reliability, unit="percent", agent_target="llm_client")
+                    kpis_logged += 1
+        except Exception as e:
+            logger.debug(f"Failed to calculate llm_reliability: {e}")
+
+        return {"status": "ok", "details": f"Calculated and logged {kpis_logged} cross-agent KPIs"}
+
     # --- Remediation Engine ---
 
     def _should_remediate(self) -> bool:
@@ -330,6 +457,11 @@ class SREOpsAgent:
         elif playbook_name == "rate_limit":
             remediation["action"] = "applied_exponential_backoff"
             remediation["success"] = True
+
+        elif playbook_name == "llm_recovery":
+            success = self._remediate_llm_recovery(incident)
+            remediation["action"] = "updated_config_with_fallback_model"
+            remediation["success"] = success
 
         else:
             remediation["action"] = "no_playbook_matched"
@@ -372,6 +504,47 @@ class SREOpsAgent:
             return result.returncode == 0
         except Exception as e:
             logger.error(f"  Dependency install failed: {e}")
+            return False
+
+    def _remediate_llm_recovery(self, incident: dict) -> bool:
+        """Remediate missing LLM model by querying available local models and updating config."""
+        try:
+            llm_config = self._config.get("llm", {}).get("primary", {})
+            base_url = llm_config.get("base_url", "http://localhost:11434")
+            req = urllib.request.Request(f"{base_url}/api/tags")
+            with urllib.request.urlopen(req, timeout=5) as response:
+                tags_data = json.loads(response.read().decode())
+            
+            models = [m.get("name") for m in tags_data.get("models", [])]
+            if not models:
+                logger.error("  No Ollama models found locally to fallback to.")
+                return False
+            
+            fallback_model = models[0]
+            logger.info(f"  Attempting to fallback to {fallback_model}")
+            
+            config_path = Path("config.yml")
+            with open(config_path, "r", encoding="utf-8") as f:
+                content = f.read()
+            
+            current_model = llm_config.get("model", "llama3.2")
+            if f'model: "{current_model}"' in content:
+                content = content.replace(f'model: "{current_model}"', f'model: "{fallback_model}"')
+                with open(config_path, "w", encoding="utf-8") as f:
+                    f.write(content)
+            else:
+                config_data = yaml.safe_load(content)
+                if "llm" in config_data and "primary" in config_data["llm"]:
+                    config_data["llm"]["primary"]["model"] = fallback_model
+                with open(config_path, "w", encoding="utf-8") as f:
+                    yaml.dump(config_data, f, default_flow_style=False, sort_keys=False)
+            
+            logger.info(f"  Updated config.yml to use model: {fallback_model}")
+            if "llm" in self._config and "primary" in self._config["llm"]:
+                self._config["llm"]["primary"]["model"] = fallback_model
+            return True
+        except Exception as e:
+            logger.error(f"  LLM recovery failed: {e}")
             return False
 
     def _load_playbooks(self) -> dict:

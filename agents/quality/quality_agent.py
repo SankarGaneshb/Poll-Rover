@@ -45,6 +45,10 @@ class DataQualityAgent:
         self._paths = get_paths(self._config)
         self._staleness_days = self._agent_config.get("staleness_threshold_days", 90)
         self._confidence_weights = self._config.get("confidence", {})
+        
+        # Cross-agent validation (LLM based)
+        from agents.common.llm_client import LLMClient
+        self._llm = LLMClient()
 
     def run(self, fix_issues: bool = False) -> dict:
         """Execute the full data quality audit.
@@ -138,6 +142,17 @@ class DataQualityAgent:
             # --- Check 6: Confidence Score ---
             confidence = self._calculate_confidence(station)
             station_report["confidence_score"] = confidence
+            
+            # --- Check 7: LLM Cross-Reference (If confidence is low) ---
+            if confidence < 0.6:
+                cross_verified, cross_issue = self._llm_cross_verify(station)
+                if cross_issue:
+                    station_report["issues"].append(cross_issue)
+                    if cross_issue["severity"] == "error":
+                        report["errors"] += 1
+                    else:
+                        report["warnings"] += 1
+
             if fix_issues:
                 station_dict["metadata"]["confidence_score"] = confidence
                 station_dict["metadata"]["last_audit"] = date.today().isoformat()
@@ -155,6 +170,15 @@ class DataQualityAgent:
 
         # Write quality report
         self._write_report(report)
+
+        # Log summary KPIs
+        from agents.common.logger import log_kpi
+        if report["stations_audited"] > 0:
+            passed_rate = round((report["passed"] / report["stations_audited"]) * 100, 2)
+            log_kpi(logger, "audit_passed_rate", passed_rate, unit="percent")
+        
+        log_kpi(logger, "audit_errors", report["errors"], unit="count")
+        log_kpi(logger, "audit_warnings", report["warnings"], unit="count")
 
         logger.info(
             f"[Quality Audit] complete: {report['passed']}/{report['stations_audited']} passed, "
@@ -259,7 +283,44 @@ class DataQualityAgent:
                 "details": "5.0 rating but audio booth not available.",
             })
 
+        # Anomaly: Inconsistent address/district
+        if station.district.lower() not in station.address.lower():
+            anomalies.append({
+                "type": "address_mismatch",
+                "severity": "warning",
+                "details": f"District '{station.district}' not mentioned in address.",
+            })
+
         return anomalies
+
+    def _llm_cross_verify(self, station: PollingStation) -> Tuple[bool, Optional[dict]]:
+        """Use LLM to verify station data against common knowledge or specific patterns."""
+        prompt = f"""Review this polling station data for consistency and realism:
+Name: {station.name}
+Address: {station.address}
+District: {station.district}
+State: {station.state}
+Coordinates: ({station.latitude}, {station.longitude})
+
+Does this polling station likely exist at these coordinates? 
+Is the address consistent with the district and state?
+Respond with ONLY a JSON object: {{"consistent": true/false, "reason": "..."}}
+"""
+        try:
+            from agents.common.logger import log_kpi
+            response = self._llm.generate(prompt, temperature=0.0)
+            import json
+            result = json.loads(response)
+            
+            if not result.get("consistent", True):
+                return False, {
+                    "type": "llm_consistency_check",
+                    "severity": "warning",
+                    "details": result.get("reason", "LLM flagged data as inconsistent"),
+                }
+            return True, None
+        except Exception:
+            return True, None # Fallback to true if LLM fails
 
     def _calculate_confidence(self, station: PollingStation) -> float:
         """Calculate weighted confidence score.

@@ -23,7 +23,7 @@ pilot:
 llm:
   primary:
     provider: "ollama"
-    model: "llama3.2"
+    model: "gemma3:4b"
     base_url: "http://localhost:11434"
     timeout_seconds: 30
   fallback:

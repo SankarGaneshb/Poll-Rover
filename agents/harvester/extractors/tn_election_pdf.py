@@ -31,6 +31,8 @@ def extract_from_tn_pdf(pdf_path: str) -> List[dict]:
             "rating": 4 if "Ramp" in text else 2,
             "notes": "Verified via standard election roll layout"
         }
+        # Regex to find booth number and station name
+        matches = re.finditer(r"(\d+)\s+([A-Za-z][A-Za-z0-9\s\.,\-\'&\(\)]+)", text)
         
         for match in matches:
             booth_num = match.group(1)

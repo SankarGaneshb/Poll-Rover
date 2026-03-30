@@ -1,2 +1,18 @@
 {"timestamp": "2026-03-27T12:25:37.553213+05:30", "level": "WARNING", "agent": "llm_client", "message": "Ollama unavailable: model 'llama3.2' not found (status code: 404). Falling back to Gemini."}
 {"timestamp": "2026-03-27T12:25:45.355042+05:30", "level": "ERROR", "agent": "llm_client", "message": "Gemini also failed: GEMINI_API_KEY not set"}
+{"timestamp": "2026-03-30T14:53:30.983714+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (896 chars)"}
+{"timestamp": "2026-03-30T14:56:18.063507+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (896 chars)"}
+{"timestamp": "2026-03-30T14:56:47.774453+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (463 chars)"}
+{"timestamp": "2026-03-30T14:57:14.547172+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (392 chars)"}
+{"timestamp": "2026-03-30T14:57:34.824199+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (386 chars)"}
+{"timestamp": "2026-03-30T14:57:54.787007+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (402 chars)"}
+{"timestamp": "2026-03-30T14:58:16.091346+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (340 chars)"}
+{"timestamp": "2026-03-30T14:58:44.346620+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (422 chars)"}
+{"timestamp": "2026-03-30T14:59:12.259516+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (470 chars)"}
+{"timestamp": "2026-03-30T14:59:33.403789+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (436 chars)"}
+{"timestamp": "2026-03-30T14:59:57.917625+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (348 chars)"}
+{"timestamp": "2026-03-30T15:00:28.112457+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (401 chars)"}
+{"timestamp": "2026-03-30T15:00:48.569030+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (297 chars)"}
+{"timestamp": "2026-03-30T15:01:12.286241+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (517 chars)"}
+{"timestamp": "2026-03-30T15:01:34.300465+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (365 chars)"}
+{"timestamp": "2026-03-30T15:04:23.590503+05:30", "level": "DEBUG", "agent": "llm_client", "message": "Ollama responded (672 chars)"}

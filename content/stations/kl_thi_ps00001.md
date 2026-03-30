@@ -1,18 +1,18 @@
 ---
-date: '2026-03-27'
-description: Polling station at Trivandrum
+date: '2026-03-30'
+description: Polling station at Vanchiyoor, Thiruvananthapuram, Kerala
 extra:
-  accessibility_rating: 0
+  accessibility_rating: 5
   assembly_constituency: Unknown
   audio_booth: false
   braille_materials: false
   district: Thiruvananthapuram
-  latitude: 8.5
-  longitude: 76.9
+  latitude: 8.4905
+  longitude: 76.9412
   parliamentary_constituency: Unknown
   state: Kerala
   station_id: KL_THI_PS00001
-  wheelchair_ramp: 'no'
+  wheelchair_ramp: 'yes'
 taxonomies:
   constituencies:
   - Unknown
@@ -21,12 +21,12 @@ taxonomies:
   states:
   - Kerala
 template: station.html
-title: Vanchiyoor Govt LP School
+title: Vanchiyoor Govt LP School (Main Building)
 ---
 
-# Vanchiyoor Govt LP School
+# Vanchiyoor Govt LP School (Main Building)
 
-📍 **Trivandrum**
+📍 **Vanchiyoor, Thiruvananthapuram, Kerala**
 
 
 ## Electoral Information
@@ -38,16 +38,16 @@ title: Vanchiyoor Govt LP School
 | State | Kerala |
 | District | Thiruvananthapuram |
 
-## Accessibility Features 
+## Accessibility Features ♿ Wheelchair
 
 | Feature | Status |
 |---------|--------|
-| Wheelchair Ramp | ❌ Not Available |
+| Wheelchair Ramp | ✅ Available |
 | Accessible Parking | ❌ Not Available |
 | Audio Booth | ❌ |
 | Braille Materials | ❌ |
 | Assistance Services | None |
-| Accessibility Rating |  (N/A/5) |
+| Accessibility Rating | ⭐⭐⭐⭐⭐ (5/5) |
 | Crowding Level | N/A |
 
 ## Voting Details
@@ -69,4 +69,4 @@ title: Vanchiyoor Govt LP School
 | Email | N/A |
 
 ---
-*Data confidence: 0.67 | Source: state_CEO*
+*Data confidence: 0.42 | Source: state_CEO*

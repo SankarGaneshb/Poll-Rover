@@ -1,5 +1,5 @@
 ---
-date: '2026-03-27'
+date: '2026-03-30'
 description: Polling station at Nalanchira, Trivandrum, Kerala
 extra:
   accessibility_rating: 3.8
