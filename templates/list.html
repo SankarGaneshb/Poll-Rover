@@ -179,13 +179,160 @@
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
     }
+    
+    /* KPI Dashboard Styles */
+    .kpi-dashboard {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+    
+    .kpi-card {
+        background: var(--bg-glass);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        position: relative;
+        overflow: hidden;
+        transition: var(--transition);
+        backdrop-filter: blur(10px);
+    }
+    
+    .kpi-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-2px);
+    }
+    
+    .kpi-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; width: 4px; height: 100%;
+        background: var(--accent);
+    }
+    
+    .kpi-icon {
+        font-size: 2.2rem;
+        background: var(--bg-primary);
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 1px solid var(--border);
+    }
+    
+    .kpi-info h4 {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-weight: 600;
+    }
+    
+    .kpi-info .kpi-value {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin: 0.2rem 0;
+        font-family: 'Outfit', sans-serif;
+    }
+    
+    .kpi-info .kpi-label {
+        font-size: 0.85rem;
+        color: var(--accent);
+        font-weight: 500;
+    }
+    
+    .progress-circle {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .progress-inner {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--bg-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        z-index: 2;
+    }
 </style>
 
 <div style="padding: 2rem; max-width: 1200px; margin: 0 auto; padding-top: 80px; height: 100vh; overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none;">
-    <h1>{{ section.title }}</h1>
+    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+        <div>
+            <h1>{{ section.title }}</h1>
+            <div style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">
+                Live Intelligence Mesh Analytics & Data Integrity
+            </div>
+        </div>
+    </div>
+
+    <!-- Agent KPI Dashboard -->
+    {% set total_confidence = 0 %}
+    {% set stations_with_confidence = 0 %}
     
-    <div style="margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem;">
-        Data verified by Poll-Rover Quality Agent.
+    {% for page in section.pages %}
+        {% if page.extra.confidence_score %}
+            {% set total_confidence = total_confidence + page.extra.confidence_score %}
+            {% set stations_with_confidence = stations_with_confidence + 1 %}
+        {% endif %}
+    {% endfor %}
+    
+    {% if stations_with_confidence > 0 %}
+        {% set avg_confidence = (total_confidence / stations_with_confidence * 100) | round %}
+    {% else %}
+        {% set avg_confidence = 0 %}
+    {% endif %}
+
+    <div class="kpi-dashboard">
+        <!-- Card 1: Trust Score -->
+        <div class="kpi-card">
+            <div class="progress-circle" style="background: conic-gradient(var(--accent) {{ avg_confidence }}%, var(--border) 0deg);">
+                <div class="progress-inner">{{ avg_confidence }}%</div>
+            </div>
+            <div class="kpi-info">
+                <h4>Data Confidence</h4>
+                <div class="kpi-value" style="font-size: 1.6rem;">Quality Agent</div>
+                <div class="kpi-label">Average Trust Score</div>
+            </div>
+        </div>
+
+        <!-- Card 2: Stations Validated -->
+        <div class="kpi-card">
+            <div class="kpi-icon">🗳️</div>
+            <div class="kpi-info">
+                <h4>Total Stations</h4>
+                <div class="kpi-value">{{ section.pages | length }}</div>
+                <div class="kpi-label">Successfully Normalized</div>
+            </div>
+        </div>
+
+        <!-- Card 3: Community Feedback -->
+        <div class="kpi-card">
+            <div class="kpi-icon">💬</div>
+            <div class="kpi-info">
+                <h4>Community Reports</h4>
+                <div class="kpi-value" id="feedback-counter">0</div>
+                <div class="kpi-label">Human-in-the-loop Adjustments</div>
+            </div>
+        </div>
     </div>
 
     {% set pages_by_state = section.pages | group_by(attribute="extra.state") %}
@@ -362,8 +509,13 @@ function submitFeedback(event) {
     event.preventDefault();
     closeFeedbackModal();
     
-    // In the real system, this would POST to an API or trigger a GitHub Action Issue.
-    // For now, we simulate the Quality Agent acknowledging the report.
+    // Increment the community feedback KPI counter
+    const counterEl = document.getElementById('feedback-counter');
+    if (counterEl) {
+        counterEl.textContent = parseInt(counterEl.textContent || '0') + 1;
+    }
+    
+    // Simulate Quality Agent acknowledging the report
     const toast = document.getElementById("toast");
     toast.className = "toast show";
     setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
