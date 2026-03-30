@@ -169,3 +169,8 @@
 {"timestamp": "2026-03-30T15:04:24.122653+05:30", "level": "INFO", "agent": "llm_client", "message": "KPI: stations_added = 0 count", "data": null, "kpi_name": "stations_added", "kpi_value": 0, "kpi_unit": "count"}
 {"timestamp": "2026-03-30T15:04:24.122964+05:30", "level": "INFO", "agent": "llm_client", "message": "KPI: execution_time = 189.84 seconds", "data": null, "kpi_name": "execution_time", "kpi_value": 189.84, "kpi_unit": "seconds"}
 {"timestamp": "2026-03-30T15:04:24.123309+05:30", "level": "INFO", "agent": "llm_client", "message": "KPI: success_rate = 0.0 percent", "data": null, "kpi_name": "success_rate", "kpi_value": 0.0, "kpi_unit": "percent"}
+{"timestamp": "2026-03-30T19:50:47.753000+05:30", "level": "INFO", "agent": "llm_client", "message": "🕷️  Data Harvester Agent starting..."}
+{"timestamp": "2026-03-30T19:50:47.768635+05:30", "level": "INFO", "agent": "llm_client", "message": "Processing state: TN"}
+{"timestamp": "2026-03-30T19:50:47.768898+05:30", "level": "INFO", "agent": "llm_client", "message": "  Using specialized TN PDF extractor"}
+{"timestamp": "2026-03-30T19:50:47.769893+05:30", "level": "INFO", "agent": "llm_client", "message": "    Extracting from chennai_roll.pdf..."}
+{"timestamp": "2026-03-30T19:50:47.820195+05:30", "level": "INFO", "agent": "llm_client", "message": "    Extracting from Thanjavur_dt.pdf..."}

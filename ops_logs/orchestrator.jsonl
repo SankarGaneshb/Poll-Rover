@@ -63,3 +63,6 @@
 {"timestamp": "2026-03-30T15:39:49.892680+05:30", "level": "INFO", "agent": "llm_client", "message": "🏥 Stage 4: SRE Health Checks"}
 {"timestamp": "2026-03-30T15:39:52.446660+05:30", "level": "INFO", "agent": "llm_client", "message": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
 {"timestamp": "2026-03-30T15:39:52.447345+05:30", "level": "INFO", "agent": "llm_client", "message": "🎯 Pipeline complete in 2318.73s | Status: success"}
+{"timestamp": "2026-03-30T19:50:46.589852+05:30", "level": "INFO", "agent": "llm_client", "message": "🎯 Orchestrator starting pipeline..."}
+{"timestamp": "2026-03-30T19:50:46.590758+05:30", "level": "INFO", "agent": "llm_client", "message": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"timestamp": "2026-03-30T19:50:46.590903+05:30", "level": "INFO", "agent": "llm_client", "message": "📥 Stage 1: Data Harvesting"}

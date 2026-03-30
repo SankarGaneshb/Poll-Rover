@@ -163,10 +163,11 @@ class DataHarvesterAgent:
         # State-specific logic
         if state_code == "TN" and extract_from_tn_pdf:
             logger.info("  Using specialized TN PDF extractor")
-            # In a real run, we'd find the latest roll PDF path
-            pdf_path = Path(self._paths["data_dir"]) / "source_pdfs" / "TN" / "chennai_roll.pdf"
-            if pdf_path.exists():
-                all_entries.extend(extract_from_tn_pdf(str(pdf_path)))
+            pdf_dir = Path(self._paths["data_dir"]) / "source_pdfs" / "TN"
+            if pdf_dir.exists():
+                for pdf_file in pdf_dir.glob("*.pdf"):
+                    logger.info(f"    Extracting from {pdf_file.name}...")
+                    all_entries.extend(extract_from_tn_pdf(str(pdf_file)))
         
         elif state_code == "KL" and scrape_kl_web:
             logger.info("  Using specialized KL Web scraper")
@@ -253,8 +254,14 @@ Return ONLY valid YAML, no explanations. Use this format:
                 system_prompt=system_prompt,
                 temperature=0.1,
             )
+            # Clean markdown formatting if the LLM wrapped the response
+            clean_yaml = response.strip()
+            match = re.search(r"```(?:yaml)?(.*?)```", clean_yaml, re.DOTALL | re.IGNORECASE)
+            if match:
+                clean_yaml = match.group(1).strip()
+
             # Parse LLM YAML response
-            entries = yaml.safe_load(response)
+            entries = yaml.safe_load(clean_yaml)
             if isinstance(entries, list):
                 return entries
         except Exception as e:
