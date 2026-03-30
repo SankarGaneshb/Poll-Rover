@@ -46,11 +46,44 @@
     }
     .state-group {
         display: none;
-        margin-bottom: 3rem;
-        animation: fadeIn 0.4s ease-out;
+        .load-more-btn:hover {
+        background: var(--accent-glow);
+        border-style: solid;
+        transform: translateY(-2px);
     }
-    .state-group.active {
-        display: block;
+    .pagination-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border);
+    }
+    .page-btn {
+        padding: 0.5rem 1rem;
+        background: var(--bg-glass);
+        border: 1px solid var(--border);
+        color: var(--text-secondary);
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        font-weight: 600;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .page-btn:hover:not(:disabled) {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+    .page-btn:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+    .page-info {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        font-weight: 500;
     }
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(10px); }
@@ -93,7 +126,9 @@
             </thead>
             <tbody>
                 {% for page in state_pages %}
-                <tr class="station-row {% if loop.index > 5 %}hidden-row{% endif %}" style="border-bottom: 1px solid var(--border);">
+                <tr class="station-row" 
+                    data-index="{{ loop.index0 }}" 
+                    style="border-bottom: 1px solid var(--border); {% if loop.index > 10 %}display: none;{% endif %}">
                     <td style="padding: 1rem; color: var(--text-primary);">{{ page.title }}</td>
                     <td style="padding: 1rem;">{{ page.extra.assembly_constituency }}</td>
                     <td style="padding: 1rem;">
@@ -109,16 +144,25 @@
             </tbody>
         </table>
 
-        {% if state_pages | length > 5 %}
-        <button class="load-more-btn" onclick="showMoreStations(this, '{{ state | slugify }}')">
-            📂 Show {{ state_pages | length - 5 }} More Stations in {{ state }}
-        </button>
-        {% endif %}
+        <div class="pagination-bar">
+            <button class="page-btn prev-btn" disabled onclick="changePage('{{ state | slugify }}', -1)">
+                ⬅️ Previous
+            </button>
+            <span class="page-info">
+                Showing <span class="range">1-{% if state_pages | length < 10 %}{{ state_pages | length }}{% else %}10{% endif %}</span> of {{ state_pages | length }}
+            </span>
+            <button class="page-btn next-btn" {% if state_pages | length <= 10 %}disabled{% endif %} onclick="changePage('{{ state | slugify }}', 1)">
+                Next ➡️
+            </button>
+        </div>
     </div>
     {% endfor %}
 </div>
 
 <script>
+const PAGE_SIZE = 10;
+const statePaging = {};
+
 function switchStateTab(btn, stateId) {
     // Update tabs
     document.querySelectorAll('.state-tab').forEach(tab => tab.classList.remove('active'));
@@ -126,19 +170,38 @@ function switchStateTab(btn, stateId) {
 
     // Update visibility
     document.querySelectorAll('.state-group').forEach(group => group.classList.remove('active'));
-    document.getElementById('group-' + stateId).classList.add('active');
+    const targetGroup = document.getElementById('group-' + stateId);
+    targetGroup.classList.add('active');
+    
+    // Reset paging for this state if not exists
+    if (!statePaging[stateId]) statePaging[stateId] = 0;
 }
 
-function showMoreStations(btn, stateId) {
+function changePage(stateId, delta) {
     const group = document.getElementById('group-' + stateId);
-    const hiddenRows = group.querySelectorAll('.hidden-row');
+    if (!statePaging[stateId]) statePaging[stateId] = 0;
     
-    hiddenRows.forEach(row => {
-        row.classList.remove('hidden-row');
-        row.style.display = 'table-row';
+    const rows = group.querySelectorAll('.station-row');
+    const total = rows.length;
+    
+    statePaging[stateId] += delta;
+    const current = statePaging[stateId];
+    
+    const start = current * PAGE_SIZE;
+    const end = Math.min(start + PAGE_SIZE, total);
+    
+    // Toggle rows
+    rows.forEach((row, idx) => {
+        row.style.display = (idx >= start && idx < end) ? 'table-row' : 'none';
     });
     
-    btn.style.display = 'none';
+    // Update UI
+    group.querySelector('.range').textContent = `${start + 1}-${end}`;
+    group.querySelector('.prev-btn').disabled = current === 0;
+    group.querySelector('.next-btn').disabled = end >= total;
+    
+    // Scroll to top of table smoothly
+    group.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 </script>
 {% endblock content %}
