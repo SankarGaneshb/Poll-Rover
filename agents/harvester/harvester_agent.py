@@ -178,8 +178,10 @@ class DataHarvesterAgent:
             all_entries.extend(extract_from_py_pdf("puducherry_roll.pdf"))
 
         # Fallback 1: Multi-state generic PDF extraction (LLM based)
-        pdf_entries = self._extract_from_pdfs(state_code)
-        all_entries.extend(pdf_entries)
+        # Skip this expensive LLM call if specialized extractors already found data
+        if not all_entries:
+            pdf_entries = self._extract_from_pdfs(state_code)
+            all_entries.extend(pdf_entries)
 
         # Fallback 2: Multi-state generic web scraping
         web_entries = self._extract_from_web(state_code)
