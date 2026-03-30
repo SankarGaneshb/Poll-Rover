@@ -230,32 +230,54 @@ function locateMe() {
 function initSearch() {
   const searchInput = document.getElementById('station-search');
   const resultsBox = document.getElementById('search-results');
+  let currentLimit = 5;
 
   searchInput.addEventListener('input', (e) => {
-    const term = e.target.value.toLowerCase();
+    currentLimit = 5; // Reset limit on new search
+    renderResults(e.target.value.toLowerCase());
+  });
+
+  function renderResults(term) {
     if (!term) {
       resultsBox.classList.add('hidden');
       return;
     }
 
-    const matches = STATIONS.filter(s => 
+    const allMatches = STATIONS.filter(s => 
       s.name.toLowerCase().includes(term) || 
       s.station_id.toLowerCase().includes(term) ||
       s.address.toLowerCase().includes(term)
-    ).slice(0, 5);
+    );
+
+    const matches = allMatches.slice(0, currentLimit);
 
     if (matches.length > 0) {
-      resultsBox.innerHTML = matches.map(s => `
+      let html = matches.map(s => `
         <div class="search-item" onclick="selectSearchStation('${s.station_id}')">
           <span class="name">${s.name}</span>
           <span class="meta">${s.constituency} · ${s.state}</span>
         </div>
       `).join('');
+
+      if (allMatches.length > currentLimit) {
+        html += `
+          <div class="search-item show-more" onclick="event.stopPropagation(); loadMoreResults('${term.replace(/'/g, "\\'")}')">
+            <span class="name" style="color:var(--accent); text-align:center">⬇️ Show More (${allMatches.length - currentLimit} remaining)</span>
+          </div>
+        `;
+      }
+
+      resultsBox.innerHTML = html;
       resultsBox.classList.remove('hidden');
     } else {
       resultsBox.innerHTML = '<div class="search-item"><span class="name">No stations found</span></div>';
     }
-  });
+  }
+
+  window.loadMoreResults = (term) => {
+    currentLimit += 10;
+    renderResults(term);
+  };
 
   document.addEventListener('click', (e) => {
     if (!searchInput.contains(e.target) && !resultsBox.contains(e.target)) {

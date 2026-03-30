@@ -110,3 +110,22 @@
 {"timestamp": "2026-03-30T14:56:18.592570+05:30", "level": "WARNING", "agent": "llm_client", "message": "Schema error in PY_PDY_002: 4 issues", "station_id": "PY_PDY_002", "incident_type": "schema_validation_error", "action_taken": "none", "data": null}
 {"timestamp": "2026-03-30T14:56:18.592963+05:30", "level": "ERROR", "agent": "llm_client", "message": "Schema error in PY_PDY_003: 4 issues"}
 {"timestamp": "2026-03-30T14:56:18.593266+05:30", "level": "WARNING", "agent": "llm_client", "message": "Schema error in PY_PDY_003: 4 issues", "station_id": "PY_PDY_003", "incident_type": "schema_validation_error", "action_taken": "none", "data": null}
+{"timestamp": "2026-03-30T15:04:24.160825+05:30", "level": "INFO", "agent": "llm_client", "message": "[Quality Audit] Starting..."}
+{"timestamp": "2026-03-30T15:04:24.255313+05:30", "level": "ERROR", "agent": "llm_client", "message": "Schema error in TN_CHENNAI_001: 5 issues"}
+{"timestamp": "2026-03-30T15:04:24.255736+05:30", "level": "WARNING", "agent": "llm_client", "message": "Schema error in TN_CHENNAI_001: 5 issues", "station_id": "TN_CHENNAI_001", "incident_type": "schema_validation_error", "action_taken": "none", "data": null}
+{"timestamp": "2026-03-30T15:04:24.256408+05:30", "level": "ERROR", "agent": "llm_client", "message": "Schema error in TN_CHENNAI_002: 4 issues"}
+{"timestamp": "2026-03-30T15:04:24.256842+05:30", "level": "WARNING", "agent": "llm_client", "message": "Schema error in TN_CHENNAI_002: 4 issues", "station_id": "TN_CHENNAI_002", "incident_type": "schema_validation_error", "action_taken": "none", "data": null}
+{"timestamp": "2026-03-30T15:04:24.257290+05:30", "level": "ERROR", "agent": "llm_client", "message": "Schema error in TN_CHENNAI_010: 4 issues"}
+{"timestamp": "2026-03-30T15:04:24.257682+05:30", "level": "WARNING", "agent": "llm_client", "message": "Schema error in TN_CHENNAI_010: 4 issues", "station_id": "TN_CHENNAI_010", "incident_type": "schema_validation_error", "action_taken": "none", "data": null}
+{"timestamp": "2026-03-30T15:04:24.258086+05:30", "level": "ERROR", "agent": "llm_client", "message": "Schema error in KL_TVM_001: 4 issues"}
+{"timestamp": "2026-03-30T15:04:24.258337+05:30", "level": "WARNING", "agent": "llm_client", "message": "Schema error in KL_TVM_001: 4 issues", "station_id": "KL_TVM_001", "incident_type": "schema_validation_error", "action_taken": "none", "data": null}
+{"timestamp": "2026-03-30T15:04:24.258744+05:30", "level": "ERROR", "agent": "llm_client", "message": "Schema error in KL_TVM_004: 4 issues"}
+{"timestamp": "2026-03-30T15:04:24.259016+05:30", "level": "WARNING", "agent": "llm_client", "message": "Schema error in KL_TVM_004: 4 issues", "station_id": "KL_TVM_004", "incident_type": "schema_validation_error", "action_taken": "none", "data": null}
+{"timestamp": "2026-03-30T15:04:24.259417+05:30", "level": "ERROR", "agent": "llm_client", "message": "Schema error in KL_TVM_007: 4 issues"}
+{"timestamp": "2026-03-30T15:04:24.259682+05:30", "level": "WARNING", "agent": "llm_client", "message": "Schema error in KL_TVM_007: 4 issues", "station_id": "KL_TVM_007", "incident_type": "schema_validation_error", "action_taken": "none", "data": null}
+{"timestamp": "2026-03-30T15:04:24.260127+05:30", "level": "ERROR", "agent": "llm_client", "message": "Schema error in PY_PDY_001: 4 issues"}
+{"timestamp": "2026-03-30T15:04:24.260381+05:30", "level": "WARNING", "agent": "llm_client", "message": "Schema error in PY_PDY_001: 4 issues", "station_id": "PY_PDY_001", "incident_type": "schema_validation_error", "action_taken": "none", "data": null}
+{"timestamp": "2026-03-30T15:04:24.260742+05:30", "level": "ERROR", "agent": "llm_client", "message": "Schema error in PY_PDY_002: 4 issues"}
+{"timestamp": "2026-03-30T15:04:24.260945+05:30", "level": "WARNING", "agent": "llm_client", "message": "Schema error in PY_PDY_002: 4 issues", "station_id": "PY_PDY_002", "incident_type": "schema_validation_error", "action_taken": "none", "data": null}
+{"timestamp": "2026-03-30T15:04:24.261295+05:30", "level": "ERROR", "agent": "llm_client", "message": "Schema error in PY_PDY_003: 4 issues"}
+{"timestamp": "2026-03-30T15:04:24.261633+05:30", "level": "WARNING", "agent": "llm_client", "message": "Schema error in PY_PDY_003: 4 issues", "station_id": "PY_PDY_003", "incident_type": "schema_validation_error", "action_taken": "none", "data": null}
