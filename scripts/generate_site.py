@@ -20,8 +20,9 @@ def generate_site(states_dir: str, content_dir: str, dry_run: bool = False) -> d
     stations = []
     
     states_path = Path(states_dir)
-    for state_file in states_path.glob("*.yml"):
-        print(f"   Reading {state_file.name}...")
+    # Recursively find all YAML files in data/states/
+    for state_file in states_path.rglob("*.yml"):
+        print(f"   Reading {state_file.relative_to(states_path)}...")
         with open(state_file, "r", encoding="utf-8") as f:
             data = yaml.safe_load(f)
             stations.extend(data.get("polling_stations", []))
@@ -105,41 +106,34 @@ template: station.html
 
 
 def _generate_map_data(stations: list, data_dir: Path) -> None:
-    """Generate GeoJSON for the Leaflet.js map."""
-    data_dir.mkdir(parents=True, exist_ok=True)
-
+    """Generate a Lite GeoJSON for map visualization (<20MB goal)."""
     features = []
     for s in stations:
-        acc = s.get("accessibility", {})
-        
-        feature = {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [float(s.get("longitude", 0)), float(s.get("latitude", 0))],
-            },
-            "properties": {
+        lat = s.get("latitude")
+        lng = s.get("longitude")
+        if lat and lng:
+            acc = s.get("accessibility", {})
+            properties = {
                 "station_id": s["station_id"],
                 "name": s["name"],
-                "address": s["address"],
-                "constituency": s.get("assembly_constituency", ""),
-                "state": s["state"],
+                "district": s.get("district", "Unknown"),
+                "state": s.get("state", "Unknown"),
                 "accessibility_rating": acc.get("accessibility_rating", 0),
-                "wheelchair_ramp": acc.get("wheelchair_ramp", "no"),
-                "audio_booth": acc.get("audio_booth", False),
-                "braille_materials": acc.get("braille_materials", False),
-                # Add location info for dynamic lookup optimization
-                "loc_key": f"{s.get('state','').strip().lower().replace(' ', '_').replace('.', '')}/{s.get('district','').strip().lower().replace(' ', '_').replace('.', '')}"
-            },
-        }
-        features.append(feature)
-
+                "wheelchair_ramp": acc.get("wheelchair_ramp", "no") == 'yes',
+                "voting_date": s.get("election_details", {}).get("voting_date", "2026-04-23")
+            }
+            features.append({
+                "type": "Feature",
+                "geometry": {"type": "Point", "coordinates": [float(lng), float(lat)]},
+                "properties": properties
+            })
+    
     geojson = {"type": "FeatureCollection", "features": features}
-
-    with open(data_dir / "stations.geojson", "w", encoding="utf-8") as f:
-        json.dump(geojson, f, ensure_ascii=False, indent=2)
-
-    print(f"   [GEO]  Generated stations.geojson ({len(features)} stations)")
+    output_path = data_dir / "stations.geojson"
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(geojson, f, separators=(',', ':')) # Compact JSON
+    
+    print(f"   [GEO]  Generated Lite GeoJSON: {output_path} ({len(features)} stations)")
 
 
 def _generate_index_page(stations: list, content_path: Path) -> None:

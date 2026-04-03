@@ -39,16 +39,16 @@ Total: 73386 stations discovered.
 
 *Displaying 10 sample stations. Use the map or search to find others.*
 
-- [Sir. Thiyagaraya College (North Block 1st Room)](/stations/detail/?id=TN_CHENNAI_001&loc=tamil_nadu/chennai)
-- [Sir. Thiyagaraya College (North Block 2nd Room)](/stations/detail/?id=TN_CHENNAI_002&loc=tamil_nadu/chennai)
-- [Sir. Thiyagaraya Primary School](/stations/detail/?id=TN_CHENNAI_010&loc=tamil_nadu/chennai)
-- [Panchayat Union Primary School , North Building South Facing, Egumadurai -601201](/stations/detail/?id=TN_CHE_PS00001&loc=tamil_nadu/tamil_nadu)
-- [Panchayat Union Primary School South Building North Facing, Thokkamur -601201](/stations/detail/?id=TN_CHE_PS00002&loc=tamil_nadu/tamil_nadu)
-- [Panchayat Union Middle School , South Building North Facing, Lingappareddy Medu -601201](/stations/detail/?id=TN_CHE_PS00003&loc=tamil_nadu/tamil_nadu)
-- [Panchayat Union Primary School North Building South Facing, Arambakkam -601201](/stations/detail/?id=TN_CHE_PS00004&loc=tamil_nadu/tamil_nadu)
-- [Panchayat Union Primary School (West Building East Facing, Arambakkam -601201](/stations/detail/?id=TN_CHE_PS00005&loc=tamil_nadu/tamil_nadu)
-- [Panchayat Union Middle School East Building West Facing, (Room No.1) Notchikuppam -601201](/stations/detail/?id=TN_CHE_PS00006&loc=tamil_nadu/tamil_nadu)
-- [Panchayat Union Middle School East Building West Facing (Room No.2) Notchikuppam -601201](/stations/detail/?id=TN_CHE_PS00007&loc=tamil_nadu/tamil_nadu)
+- [Panchayat Union Middle School, Iluppaiyur, East West Terraced Building, Facing South](/stations/detail/?id=TN_CHE_PS46396&loc=tamil_nadu/ariyalur)
+- [Panchayat Union Elementary School, Poyyathanallur, Southern Building, Facing North, East Portion,](/stations/detail/?id=TN_CHE_PS46397&loc=tamil_nadu/ariyalur)
+- [Panchayat Union Elementary School, Poyyathanallur, East West Tiled Building, Facing North, South Portion,](/stations/detail/?id=TN_CHE_PS46398&loc=tamil_nadu/ariyalur)
+- [Panchayat Union Elementary School, Pottaveli, East West Tiled Building, Facing South,](/stations/detail/?id=TN_CHE_PS46399&loc=tamil_nadu/ariyalur)
+- [Panchayat Union Elementary School, Vellur, East West SSA Terraced Building Facing South, West Portion,](/stations/detail/?id=TN_CHE_PS46400&loc=tamil_nadu/ariyalur)
+- [Panchayat Union Elementary School, Vellur, East West SSA Terraced Building Facing South, East Portion,](/stations/detail/?id=TN_CHE_PS46401&loc=tamil_nadu/ariyalur)
+- [Panchayat Union Middle School, Athikudikadu, East West Terraced Building , Facing North, West Portion](/stations/detail/?id=TN_CHE_PS46402&loc=tamil_nadu/ariyalur)
+- [Panchayat Union Middle School, Athikudikadu. East West Terraced Building, Facing North, East Portion](/stations/detail/?id=TN_CHE_PS46403&loc=tamil_nadu/ariyalur)
+- [Panchayat Union Elementary School, Rayampuram, East West Terraced Building , Facing South, West Portion,](/stations/detail/?id=TN_CHE_PS46404&loc=tamil_nadu/ariyalur)
+- [Panchayat Union Elementary School, Rayampuram, East West Terraced Building , Facing South,](/stations/detail/?id=TN_CHE_PS46405&loc=tamil_nadu/ariyalur)
 
 ## West Bengal (4 stations)
 
