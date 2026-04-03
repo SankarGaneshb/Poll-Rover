@@ -271,3 +271,22 @@
 {"timestamp": "2026-03-30T20:30:49.890879+05:30", "level": "INFO", "agent": "llm_client", "message": "KPI: stations_added = 330 count", "data": null, "kpi_name": "stations_added", "kpi_value": 330, "kpi_unit": "count"}
 {"timestamp": "2026-03-30T20:30:49.891492+05:30", "level": "INFO", "agent": "llm_client", "message": "KPI: execution_time = 3.95 seconds", "data": null, "kpi_name": "execution_time", "kpi_value": 3.95, "kpi_unit": "seconds"}
 {"timestamp": "2026-03-30T20:30:49.892007+05:30", "level": "INFO", "agent": "llm_client", "message": "KPI: success_rate = 100.0 percent", "data": null, "kpi_name": "success_rate", "kpi_value": 100.0, "kpi_unit": "percent"}
+{"timestamp": "2026-04-01T14:40:19.590972+05:30", "level": "INFO", "agent": "llm_client", "message": "🕷️  Data Harvester Agent starting..."}
+{"timestamp": "2026-04-01T14:40:19.615274+05:30", "level": "INFO", "agent": "llm_client", "message": "Processing state: TN"}
+{"timestamp": "2026-04-01T14:40:19.615487+05:30", "level": "INFO", "agent": "llm_client", "message": "  Using specialized TN PDF extractor"}
+{"timestamp": "2026-04-01T14:40:19.616595+05:30", "level": "INFO", "agent": "llm_client", "message": "    Extracting from 230 Nagercoil Assembly Constituency.pdf..."}
+{"timestamp": "2026-04-01T14:40:25.594342+05:30", "level": "INFO", "agent": "llm_client", "message": "    Extracting from AC001.pdf..."}
+{"timestamp": "2026-04-01T14:40:32.695319+05:30", "level": "INFO", "agent": "llm_client", "message": "    Extracting from AC002.pdf..."}
+{"timestamp": "2026-04-01T14:40:40.309345+05:30", "level": "INFO", "agent": "llm_client", "message": "    Extracting from AC003.pdf..."}
+{"timestamp": "2026-04-01T14:40:51.977639+05:30", "level": "INFO", "agent": "llm_client", "message": "    Extracting from AC004.pdf..."}
+{"timestamp": "2026-04-01T14:41:02.711914+05:30", "level": "INFO", "agent": "llm_client", "message": "    Extracting from AC005.pdf..."}
+{"timestamp": "2026-04-01T14:41:15.454829+05:30", "level": "INFO", "agent": "llm_client", "message": "    Extracting from AC006.pdf..."}
+{"timestamp": "2026-04-01T15:06:12.597602+05:30", "level": "INFO", "agent": "llm_client", "message": "🕷️  Data Harvester Agent starting..."}
+{"timestamp": "2026-04-01T15:06:12.608129+05:30", "level": "INFO", "agent": "llm_client", "message": "Processing state: TN"}
+{"timestamp": "2026-04-01T15:06:12.608577+05:30", "level": "INFO", "agent": "llm_client", "message": "  Using specialized TN PDF extractor"}
+{"timestamp": "2026-04-01T15:06:12.609747+05:30", "level": "INFO", "agent": "llm_client", "message": "    Extracting from AC001.pdf..."}
+{"timestamp": "2026-04-01T15:06:19.382451+05:30", "level": "INFO", "agent": "llm_client", "message": "    Extracting from AC002.pdf..."}
+{"timestamp": "2026-04-01T15:06:26.503968+05:30", "level": "INFO", "agent": "llm_client", "message": "    Extracting from AC003.pdf..."}
+{"timestamp": "2026-04-01T15:06:37.360008+05:30", "level": "INFO", "agent": "llm_client", "message": "    Extracting from AC004.pdf..."}
+{"timestamp": "2026-04-01T15:06:48.143393+05:30", "level": "INFO", "agent": "llm_client", "message": "    Extracting from AC005.pdf..."}
+{"timestamp": "2026-04-01T15:06:59.607695+05:30", "level": "INFO", "agent": "llm_client", "message": "    Extracting from AC006.pdf..."}

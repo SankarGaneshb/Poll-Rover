@@ -86,7 +86,7 @@ class DataHarvesterAgent:
                 report["stations_found"] += len(raw_entries)
 
                 # Step 2: Normalize to schema
-                normalized = self._normalize_entries(raw_entries, state_code)
+                normalized = self._normalize_entries(raw_entries, state_code, existing_stations)
 
                 # Step 3: Geocode missing coordinates
                 geocoded = self._geocode_entries(normalized)
@@ -258,12 +258,22 @@ Return ONLY valid YAML, no explanations. Use this format:
             )
             # Clean markdown formatting if the LLM wrapped the response
             clean_yaml = response.strip()
-            match = re.search(r"```(?:yaml)?(.*?)```", clean_yaml, re.DOTALL | re.IGNORECASE)
+            # Try to find YAML block
+            match = re.search(r"```(?:yaml)?\s*(.*?)\s*```", clean_yaml, re.DOTALL | re.IGNORECASE)
             if match:
                 clean_yaml = match.group(1).strip()
+            else:
+                # If no code block, try to remove preamble/postscript if it looks like YAML list starts
+                if " - name:" in clean_yaml and not clean_yaml.startswith("- "):
+                    clean_yaml = clean_yaml[clean_yaml.find("- "):]
 
             # Parse LLM YAML response
-            entries = yaml.safe_load(clean_yaml)
+            try:
+                entries = yaml.safe_load(clean_yaml)
+            except yaml.YAMLError as ye:
+                logger.error(f"  YAML Parse Error: {ye}")
+                return []
+                
             if isinstance(entries, list):
                 return entries
         except Exception as e:
@@ -289,24 +299,38 @@ Return ONLY valid YAML, no explanations. Use this format:
         logger.debug(f"Web scraping for {state_code} from {url} (TODO: implement scraper)")
         return []
 
-    def _normalize_entries(self, raw_entries: List[dict], state_code: str) -> List[dict]:
+    def _normalize_entries(self, raw_entries: List[dict], state_code: str, existing_stations: List[dict] = None) -> List[dict]:
         """Normalize raw extracted data to match the PollingStation schema."""
         state_info = self._get_state_info(state_code)
         normalized = []
+        
+        # Determine starting sequence number to avoid collisions
+        district_code = state_info.get("district_code", state_code[:3])
+        current_seq = 0
+        if existing_stations:
+            prefix = f"{state_code}_{district_code}_PS"
+            for s in existing_stations:
+                if s["station_id"].startswith(prefix):
+                    try:
+                        seq = int(s["station_id"].replace(prefix, ""))
+                        current_seq = max(current_seq, seq)
+                    except ValueError:
+                        continue
 
         for i, entry in enumerate(raw_entries):
             try:
+                current_seq += 1
                 station_id = self._generate_station_id(
                     state_code,
-                    state_info.get("district_code", state_code[:3]),
-                    len(normalized) + 1,
+                    district_code,
+                    current_seq
                 )
                 normalized_entry = {
                     "station_id": station_id,
-                    "state": state_info.get("name", state_code),
-                    "state_code": state_code,
-                    "district": state_info.get("pilot_city", "Unknown"),
-                    "district_code": state_info.get("district_code", state_code[:3]),
+                    "state": entry.get("state", state_info.get("name", state_code)),
+                    "state_code": entry.get("state_code", state_code),
+                    "district": entry.get("district", state_info.get("pilot_city", "Unknown")),
+                    "district_code": entry.get("district_code", district_code),
                     "name": entry.get("name", "Unknown Station"),
                     "address": entry.get("address", "Address not available"),
                     "assembly_constituency": entry.get("assembly_constituency", "Unknown"),
@@ -314,25 +338,19 @@ Return ONLY valid YAML, no explanations. Use this format:
                     "latitude": entry.get("latitude", 0.0),
                     "longitude": entry.get("longitude", 0.0),
                     "metadata": {
-                        "data_source": "ECI_official"
-                        if entry.get("source") == "pdf"
-                        else "state_CEO",
-                        "confidence_score": 0.6,
+                        "data_source": entry.get("metadata", {}).get("data_source", "state_CEO"),
+                        "confidence_score": entry.get("metadata", {}).get("confidence_score") or entry.get("metadata", {}).get("confidence", 0.6),
                         "needs_update": True,
                     },
                 }
 
                 # Carry over any additional fields
-                for key in ["ward", "landmark", "pin_code", "number_of_booths", "estimated_voters", "accessibility"]:
+                for key in ["ward", "landmark", "pin_code", "number_of_booths", "estimated_voters", "accessibility", "locality", "building", "polling_areas"]:
                     if key in entry:
                         if key in ("number_of_booths", "estimated_voters"):
                             normalized_entry.setdefault("election_details", {})[key] = entry[key]
                         else:
                             normalized_entry[key] = entry[key]
-
-                # Update confidence if higher specificity is provided by extractor
-                if "metadata" in entry and "confidence" in entry["metadata"]:
-                    normalized_entry["metadata"]["confidence_score"] = entry["metadata"]["confidence"]
 
                 normalized.append(normalized_entry)
 

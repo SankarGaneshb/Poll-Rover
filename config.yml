@@ -12,12 +12,24 @@ pilot:
     - name: "Tamil Nadu"
       pilot_city: "Chennai"
       state_code: "TN"
+      election_date: "2026-04-23"
     - name: "Puducherry"
       pilot_city: "Puducherry"
       state_code: "PY"
+      election_date: "2026-04-09"
     - name: "Kerala"
       pilot_city: "Thiruvananthapuram"
       state_code: "KL"
+      election_date: "2026-04-09"
+    - name: "Assam"
+      pilot_city: "Guwahati"
+      state_code: "AS"
+      election_date: "2026-04-09"
+    - name: "West Bengal"
+      pilot_city: "Kolkata"
+      state_code: "WB"
+      election_date: ["2026-04-23", "2026-04-29"] # Multi-phase
+
 
 # --- LLM Configuration (Zero-Cost Strategy) ---
 llm:
@@ -44,6 +56,8 @@ data_sources:
       TN: "https://www.elections.tn.gov.in"
       KL: "https://www.ceo.kerala.gov.in"
       PY: "https://ceopuducherry.py.gov.in"
+      AS: "https://ceoassam.nic.in"
+      WB: "https://ceowestbengal.nic.in"
   openstreetmap:
     geocoder: "nominatim"
     base_url: "https://nominatim.openstreetmap.org"

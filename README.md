@@ -31,7 +31,7 @@ The Poll-Rover ecosystem is monitored via a suite of **Key Performance Indicator
 
 Poll-Rover operates on a sophisticated **5-agent autonomous pipeline** to ensure data reliability and voter support:
 
-1.  **🛰️ Harvester Agent**: Daily autonomous extraction of polling station data from ECI and State CEO portals (TN, KL, PY).
+1.  **🛰️ Harvester Agent**: Daily autonomous extraction of polling station data from ECI and State CEO portals (**TN, KL, PY, AS, WB**).
 2.  **🛡️ Quality Agent**: Runs post-harvest verification, cross-referencing coordinates with OpenStreetMap for 100% locational accuracy.
 3.  **🏥 SRE Ops Agent**: Automated health audits of the entire data mesh, ensuring zero stale entries and platform stability.
 4.  **🧑‍🤝‍🧑 Citizen Assist AI**: A multilingual (English, Tamil, Malayalam) support agent powered by localized LLMs (Ollama/Gemini) to answer voter queries instantly.

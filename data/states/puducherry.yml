@@ -1,0 +1,107 @@
+polling_stations:
+- accessibility:
+    accessibility_rating: 4.6
+    audio_booth: true
+    braille_materials: true
+    wheelchair_ramp: 'yes'
+  address: Middle Street, Vennila Nagar, Puducherry-605013
+  assembly_constituency: Nellithope
+  community_data: {}
+  contact: {}
+  district: Puducherry
+  election_details:
+    voting_date: '2026-04-09'
+  latitude: 11.9322
+  longitude: 79.8145
+  metadata: {}
+  name: Govt. Primary School, Vennila Nagar
+  state: Puducherry
+  station_id: PY_PDY_001
+- accessibility:
+    accessibility_rating: 4.1
+    audio_booth: false
+    braille_materials: true
+    wheelchair_ramp: 'yes'
+  address: First Main Road, Sathya Nagar (East), Puducherry-605013
+  assembly_constituency: Nellithope
+  community_data: {}
+  contact: {}
+  district: Puducherry
+  election_details:
+    voting_date: '2026-04-09'
+  latitude: 11.9355
+  longitude: 79.8188
+  metadata: {}
+  name: Aditya Vidyashram
+  state: Puducherry
+  station_id: PY_PDY_002
+- accessibility:
+    accessibility_rating: 2.5
+    audio_booth: false
+    braille_materials: false
+    wheelchair_ramp: 'no'
+  address: Kamaraj Salai, Saram, Puducherry-605013
+  assembly_constituency: Nellithope
+  community_data: {}
+  contact: {}
+  district: Puducherry
+  election_details:
+    voting_date: '2026-04-09'
+  latitude: 11.9311
+  longitude: 79.8095
+  metadata: {}
+  name: Planning and Research Dept.
+  state: Puducherry
+  station_id: PY_PDY_003
+- accessibility:
+    accessibility_rating: 2
+    notes: Heritage building - limited access
+    wheelchair_ramp: 'no'
+  address: Heritage Town, Puducherry
+  assembly_constituency: Unknown
+  district: Puducherry
+  district_code: PUD
+  latitude: 11.9338
+  longitude: 79.8297
+  metadata:
+    confidence_score: 0.69
+    data_source: state_CEO
+    last_audit: '2026-03-30'
+    needs_update: true
+  name: G.G.H.S, Pondicherry
+  parliamentary_constituency: Unknown
+  state: Puducherry
+  state_code: PY
+  station_id: PY_PUD_PS00001
+- station_id: PY_PY_001
+  name: Government Girls High School, Mission Street
+  state: Puducherry
+  district: Puducherry
+  assembly_constituency: Raj Bhavan
+  address: Mission Street, Puducherry - 605001
+  latitude: 11.9345
+  longitude: 79.8301
+  election_details:
+    voting_date: '2026-04-09'
+  metadata:
+    data_source: source_pdfs/PY/PY_PS.pdf
+    confidence_score: 0.98
+  accessibility:
+    accessibility_rating: 5
+    wheelchair_ramp: 'yes'
+- station_id: PY_PY_001
+  name: Government Girls High School, Mission Street
+  state: Puducherry
+  district: Puducherry
+  assembly_constituency: Raj Bhavan
+  address: Mission Street, Puducherry - 605001
+  latitude: 11.9345
+  longitude: 79.8301
+  election_details:
+    voting_date: '2026-04-09'
+  metadata:
+    data_source: source_pdfs/PY/PY_PS.pdf
+    confidence_score: 0.98
+  accessibility:
+    accessibility_rating: 5
+    wheelchair_ramp: 'yes'

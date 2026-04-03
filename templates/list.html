@@ -278,62 +278,9 @@
     <div style="display: flex; justify-content: space-between; align-items: flex-end;">
         <div>
             <h1>{{ section.title }}</h1>
-            <div style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">
-                Live Intelligence Mesh Analytics & Data Integrity
-            </div>
         </div>
     </div>
 
-    <!-- Agent KPI Dashboard -->
-    {% set total_confidence = 0 %}
-    {% set stations_with_confidence = 0 %}
-    
-    {% for page in section.pages %}
-        {% if page.extra.confidence_score %}
-            {% set total_confidence = total_confidence + page.extra.confidence_score %}
-            {% set stations_with_confidence = stations_with_confidence + 1 %}
-        {% endif %}
-    {% endfor %}
-    
-    {% if stations_with_confidence > 0 %}
-        {% set avg_confidence = (total_confidence / stations_with_confidence * 100) | round %}
-    {% else %}
-        {% set avg_confidence = 0 %}
-    {% endif %}
-
-    <div class="kpi-dashboard">
-        <!-- Card 1: Trust Score -->
-        <div class="kpi-card">
-            <div class="progress-circle" style="background: conic-gradient(var(--accent) {{ avg_confidence }}%, var(--border) 0deg);">
-                <div class="progress-inner">{{ avg_confidence }}%</div>
-            </div>
-            <div class="kpi-info">
-                <h4>Data Confidence</h4>
-                <div class="kpi-value" style="font-size: 1.6rem;">Quality Agent</div>
-                <div class="kpi-label">Average Trust Score</div>
-            </div>
-        </div>
-
-        <!-- Card 2: Stations Validated -->
-        <div class="kpi-card">
-            <div class="kpi-icon">🗳️</div>
-            <div class="kpi-info">
-                <h4>Total Stations</h4>
-                <div class="kpi-value">{{ section.pages | length }}</div>
-                <div class="kpi-label">Successfully Normalized</div>
-            </div>
-        </div>
-
-        <!-- Card 3: Community Feedback -->
-        <div class="kpi-card">
-            <div class="kpi-icon">💬</div>
-            <div class="kpi-info">
-                <h4>Community Reports</h4>
-                <div class="kpi-value" id="feedback-counter">0</div>
-                <div class="kpi-label">Human-in-the-loop Adjustments</div>
-            </div>
-        </div>
-    </div>
 
     {% set pages_by_state = section.pages | group_by(attribute="extra.state") %}
     
@@ -375,13 +322,6 @@
                     </td>
                     <td style="padding: 1rem; display: flex; gap: 0.8rem; align-items: center;">
                         <a href="{{ page.permalink }}" style="color: var(--accent); text-decoration: none; font-weight: 600;">View Detail →</a>
-                        <button class="feedback-btn" 
-                                data-station-name="{{ page.title }}" 
-                                data-station-id="{{ page.extra.station_id | default(value='') }}" 
-                                onclick="openFeedbackModal(this)" 
-                                title="Provide feedback for the Quality Agent">
-                            💬 Feedback
-                        </button>
                     </td>
                 </tr>
                 {% endfor %}
@@ -403,130 +343,4 @@
     {% endfor %}
 </div>
 
-<!-- Feedback Modal -->
-<div id="feedbackModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeFeedbackModal()">&times;</span>
-        <h3 style="margin-top:0; color:var(--text-primary); font-family: 'Outfit', sans-serif;">Provide Station Feedback</h3>
-        <p style="color:var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">
-            Your feedback builds trust! Help the <strong style="color:var(--accent);">Quality Agent</strong> validate data for:
-            <br><span id="feedbackStationName" style="color:var(--text-primary); font-weight:600;"></span>
-        </p>
-        <form id="feedbackForm" onsubmit="submitFeedback(event)">
-            <input type="hidden" id="feedbackStationId">
-            <div style="margin-bottom: 1rem;">
-                <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Feedback Type</label>
-                <select id="issueType" class="form-input" required>
-                    <option value="">Select feedback type...</option>
-                    <optgroup label="✅ Positive Validations">
-                        <option value="perfect">⭐ All Data is 100% Correct</option>
-                        <option value="good_access">🤝 Great Accessibility Info</option>
-                    </optgroup>
-                    <optgroup label="🚩 Anomaly Reports">
-                        <option value="location">📍 Incorrect Address or Map Location</option>
-                        <option value="accessibility">♿ Inaccurate Accessibility Rating</option>
-                        <option value="nonexistent">🚫 Station Does Not Exist Here</option>
-                        <option value="name">✍️ Station Name Misspelled</option>
-                        <option value="other">❓ Other Issue / Suggestion</option>
-                    </optgroup>
-                </select>
-            </div>
-            <div style="margin-bottom: 1.5rem;">
-                <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Additional Details (Optional)</label>
-                <textarea id="issueDetails" class="form-input" rows="4" placeholder="Any additional notes for the Quality Agent..."></textarea>
-            </div>
-            <button type="submit" class="page-btn" style="width: 100%; justify-content: center; background: var(--accent); color: white; border: none; padding: 1rem;">
-                Submit Feedback
-            </button>
-        </form>
-    </div>
-</div>
-
-<div id="toast" class="toast">✅ Saved! The Quality Agent appreciates your input.</div>
-
-<script>
-const PAGE_SIZE = 10;
-const statePaging = {};
-
-function switchStateTab(btn, stateId) {
-    // Update tabs
-    document.querySelectorAll('.state-tab').forEach(tab => tab.classList.remove('active'));
-    btn.classList.add('active');
-
-    // Update visibility
-    document.querySelectorAll('.state-group').forEach(group => group.classList.remove('active'));
-    const targetGroup = document.getElementById('group-' + stateId);
-    targetGroup.classList.add('active');
-    
-    // Reset paging for this state if not exists
-    if (!statePaging[stateId]) statePaging[stateId] = 0;
-}
-
-function changePage(stateId, delta) {
-    const group = document.getElementById('group-' + stateId);
-    if (!statePaging[stateId]) statePaging[stateId] = 0;
-    
-    const rows = group.querySelectorAll('.station-row');
-    const total = rows.length;
-    
-    statePaging[stateId] += delta;
-    const current = statePaging[stateId];
-    
-    const start = current * PAGE_SIZE;
-    const end = Math.min(start + PAGE_SIZE, total);
-    
-    // Toggle rows
-    rows.forEach((row, idx) => {
-        row.style.display = (idx >= start && idx < end) ? 'table-row' : 'none';
-    });
-    
-    // Update UI
-    group.querySelector('.range').textContent = `${start + 1}-${end}`;
-    group.querySelector('.prev-btn').disabled = current === 0;
-    group.querySelector('.next-btn').disabled = end >= total;
-    
-    // Scroll to top of table smoothly
-    group.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-// Feedback Modal Logic
-function openFeedbackModal(btn) {
-    const stationName = btn.getAttribute('data-station-name');
-    const stationId = btn.getAttribute('data-station-id');
-    
-    document.getElementById('feedbackStationName').textContent = stationName;
-    document.getElementById('feedbackStationId').value = stationId;
-    document.getElementById('issueType').value = '';
-    document.getElementById('issueDetails').value = '';
-    document.getElementById('feedbackModal').style.display = 'block';
-}
-
-function closeFeedbackModal() {
-    document.getElementById('feedbackModal').style.display = 'none';
-}
-
-function submitFeedback(event) {
-    event.preventDefault();
-    closeFeedbackModal();
-    
-    // Increment the community feedback KPI counter
-    const counterEl = document.getElementById('feedback-counter');
-    if (counterEl) {
-        counterEl.textContent = parseInt(counterEl.textContent || '0') + 1;
-    }
-    
-    // Simulate Quality Agent acknowledging the report
-    const toast = document.getElementById("toast");
-    toast.className = "toast show";
-    setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
-}
-
-// Close modal if user clicks outside of it
-window.onclick = function(event) {
-    const modal = document.getElementById('feedbackModal');
-    if (event.target == modal) {
-        closeFeedbackModal();
-    }
-}
-</script>
 {% endblock content %}

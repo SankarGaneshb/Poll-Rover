@@ -9,6 +9,11 @@
     <!-- Leaflet.js -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- MarkerCluster -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ get_url(path='css/index.css') }}">
@@ -46,36 +51,25 @@
         <div class="header-stats">
             <div class="stat-pill">
                 <span>🏫</span>
-                <span id="station-count" class="value">0</span>
-                <span>Stations</span>
-            </div>
-            <div class="stat-pill">
-                <span>🗺️</span>
-                <span id="state-count" class="value">0</span>
-                <span>States</span>
+                <span id="station-count" class="value">73,378</span>
+                <span>Polling Stations</span>
             </div>
             <div class="stat-pill">
                 <span>📅</span>
                 <span class="value">May 10</span>
                 <span>Voting Day</span>
             </div>
-            <div class="stat-pill">
-              <span>🤖</span>
-              <span class="value">5</span>
-              <span>AI Agents</span>
-            </div>
         </div>
 
         <div class="header-actions">
-            <button class="action-btn help-trigger" onclick="openHelp()" title="Intelligence Mesh Guide">
+            <button class="action-btn help-trigger" onclick="openHelp()" title="How to use Poll-Rover">
                 <span class="icon">❓</span>
                 <span class="label">Help</span>
             </button>
             <button class="action-btn theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Switch Theme">
                 🌓
             </button>
-            <a href="{{ get_url(path='stations') }}" class="btn-header">📋 List</a>
-            <a href="{{ config.extra.github_url }}" target="_blank" class="btn-header">⭐ GH</a>
+            <a href="{{ get_url(path='stations') }}" class="btn-header">📋 Booths List</a>
         </div>
     </header>
 
@@ -120,14 +114,13 @@
     </div>
     {% endif %}
 
-    <!-- INTELLIGENCE MESH MODAL -->
+    <!-- HELP MODAL -->
     <div id="help-modal" class="modal hidden">
       <div class="modal-overlay" onclick="closeHelp()"></div>
       <div class="modal-container">
         <div class="modal-header">
           <div class="mesh-branding">
-            <span class="mesh-icon">🧠</span>
-            <span>INTELLIGENCE MESH</span>
+            <span>HOW TO USE POLL-ROVER</span>
           </div>
           <button class="close-modal" onclick="closeHelp()">✕</button>
         </div>

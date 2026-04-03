@@ -22,11 +22,11 @@ taxonomies = [
 project_name = "Poll-Rover"
 election_year = 2026
 author = "ooru.space"
-github_url = "https://github.com/ooru-space/poll-rover"
+github_url = "https://github.com/SankarGaneshb/Poll-Rover"
 
 # Pilot regions
-pilot_states = ["Tamil Nadu", "Puducherry", "Kerala"]
-pilot_cities = ["Chennai", "Puducherry", "Thiruvananthapuram"]
+pilot_states = ["Tamil Nadu", "Puducherry", "Kerala", "Assam", "West Bengal"]
+pilot_cities = ["Chennai", "Puducherry", "Thiruvananthapuram", "Guwahati", "Kolkata"]
 
 # Chat widget settings
 chat_enabled = true

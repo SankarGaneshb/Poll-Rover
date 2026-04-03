@@ -5,14 +5,14 @@
 let map;
 let tileLayer;
 let STATIONS = [];
-let markers = [];
+let markers = null; // Changed to cluster group
 let currentTheme = localStorage.getItem('theme') || 'dark';
 
 const HELP_STEPS = [
   {
     icon: "🏗️",
-    title: "The Agentic Pipeline",
-    text: "Poll-Rover is powered by 5 autonomous agents (Harvester, Quality, SRE, Citizen Assist, and Orchestrator) working daily to ensure data accuracy."
+    title: "Project Poll-Rover",
+    text: "Poll-Rover is a civic initiative to help voters find their booths. Our data is extracted directly from official Election Commission records."
   },
   {
     icon: "🧭",
@@ -138,8 +138,15 @@ async function initMap() {
 }
 
 function updateMap() {
-  markers.forEach(m => map.removeLayer(m));
-  markers = [];
+  if (markers) {
+    map.removeLayer(markers);
+  }
+  markers = L.markerClusterGroup({
+    chunkedLoading: true,
+    spiderfyOnMaxZoom: true,
+    showCoverageOnHover: false,
+    zoomToBoundsOnClick: true
+  });
 
   const filtered = STATIONS.filter(s => {
     if (activeFilters.wheelchair && !s.accessibility.wheelchair_ramp) return false;
@@ -194,16 +201,15 @@ function updateMap() {
     `;
 
     marker.bindPopup(popupContent);
-    markers.push(marker);
+    markers.addLayer(marker);
   });
+
+  map.addLayer(markers);
 }
 
 function updateStats() {
   const stationCount = STATIONS.length;
-  const stateCount = [...new Set(STATIONS.map(s => s.state))].length;
-  
-  document.getElementById('station-count').innerText = stationCount;
-  document.getElementById('state-count').innerText = stateCount;
+  document.getElementById('station-count').innerText = stationCount.toLocaleString();
 }
 
 function toggleFilter(type, value) {
