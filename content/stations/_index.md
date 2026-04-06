@@ -6,7 +6,7 @@ title: All Polling Stations
 
 # All Polling Stations
 
-Total: 73386 stations discovered.
+Total: 74718 stations discovered.
 
 ## Assam (2 stations)
 
@@ -35,20 +35,20 @@ Total: 73386 stations discovered.
 - [Government Girls High School, Mission Street](/stations/detail/?id=PY_PY_001&loc=puducherry/puducherry)
 - [Government Girls High School, Mission Street](/stations/detail/?id=PY_PY_001&loc=puducherry/puducherry)
 
-## Tamil Nadu (73370 stations)
+## Tamil Nadu (74702 stations)
 
 *Displaying 10 sample stations. Use the map or search to find others.*
 
-- [Panchayat Union Middle School, Iluppaiyur, East West Terraced Building, Facing South](/stations/detail/?id=TN_CHE_PS46396&loc=tamil_nadu/ariyalur)
-- [Panchayat Union Elementary School, Poyyathanallur, Southern Building, Facing North, East Portion,](/stations/detail/?id=TN_CHE_PS46397&loc=tamil_nadu/ariyalur)
-- [Panchayat Union Elementary School, Poyyathanallur, East West Tiled Building, Facing North, South Portion,](/stations/detail/?id=TN_CHE_PS46398&loc=tamil_nadu/ariyalur)
-- [Panchayat Union Elementary School, Pottaveli, East West Tiled Building, Facing South,](/stations/detail/?id=TN_CHE_PS46399&loc=tamil_nadu/ariyalur)
-- [Panchayat Union Elementary School, Vellur, East West SSA Terraced Building Facing South, West Portion,](/stations/detail/?id=TN_CHE_PS46400&loc=tamil_nadu/ariyalur)
-- [Panchayat Union Elementary School, Vellur, East West SSA Terraced Building Facing South, East Portion,](/stations/detail/?id=TN_CHE_PS46401&loc=tamil_nadu/ariyalur)
-- [Panchayat Union Middle School, Athikudikadu, East West Terraced Building , Facing North, West Portion](/stations/detail/?id=TN_CHE_PS46402&loc=tamil_nadu/ariyalur)
-- [Panchayat Union Middle School, Athikudikadu. East West Terraced Building, Facing North, East Portion](/stations/detail/?id=TN_CHE_PS46403&loc=tamil_nadu/ariyalur)
-- [Panchayat Union Elementary School, Rayampuram, East West Terraced Building , Facing South, West Portion,](/stations/detail/?id=TN_CHE_PS46404&loc=tamil_nadu/ariyalur)
-- [Panchayat Union Elementary School, Rayampuram, East West Terraced Building , Facing South,](/stations/detail/?id=TN_CHE_PS46405&loc=tamil_nadu/ariyalur)
+- [Siluvathur Panchayat Union Primary School, West Facing East Moulding Building, Pethayagoundanpatti - 624306 12 Siluvathur](/stations/detail/?id=TN_ARI_PS00011&loc=tamil_nadu/ariyalur)
+- [Siluvathur Panchayat Union Elementary School, South Facing West Side New Building, Siluvathur - 624306 9 Vanga manuthu](/stations/detail/?id=TN_ARI_PS00012&loc=tamil_nadu/ariyalur)
+- [Vanga manuthu Hindu Aided Primary School, Kothapulipatti - 624306 Page 2 of 47](/stations/detail/?id=TN_ARI_PS00009&loc=tamil_nadu/ariyalur)
+- [Rajakkapatti Anganwadi Center, Bommayagoundan Patti - 624304 46 Thethampatti Panchayat Union Elementary School,](/stations/detail/?id=TN_ARI_PS00049&loc=tamil_nadu/ariyalur)
+- [Thethampatti Panchayat Union Elementary School, Thethampatti - 624306 47 Ragalapuram Panchayat Union Elementary School, North](/stations/detail/?id=TN_ARI_PS00046&loc=tamil_nadu/ariyalur)
+- [Vathala Thoppampatti Panchayat Union Elementary School, Tiled Building, Vathalathoppampatti - 624306 45 Vathala Thoppampatti Panchayat Union Elementary School, East](/stations/detail/?id=TN_ARI_PS00043&loc=tamil_nadu/ariyalur)
+- [Thottanoothu Panchayat Union Elementary School, Balamarathupatti - 624003 61 Thottanoothu ST.Antoniar Primary School, West Building](/stations/detail/?id=TN_ARI_PS00065&loc=tamil_nadu/ariyalur)
+- [Thottanoothu ST.Joseph Elementary School, Middle Portion, Irandelaparai - 624003 68 Thottanoothu Panchayat Union Elementary School, East](/stations/detail/?id=TN_ARI_PS00070&loc=tamil_nadu/ariyalur)
+- [Adianoothu Panchayat Union Elementary School, South Facing RCC Building, Thomaiyarpuram - 624002 80 Adianoothu](/stations/detail/?id=TN_ARI_PS00083&loc=tamil_nadu/ariyalur)
+- [Adianoothu Panchayat Union Elementaray School, East Facing Building, Kolrampatti - 624003 81 Adianoothu Panchayat Union Elementary School, South](/stations/detail/?id=TN_ARI_PS00080&loc=tamil_nadu/ariyalur)
 
 ## West Bengal (4 stations)
 
