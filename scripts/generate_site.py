@@ -106,32 +106,30 @@ template: station.html
 
 
 def _generate_map_data(stations: list, data_dir: Path) -> None:
-    """Generate a Lite GeoJSON for map visualization (<20MB goal)."""
+    """Generate a Lite GeoJSON for map visualization."""
     features = []
+    
     for s in stations:
         lat = s.get("latitude")
         lng = s.get("longitude")
         if lat and lng:
             acc = s.get("accessibility", {})
             properties = {
-                "station_id": s["station_id"],
-                "name": s["name"],
-                "district": s.get("district", "Unknown"),
-                "state": s.get("state", "Unknown"),
-                "accessibility_rating": acc.get("accessibility_rating", 0),
-                "wheelchair_ramp": acc.get("wheelchair_ramp", "no") == 'yes',
-                "voting_date": s.get("election_details", {}).get("voting_date", "2026-04-23")
+                "id": s["station_id"],
+                "n": s.get("name", "Unknown"),
+                "ar": round(acc.get("accessibility_rating", 0), 1),
+                "wr": 1 if acc.get("wheelchair_ramp", "no") == 'yes' else 0,
             }
             features.append({
                 "type": "Feature",
-                "geometry": {"type": "Point", "coordinates": [float(lng), float(lat)]},
+                "geometry": {"type": "Point", "coordinates": [round(float(lng), 4), round(float(lat), 4)]},
                 "properties": properties
             })
-    
-    geojson = {"type": "FeatureCollection", "features": features}
+            
+    # Write feature mapping in minified JSON arrays directly
     output_path = data_dir / "stations.geojson"
     with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(geojson, f, separators=(',', ':')) # Compact JSON
+        json.dump({"type": "FeatureCollection", "features": features}, f, separators=(',', ':'))
     
     print(f"   [GEO]  Generated Lite GeoJSON: {output_path} ({len(features)} stations)")
 

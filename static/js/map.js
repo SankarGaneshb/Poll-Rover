@@ -109,25 +109,25 @@ async function initMap() {
       const p = f.properties || {};
       const g = f.geometry || { coordinates: [0, 0] };
       return {
-        station_id: p.station_id || "unknown",
-        name: p.name || "Unknown Station",
-        address: p.address || "No address provided",
-        landmark: p.landmark || "N/A",
-        constituency: p.constituency || "Unknown",
-        district: p.district || "Unknown",
-        state: p.state || "Unknown",
+        station_id: p.id || "unknown",
+        name: p.n || "Unknown Station",
+        address: "Address details loaded dynamically...", 
+        landmark: "N/A",
+        constituency: p.c || "Unknown",
+        district: p.d || "Unknown",
+        state: p.s || "Unknown",
         lat: g.coordinates[1],
         lng: g.coordinates[0],
         accessibility: {
-          rating: p.accessibility_rating || 0,
-          wheelchair_ramp: p.wheelchair_ramp || false,
-          audio_booth: p.audio_booth || false,
-          braille_materials: p.braille_materials || false
+          rating: p.ar || 0,
+          wheelchair_ramp: p.wr === 1,
+          audio_booth: false, // Omitted to save space
+          braille_materials: false // Omitted to save space
         },
-        voting_date: p.voting_date || "May 10, 2026",
+        voting_date: "April-May, 2026", // Global default to drop size
         meta: {
-          confidence: p.confidence_score || 0.8,
-          last_verified: p.last_verified || "2024-03-27"
+          confidence: 0.9,
+          last_verified: "2024-03-27"
         }
       };
   });
