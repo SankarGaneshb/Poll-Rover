@@ -69,11 +69,44 @@ async function initMap() {
     const response = await fetch('data/summary.json');
     const summary = await response.json();
     renderDiscoveryMarkers(summary);
+    
+    // Auto-locate and load proximate data
+    map.locate({ setView: true, maxZoom: 12 });
+    map.on('locationfound', (e) => {
+        const userLatLng = e.latlng;
+        autoLoadNearbyDistricts(userLatLng, summary);
+    });
   } catch (e) {
     console.error("Failed to load discovery summary:", e);
   }
 
   initSearch();
+}
+
+function autoLoadNearbyDistricts(userLatLng, summary) {
+    const districts = [];
+    Object.keys(summary.states).forEach(stateKey => {
+        const state = summary.states[stateKey];
+        Object.keys(state.districts).forEach(distKey => {
+            const dist = state.districts[distKey];
+            const distance = map.distance(userLatLng, [dist.lat, dist.lng]);
+            districts.push({ 
+                stateKey, 
+                distKey, 
+                distance: distance / 1000 // to KM
+            });
+        });
+    });
+
+    // Closest 3 districts (usually covers 50-70km radius)
+    districts.sort((a, b) => a.distance - b.distance);
+    const nearby = districts.slice(0, 3);
+    
+    nearby.forEach(d => {
+        if (d.distance < 100) { // Limit to 100km to avoid over-fetching
+            loadDistrictData(d.stateKey, d.distKey);
+        }
+    });
 }
 
 function renderDiscoveryMarkers(summary) {
@@ -164,19 +197,24 @@ async function initSearch() {
   const resultsBox = document.getElementById('search-results');
   if (!searchInput) return;
 
-  searchInput.addEventListener('focus', async () => {
-    if (SEARCH_INDEX.length === 0) {
-        try {
-            const resp = await fetch('data/search_index.json');
-            SEARCH_INDEX = await resp.json();
-        } catch (e) { console.error("Search index fail", e); }
-    }
-  });
-
-  searchInput.addEventListener('input', (e) => {
+  searchInput.addEventListener('input', async (e) => {
     const term = e.target.value.toLowerCase();
     if (!term) { resultsBox.classList.add('hidden'); return; }
     
+    // Defer 16MB index load until first character is typed
+    if (SEARCH_INDEX.length === 0) {
+        resultsBox.innerHTML = '<div class="search-item">Initializing search...</div>';
+        resultsBox.classList.remove('hidden');
+        try {
+            const resp = await fetch('data/search_index.json');
+            SEARCH_INDEX = await resp.json();
+        } catch (e) { 
+            console.error("Search index fail", e); 
+            resultsBox.innerHTML = '<div class="search-item">Search unavailable</div>';
+            return;
+        }
+    }
+
     const matches = SEARCH_INDEX.filter(s => 
         s[1].toLowerCase().includes(term) || s[0].toLowerCase().includes(term)
     ).slice(0, 10);
