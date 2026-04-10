@@ -42,10 +42,11 @@ def generate_site(states_dir: str, content_dir: str, dry_run: bool = False) -> d
         # 2. Generate a single dynamic detail page shell
         _generate_detail_shell(content_path)
 
-    # 3. Generate index page and GeoJSON
+    # 3. Generate Optimized Discovery and Search Index
     if not dry_run:
         _generate_index_page(stations, content_path)
-        _generate_map_data(stations, Path("static/data"))
+        _generate_discovery_data(stations, Path("static/data"))
+        _generate_search_index(stations, Path("static/data"))
 
     print(f"\n{'=' * 50}")
     print(f"Successfully processed {len(stations)} stations.")
@@ -76,8 +77,9 @@ def _generate_json_chunks(stations: list, data_dir: Path) -> None:
         
         for district, district_stations in districts.items():
             file_path = state_path / f"{district}.json"
+            # Optimization: Use compact separators to save bandwidth
             with open(file_path, "w", encoding="utf-8") as f:
-                json.dump(district_stations, f, ensure_ascii=False, indent=2)
+                json.dump(district_stations, f, ensure_ascii=False, separators=(',', ':'))
             print(f"   [JSON] {state}/{district}.json ({len(district_stations)} stations)")
             count += 1
     print(f"Generated {count} partitioned JSON files.")
@@ -105,33 +107,66 @@ template: station.html
     print(f"   [MD]   Created dynamic shell: {content_path / 'detail.md'}")
 
 
-def _generate_map_data(stations: list, data_dir: Path) -> None:
-    """Generate a Lite GeoJSON for map visualization."""
-    features = []
+def _generate_discovery_data(stations: list, data_dir: Path) -> None:
+    """Generate a lightweight discovery JSON (State and District centroids)."""
+    summary = {"states": {}}
     
     for s in stations:
+        state = s.get("state", "Unknown")
+        state_key = state.strip().lower().replace(" ", "_").replace(".", "")
+        district = s.get("district", "Unknown")
+        dist_key = district.strip().lower().replace(" ", "_").replace(".", "")
         lat = s.get("latitude")
         lng = s.get("longitude")
-        if lat and lng:
-            acc = s.get("accessibility", {})
-            properties = {
-                "id": s["station_id"],
-                "n": s.get("name", "Unknown"),
-                "ar": round(acc.get("accessibility_rating", 0), 1),
-                "wr": 1 if acc.get("wheelchair_ramp", "no") == 'yes' else 0,
-            }
-            features.append({
-                "type": "Feature",
-                "geometry": {"type": "Point", "coordinates": [round(float(lng), 4), round(float(lat), 4)]},
-                "properties": properties
-            })
+        
+        if not lat or not lng: continue
+        
+        if state_key not in summary["states"]:
+            summary["states"][state_key] = {"name": state, "districts": {}, "count": 0}
             
-    # Write feature mapping in minified JSON arrays directly
-    output_path = data_dir / "stations.geojson"
+        st = summary["states"][state_key]
+        st["count"] += 1
+        
+        if dist_key not in st["districts"]:
+            st["districts"][dist_key] = {"name": district, "count": 0, "lat_sum": 0, "lng_sum": 0}
+            
+        d = st["districts"][dist_key]
+        d["count"] += 1
+        d["lat_sum"] += float(lat)
+        d["lng_sum"] += float(lng)
+
+    # Finalize centroids
+    for state in summary["states"].values():
+        for dist in state["districts"].values():
+            dist["lat"] = round(dist["lat_sum"] / dist["count"], 4)
+            dist["lng"] = round(dist["lng_sum"] / dist["count"], 4)
+            del dist["lat_sum"]
+            del dist["lng_sum"]
+
+    output_path = data_dir / "summary.json"
     with open(output_path, "w", encoding="utf-8") as f:
-        json.dump({"type": "FeatureCollection", "features": features}, f, separators=(',', ':'))
-    
-    print(f"   [GEO]  Generated Lite GeoJSON: {output_path} ({len(features)} stations)")
+        json.dump(summary, f, separators=(',', ':'))
+    print(f"   [JSON] Created discovery summary: {output_path}")
+
+
+def _generate_search_index(stations: list, data_dir: Path) -> None:
+    """Generate a lightweight index for global search."""
+    # Structure: [[id, name, state_key, dist_key], ...]
+    index = []
+    for s in stations:
+        state_key = s.get("state", "Unknown").strip().lower().replace(" ", "_").replace(".", "")
+        dist_key = s.get("district", "Unknown").strip().lower().replace(" ", "_").replace(".", "")
+        index.append([
+            s["station_id"],
+            s["name"],
+            state_key,
+            dist_key
+        ])
+        
+    output_path = data_dir / "search_index.json"
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(index, f, separators=(',', ':'))
+    print(f"   [JSON] Created search index: {output_path} ({len(index)} entries)")
 
 
 def _generate_index_page(stations: list, content_path: Path) -> None:
