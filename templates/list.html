@@ -2,345 +2,217 @@
 
 {% block content %}
 <style>
-    /* Hide scrollbars but keep functionality */
-    html {
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none;  /* IE/Edge */
-    }
-    html::-webkit-scrollbar {
-        display: none; /* Chrome/Safari */
-    }
-    body {
-        overflow: hidden;
-    }
-    .state-tabs {
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 2rem;
-        padding: 0.5rem;
-        background: var(--bg-glass);
-        border-radius: var(--radius-md);
-        border: 1px solid var(--border);
-        overflow-x: auto;
-        scrollbar-width: none;
-    }
-    .state-tab {
-        padding: 0.8rem 1.5rem;
-        background: transparent;
-        border: 1px solid transparent;
-        color: var(--text-secondary);
-        border-radius: var(--radius-sm);
-        cursor: pointer;
-        font-weight: 600;
-        transition: var(--transition);
-        white-space: nowrap;
-    }
-    .state-tab:hover {
-        background: var(--accent-glow);
-        color: var(--accent);
-    }
-    .state-tab.active {
-        background: var(--accent);
-        color: white;
-        box-shadow: var(--shadow-sm);
-    }
-    .state-group {
-        display: none;
-    }
-    .state-group.active {
-        display: block;
-    }
-    .load-more-btn:hover {
-        background: var(--accent-glow);
-        border-style: solid;
-        transform: translateY(-2px);
-    }
-    .pagination-bar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: 1.5rem;
-        padding-top: 1rem;
-        border-top: 1px solid var(--border);
-    }
-    .page-btn {
-        padding: 0.5rem 1rem;
-        background: var(--bg-glass);
-        border: 1px solid var(--border);
-        color: var(--text-secondary);
-        border-radius: var(--radius-sm);
-        cursor: pointer;
-        font-weight: 600;
-        transition: var(--transition);
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-    .page-btn:hover:not(:disabled) {
-        border-color: var(--accent);
-        color: var(--accent);
-    }
-    .page-btn:disabled {
-        opacity: 0.3;
-        cursor: not-allowed;
-    }
-    .page-info {
-        font-size: 0.85rem;
-        color: var(--text-muted);
-        font-weight: 500;
-    }
-    .feedback-btn {
-        background: transparent;
-        border: 1px solid var(--border);
-        color: var(--text-muted);
-        padding: 0.3rem 0.6rem;
-        border-radius: var(--radius-sm);
-        cursor: pointer;
-        font-size: 0.8rem;
-        transition: var(--transition);
-        white-space: nowrap;
-    }
-    .feedback-btn:hover {
-        background: var(--bg-glass);
-        color: var(--accent);
-        border-color: var(--accent);
-    }
-    /* Modal Styles */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0.6);
-        backdrop-filter: blur(4px);
-    }
-    .modal-content {
-        background: var(--bg-primary);
-        margin: 10% auto;
+    .directory-container {
         padding: 2rem;
-        border: 1px solid var(--border);
-        border-top: 4px solid var(--accent);
-        border-radius: var(--radius-lg);
-        width: 90%;
-        max-width: 500px;
-        position: relative;
-        animation: slideIn 0.3s ease-out;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding-top: 100px;
+        min-height: 100vh;
     }
-    .close-btn {
-        position: absolute;
-        right: 1.5rem;
-        top: 1.2rem;
-        font-size: 1.5rem;
-        cursor: pointer;
-        color: var(--text-muted);
-        transition: 0.2s;
-    }
-    .close-btn:hover { color: var(--accent); }
-    .form-input {
-        width: 100%;
-        padding: 0.8rem;
-        background: var(--bg-glass);
-        border: 1px solid var(--border);
-        color: var(--text-primary);
-        border-radius: var(--radius-sm);
-        font-family: inherit;
-    }
-    .form-input:focus {
-        outline: none;
-        border-color: var(--accent);
-    }
-    .toast {
-        visibility: hidden;
-        min-width: 250px;
-        background-color: var(--accent);
-        color: #fff;
+    .dir-header {
+        margin-bottom: 3rem;
         text-align: center;
-        border-radius: var(--radius-sm);
-        padding: 1rem;
-        position: fixed;
-        z-index: 1001;
-        left: 50%;
-        bottom: 30px;
-        transform: translateX(-50%);
-        box-shadow: var(--shadow-md);
-        font-weight: 600;
     }
-    .toast.show {
-        visibility: visible;
-        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    .search-wrap {
+        position: relative;
+        max-width: 600px;
+        margin: 2rem auto;
     }
-    @keyframes slideIn { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-    @keyframes fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
-    @keyframes fadeout { from { bottom: 30px; opacity: 1; } to { bottom: 0; opacity: 0; } }
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* KPI Dashboard Styles */
-    .kpi-dashboard {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-        margin: 2rem 0;
-    }
-    
-    .kpi-card {
+    #dir-search {
+        width: 100%;
+        padding: 1.2rem 1.5rem;
         background: var(--bg-glass);
         border: 1px solid var(--border);
         border-radius: var(--radius-lg);
-        padding: 1.5rem;
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        position: relative;
-        overflow: hidden;
+        color: var(--text-primary);
+        font-size: 1.1rem;
         transition: var(--transition);
-        backdrop-filter: blur(10px);
     }
-    
-    .kpi-card:hover {
+    #dir-search:focus {
         border-color: var(--accent);
-        transform: translateY(-2px);
+        box-shadow: 0 0 15px var(--accent-glow);
+        outline: none;
     }
-    
-    .kpi-card::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; width: 4px; height: 100%;
-        background: var(--accent);
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
     }
-    
-    .kpi-icon {
-        font-size: 2.2rem;
-        background: var(--bg-primary);
-        width: 60px;
-        height: 60px;
+    .dir-card {
+        background: var(--bg-glass);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        padding: 1.5rem;
+        cursor: pointer;
+        transition: var(--transition);
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        justify-content: center;
-        border-radius: 50%;
+    }
+    .dir-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-3px);
+    }
+    .dir-card .info h3 { margin: 0; font-size: 1.2rem; }
+    .dir-card .info p { margin: 0.3rem 0 0; color: var(--text-muted); font-size: 0.9rem; }
+    .count-badge {
+        background: var(--accent-glow);
+        color: var(--accent);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-weight: 700;
+        font-size: 0.85rem;
+    }
+    .results-list {
+        background: var(--bg-glass);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
         border: 1px solid var(--border);
     }
-    
-    .kpi-info h4 {
-        margin: 0;
+    .station-item {
+        padding: 1.2rem;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+    }
+    .station-item:hover { background: rgba(0,0,0,0.1); }
+    .station-item .details h4 { margin: 0; color: var(--text-primary); }
+    .station-item .details p { margin: 0.2rem 0; font-size: 0.85rem; color: var(--text-muted); }
+    .loading-spinner {
+        text-align: center;
+        padding: 3rem;
         color: var(--text-muted);
-        font-size: 0.85rem;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        font-weight: 600;
-    }
-    
-    .kpi-info .kpi-value {
-        font-size: 2rem;
-        font-weight: 800;
-        color: var(--text-primary);
-        margin: 0.2rem 0;
-        font-family: 'Outfit', sans-serif;
-    }
-    
-    .kpi-info .kpi-label {
-        font-size: 0.85rem;
-        color: var(--accent);
-        font-weight: 500;
-    }
-    
-    .progress-circle {
-        position: relative;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .progress-inner {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background: var(--bg-primary);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 700;
-        font-size: 1.1rem;
-        color: var(--text-primary);
-        z-index: 2;
     }
 </style>
 
-<div style="padding: 2rem; max-width: 1200px; margin: 0 auto; padding-top: 80px; height: 100vh; overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none;">
-    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-        <div>
-            <h1>{{ section.title }}</h1>
-        </div>
+<div class="directory-container">
+    <div class="dir-header">
+        <h1>Polling Station Directory</h1>
+        <p>Browse 73,000+ booths across India or use the search below.</p>
     </div>
 
-
-    {% set pages_by_state = section.pages | group_by(attribute="extra.state") %}
-    
-    <div class="state-tabs">
-        {% for state, state_pages in pages_by_state %}
-        <button class="state-tab {% if state == 'Tamil Nadu' %}active{% endif %}" onclick="switchStateTab(this, '{{ state | slugify }}')">
-            {{ state }} ({{ state_pages | length }})
-        </button>
-        {% endfor %}
+    <div class="search-wrap">
+        <input type="text" id="dir-search" placeholder="Search by name, ID or locality..." autocomplete="off">
+        <div id="dir-results" class="hidden"></div>
     </div>
-    
-    {% for state, state_pages in pages_by_state %}
-    <div class="state-group {% if state == 'Tamil Nadu' %}active{% endif %}" id="group-{{ state | slugify }}">
-        <div class="state-header" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--accent);">
-            <h2>{{ state }}</h2>
-            <span class="state-badge">{{ state_pages | length }} Stations</span>
-        </div>
 
-        <table class="station-table">
-            <thead>
-                <tr style="border-bottom: 1px solid var(--border); text-align: left;">
-                    <th style="padding: 1rem;">Station Name</th>
-                    <th style="padding: 1rem;">Constituency</th>
-                    <th style="padding: 1rem;">Accessibility</th>
-                    <th style="padding: 1rem;">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for page in state_pages %}
-                <tr class="station-row" 
-                    data-index="{{ loop.index0 }}" 
-                    style="border-bottom: 1px solid var(--border); {% if loop.index > 10 %}display: none;{% endif %}">
-                    <td style="padding: 1rem; color: var(--text-primary);">{{ page.title }}</td>
-                    <td style="padding: 1rem;">{{ page.extra.assembly_constituency }}</td>
-                    <td style="padding: 1rem;">
-                        <span class="access-badge {% if page.extra.accessibility_rating >= 4.0 %}available{% elif page.extra.accessibility_rating >= 2.5 %}partial{% else %}unavailable{% endif %}">
-                            ⭐ {{ page.extra.accessibility_rating }}
-                        </span>
-                    </td>
-                    <td style="padding: 1rem; display: flex; gap: 0.8rem; align-items: center;">
-                        <a href="{{ page.permalink }}" style="color: var(--accent); text-decoration: none; font-weight: 600;">View Detail →</a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-
-        <div class="pagination-bar">
-            <button class="page-btn prev-btn" disabled onclick="changePage('{{ state | slugify }}', -1)">
-                ⬅️ Previous
-            </button>
-            <span class="page-info">
-                Showing <span class="range">1-{% if state_pages | length < 10 %}{{ state_pages | length }}{% else %}10{% endif %}</span> of {{ state_pages | length }}
-            </span>
-            <button class="page-btn next-btn" {% if state_pages | length <= 10 %}disabled{% endif %} onclick="changePage('{{ state | slugify }}', 1)">
-                Next ➡️
-            </button>
-        </div>
+    <div id="dir-root">
+         <div class="loading-spinner">Initializing directory...</div>
     </div>
-    {% endfor %}
 </div>
 
+<script>
+    let SUMMARY = null;
+    let SEARCH_INDEX = [];
+
+    async function initDirectory() {
+        try {
+            const resp = await fetch('/data/summary.json');
+            SUMMARY = await resp.json();
+            
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    renderNearby(position.coords);
+                }, () => {
+                    renderStates();
+                });
+            } else {
+                renderStates();
+            }
+        } catch (e) { console.error("Directory init failed", e); }
+
+        const input = document.getElementById('dir-search');
+        input.addEventListener('input', handleSearch);
+    }
+
+    async function renderNearby(coords) {
+        const root = document.getElementById('dir-root');
+        root.innerHTML = '<h2>Stations Near You</h2><div class="loading-spinner">Locating stations within 50km...</div>';
+        const districts = [];
+        Object.keys(SUMMARY.states).forEach(stateKey => {
+            const state = SUMMARY.states[stateKey];
+            Object.keys(state.districts).forEach(distKey => {
+                const dist = state.districts[distKey];
+                const d = getDist(coords.latitude, coords.longitude, dist.lat, dist.lng);
+                districts.push({ stateKey, distKey, dist: d, name: dist.name });
+            });
+        });
+        districts.sort((a, b) => a.dist - b.dist);
+        const closest = districts[0];
+        if (closest && closest.dist < 100) await viewDistrict(closest.stateKey, closest.distKey, true);
+        else renderStates();
+    }
+
+    function getDist(lat1, lon1, lat2, lon2) {
+        const R = 6371;
+        const dLat = (lat2 - lat1) * Math.PI / 180;
+        const dLon = (lon2 - lon1) * Math.PI / 180;
+        const a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLon/2) * Math.sin(dLon/2);
+        return R * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)));
+    }
+
+    function renderStates() {
+        const root = document.getElementById('dir-root');
+        let html = '<div style="display:flex; justify-content:space-between; align-items:center"><h2>Browse by State</h2><button onclick="renderProximityManual()" style="background:none; border:none; color:var(--accent); cursor:pointer; font-weight:700">📍 Use My Location</button></div><div class="grid-container">';
+        Object.keys(SUMMARY.states).forEach(key => {
+            const state = SUMMARY.states[key];
+            html += `<div class="dir-card" onclick="renderDistricts('${key}')"><div class="info"><h3>${state.name}</h3><p>${Object.keys(state.districts).length} Districts</p></div><span class="count-badge">${state.count} Booths</span></div>`;
+        });
+        root.innerHTML = html + '</div>';
+    }
+
+    function renderDistricts(stateKey) {
+        const root = document.getElementById('dir-root');
+        const state = SUMMARY.states[stateKey];
+        let html = `<button onclick="renderStates()" style="color:var(--accent); cursor:pointer; font-weight:700; margin-bottom:1rem; border:none; background:none">← Back to States</button><h2>Districts in ${state.name}</h2><div class="grid-container">`;
+        Object.keys(state.districts).forEach(distKey => {
+            const dist = state.districts[distKey];
+            html += `<div class="dir-card" onclick="viewDistrict('${stateKey}', '${distKey}')"><div class="info"><h3>${dist.name}</h3><p>Locality Directory</p></div><span class="count-badge">${dist.count}</span></div>`;
+        });
+        root.innerHTML = html + '</div>';
+    }
+
+    function renderProximityManual() { navigator.geolocation.getCurrentPosition(position => renderNearby(position.coords)); }
+
+    async function viewDistrict(stateKey, distKey, isNearby = false) {
+        const root = document.getElementById('dir-root');
+        const state = SUMMARY.states[stateKey];
+        const distName = state.districts[distKey].name;
+        root.innerHTML = '<div class="loading-spinner">Loading district booths...</div>';
+        try {
+            const resp = await fetch(`/data/stations/${stateKey}/${distKey}.json`);
+            const stations = await resp.json();
+            let html = `<button onclick="${isNearby ? 'renderStates()' : `renderDistricts('${stateKey}')`}" style="color:var(--accent); cursor:pointer; font-weight:700; margin-bottom:1rem; border:none; background:none">← Back</button><h2>${isNearby ? '📍 Stations Near You' : 'Polling Stations'} in ${distName}</h2><div class="results-list">`;
+            stations.forEach(s => {
+                html += `<a href="/stations/detail/?id=${s.station_id}&loc=${stateKey}/${distKey}" class="station-item"><div class="details"><h4>${s.name}</h4><p>${s.assembly_constituency || 'General'} · ID: ${s.station_id}</p></div><span style="color:var(--accent)">View →</span></a>`;
+            });
+            root.innerHTML = html + '</div>';
+        } catch (e) { root.innerHTML = '<p>Failed to load district data.</p>'; }
+    }
+
+    async function handleSearch(e) {
+        const term = e.target.value.toLowerCase();
+        const root = document.getElementById('dir-root');
+        if (!term) { renderStates(); return; }
+        if (SEARCH_INDEX.length === 0) {
+            root.innerHTML = '<div class="loading-spinner">Fetching global index...</div>';
+            try {
+                const resp = await fetch('/data/search_index.json');
+                SEARCH_INDEX = await resp.json();
+            } catch (e) { return; }
+        }
+        const matches = SEARCH_INDEX.filter(s => s[1].toLowerCase().includes(term) || s[0].toLowerCase().includes(term)).slice(0, 50);
+        let html = `<h2>Search Results (${matches.length})</h2><div class="results-list">`;
+        matches.forEach(s => {
+            html += `<a href="/stations/detail/?id=${s[0]}&loc=${s[2]}/${s[3]}" class="station-item"><div class="details"><h4>${s[1]}</h4><p>${s[2]} / ${s[3]} · ID: ${s[0]}</p></div><span style="color:var(--accent)">View →</span></a>`;
+        });
+        root.innerHTML = html + '</div>';
+    }
+
+    initDirectory();
+</script>
 {% endblock content %}
