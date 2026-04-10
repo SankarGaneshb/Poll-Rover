@@ -25,8 +25,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        // 2. Fetch the JSON chunk
-        const response = await fetch(`../../data/stations/${locationKey}.json`);
+        // 2. Fetch the JSON chunk using the base URL injected by detail.md
+        const base = window.POLL_ROVER_BASE || '';
+        const response = await fetch(`${base}/data/stations/${locationKey}.json`);
         if (!response.ok) throw new Error(`Could not load data for ${locationKey}`);
         
         const stations = await response.json();

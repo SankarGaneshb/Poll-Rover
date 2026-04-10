@@ -10,4 +10,8 @@ template: station.html
     </div>
 </div>
 
-<script src="/js/station-detail.js"></script>
+<script>
+  // Inject base URL so the JS can construct correct data paths for GitHub Pages
+  window.POLL_ROVER_BASE = "https://sankarganeshb.github.io/Poll-Rover";
+</script>
+<script src="{{ config.base_url | safe }}/js/station-detail.js"></script>
