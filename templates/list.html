@@ -189,7 +189,7 @@
             const stations = await resp.json();
             let html = `<button onclick="${isNearby ? 'renderStates()' : `renderDistricts('${stateKey}')`}" style="color:var(--accent); cursor:pointer; font-weight:700; margin-bottom:1rem; border:none; background:none">← Back</button><h2>${isNearby ? '📍 Stations Near You' : 'Polling Stations'} in ${distName}</h2><div class="results-list">`;
             stations.forEach(s => {
-                html += `<a href="/stations/detail/?id=${s.station_id}&loc=${stateKey}/${distKey}" class="station-item"><div class="details"><h4>${s.name}</h4><p>${s.assembly_constituency || 'General'} · ID: ${s.station_id}</p></div><span style="color:var(--accent)">View →</span></a>`;
+                html += `<a href="detail/?id=${s.station_id}&loc=${stateKey}/${distKey}" class="station-item"><div class="details"><h4>${s.name}</h4><p>${s.assembly_constituency || 'General'} · ID: ${s.station_id}</p></div><span style="color:var(--accent)">View →</span></a>`;
             });
             root.innerHTML = html + '</div>';
         } catch (e) { root.innerHTML = '<p>Failed to load district data.</p>'; }
@@ -209,7 +209,7 @@
         const matches = SEARCH_INDEX.filter(s => s[1].toLowerCase().includes(term) || s[0].toLowerCase().includes(term)).slice(0, 50);
         let html = `<h2>Search Results (${matches.length})</h2><div class="results-list">`;
         matches.forEach(s => {
-            html += `<a href="/stations/detail/?id=${s[0]}&loc=${s[2]}/${s[3]}" class="station-item"><div class="details"><h4>${s[1]}</h4><p>${s[2]} / ${s[3]} · ID: ${s[0]}</p></div><span style="color:var(--accent)">View →</span></a>`;
+            html += `<a href="detail/?id=${s[0]}&loc=${s[2]}/${s[3]}" class="station-item"><div class="details"><h4>${s[1]}</h4><p>${s[2]} / ${s[3]} · ID: ${s[0]}</p></div><span style="color:var(--accent)">View →</span></a>`;
         });
         root.innerHTML = html + '</div>';
     }

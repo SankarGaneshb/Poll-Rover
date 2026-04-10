@@ -61,7 +61,7 @@ function renderStation(station) {
     const html = `
         <div class="station-detail-card">
             <header class="detail-header">
-                <a href="/stations/" class="back-link">← Back to List</a>
+                <a href="../" class="back-link">← Back to List</a>
                 <h1>${station.name}</h1>
                 <p class="address">📍 ${station.address}</p>
                 ${station.landmark ? `<p class="landmark">🏛️ Landmark: ${station.landmark}</p>` : ''}
