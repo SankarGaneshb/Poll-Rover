@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         // 2. Fetch the JSON chunk
-        const response = await fetch(`/data/stations/${locationKey}.json`);
+        const response = await fetch(`../../data/stations/${locationKey}.json`);
         if (!response.ok) throw new Error(`Could not load data for ${locationKey}`);
         
         const stations = await response.json();

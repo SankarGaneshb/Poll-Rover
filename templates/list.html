@@ -111,7 +111,8 @@
 
     async function initDirectory() {
         try {
-            const resp = await fetch('/data/summary.json');
+            // Remove leading slash for local/subdirectory hosting compatibility
+            const resp = await fetch('../data/summary.json');
             SUMMARY = await resp.json();
             
             if ("geolocation" in navigator) {
@@ -184,7 +185,7 @@
         const distName = state.districts[distKey].name;
         root.innerHTML = '<div class="loading-spinner">Loading district booths...</div>';
         try {
-            const resp = await fetch(`/data/stations/${stateKey}/${distKey}.json`);
+            const resp = await fetch(`../data/stations/${stateKey}/${distKey}.json`);
             const stations = await resp.json();
             let html = `<button onclick="${isNearby ? 'renderStates()' : `renderDistricts('${stateKey}')`}" style="color:var(--accent); cursor:pointer; font-weight:700; margin-bottom:1rem; border:none; background:none">← Back</button><h2>${isNearby ? '📍 Stations Near You' : 'Polling Stations'} in ${distName}</h2><div class="results-list">`;
             stations.forEach(s => {
@@ -201,7 +202,7 @@
         if (SEARCH_INDEX.length === 0) {
             root.innerHTML = '<div class="loading-spinner">Fetching global index...</div>';
             try {
-                const resp = await fetch('/data/search_index.json');
+                const resp = await fetch('../data/search_index.json');
                 SEARCH_INDEX = await resp.json();
             } catch (e) { return; }
         }
