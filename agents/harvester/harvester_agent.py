@@ -59,7 +59,7 @@ class DataHarvesterAgent:
         Returns:
             Harvest report with counts and issues.
         """
-        logger.info("🕷️  Data Harvester Agent starting...")
+        logger.info("[HV] Data Harvester Agent starting...")
         start_time = time.time()
 
         if states is None:
@@ -123,11 +123,11 @@ class DataHarvesterAgent:
         # Step 5: Write to YAML (if not dry run)
         if not dry_run and new_stations:
             self._write_stations(new_stations, existing_stations)
-            logger.info(f"✅ Wrote {len(new_stations)} new stations to YAML")
+            logger.info(f"[SUCCESS] Wrote {len(new_stations)} new stations to YAML")
         elif dry_run:
             logger.info(f"🔍 Dry run: {len(new_stations)} stations would be added")
 
-        logger.info(f"🕷️  Harvest complete: {report}")
+        logger.info(f"[HV] Harvest complete: {report}")
         
         # Log KPIs
         execution_time = round(time.time() - start_time, 2)

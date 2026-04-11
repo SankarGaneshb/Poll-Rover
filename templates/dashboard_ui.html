@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poll-Rover | HIL Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --indigo: #6366f1;
+            --indigo-light: #818cf8;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #334155;
+        }
+
+        .logo { font-weight: 600; font-size: 1.5rem; letter-spacing: -0.5px; }
+        .logo span { color: var(--indigo); }
+
+        .status-badge {
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--success);
+            padding: 0.5rem 1rem;
+            border-radius: 99px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #334155;
+        }
+
+        .stat-label { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+        .stat-value { font-size: 1.5rem; font-weight: 600; }
+
+        h2 { margin-bottom: 1.5rem; font-size: 1.25rem; }
+
+        .incident-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            border-left: 4px solid var(--warning);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        .incident-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .severity {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .incident-type { font-weight: 600; color: var(--indigo-light); }
+        .incident-msg { font-size: 1rem; margin-top: 0.5rem; }
+
+        .proposed-fix {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+        }
+
+        .actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-approve { background: var(--indigo); color: white; }
+        .btn-approve:hover { background: var(--indigo-light); transform: translateY(-2px); }
+        .btn-reject { background: #334155; color: var(--text); }
+        .btn-reject:hover { background: #475569; }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 4rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="app">
+        <header>
+            <div class="logo">Poll-Rover | <span>HIL Management</span></div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <button class="btn-reject" style="padding: 0.5rem 1rem;" onclick="loadData()">Refresh Dashboard</button>
+                <div class="status-badge">System Healthy</div>
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Blocking Incidents</div>
+                <div id="blocking-count" class="stat-value">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Pending Approvals</div>
+                <div id="pending-count" class="stat-value">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Uptime</div>
+                <div class="stat-value">100%</div>
+            </div>
+        </div>
+
+        <section id="incidents-section">
+            <h2>Active Blocking Incidents</h2>
+            <div id="incident-list">
+                <!-- Incidents will be injected here -->
+                <div class="empty-state">Scanning for HIL incidents...</div>
+            </div>
+        </section>
+
+        <section id="tasks-section" style="margin-top: 3rem;">
+            <h2>Remediation Progress</h2>
+            <div id="task-list">
+                <!-- Progress cards injected here -->
+            </div>
+        </section>
+    </div>
+
+    <script>
+        async function loadData() {
+            await Promise.all([loadIncidents(), loadTasks()]);
+        }
+
+        async function loadIncidents() {
+            try {
+                const response = await fetch('/api/incidents');
+                const data = await response.json();
+                renderIncidents(data.incidents);
+            } catch (e) {
+                console.error("Failed to load incidents", e);
+            }
+        }
+
+        async function loadTasks() {
+            try {
+                const response = await fetch('/api/tasks');
+                const data = await response.json();
+                renderTasks(data.tasks);
+            } catch (e) {
+                console.error("Failed to load tasks", e);
+            }
+        }
+
+        function renderTasks(tasks) {
+            const list = document.getElementById('task-list');
+            const entries = Object.entries(tasks);
+            
+            if (entries.length === 0) {
+                list.innerHTML = `<div class="empty-state" style="padding: 2rem;">No active remediation tasks.</div>`;
+                return;
+            }
+
+            list.innerHTML = entries.map(([type, status]) => {
+                const isDone = status === 'completed';
+                const color = isDone ? 'var(--success)' : 'var(--indigo)';
+                return `
+                    <div class="stat-card" style="margin-bottom: 1rem; border-left: 4px solid ${color};">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <div class="stat-label">Remediating: ${type}</div>
+                                <div style="font-size: 0.875rem; color: ${color}; font-weight: 600;">
+                                    ${status.toUpperCase()} ${isDone ? '✅' : '...'}
+                                </div>
+                            </div>
+                            ${!isDone ? ` <div class="status-badge" style="background: rgba(99, 102, 241, 0.1); color: var(--indigo);">Running Playbook</div>` : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderIncidents(incidents) {
+            const list = document.getElementById('incident-list');
+            document.getElementById('pending-count').innerText = incidents.length;
+            document.getElementById('blocking-count').innerText = incidents.length;
+
+            if (incidents.length === 0) {
+                list.innerHTML = `<div class="empty-state">No incidents requiring approval. All agents are autonomous.</div>`;
+                return;
+            }
+
+            list.innerHTML = incidents.map(inc => `
+                <div class="incident-card">
+                    <div class="incident-header">
+                        <span class="incident-type">${inc.type}</span>
+                        <span class="severity">${inc.severity}</span>
+                    </div>
+                    <div class="incident-msg">${inc.message}</div>
+                    <div class="proposed-fix">
+                        <strong>PROPOSED PLAYBOOK:</strong> ${inc.playbook}
+                    </div>
+                    <div class="actions">
+                        <button class="btn-approve" onclick="approve('${inc.type}')">Approve Fix</button>
+                        <button class="btn-reject" onclick="reject('${inc.type}')">Ignore / Manual Review</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function approve(type) {
+            const btn = event.target;
+            btn.innerText = "Approving...";
+            btn.disabled = true;
+            
+            try {
+                await fetch('/api/approve', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ type })
+                });
+                await loadData();
+            } catch (e) {
+                alert("Approval failed: " + e);
+                btn.disabled = false;
+                btn.innerText = "Approve Fix";
+            }
+        }
+
+        loadData();
+    </script>
+</body>
+</html>

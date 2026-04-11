@@ -125,6 +125,18 @@ class SREOpsAgent:
                 })
                 report["overall_status"] = "degraded"
 
+        # Status tracking
+        from agents.common.logger import log_kpi
+        total_checks = len(checks)
+        passed_checks = sum(1 for c in report["checks_run"] if c["status"] == "ok")
+        health_score = round((passed_checks / total_checks) * 100, 2)
+        log_kpi(logger, "health_score", health_score, unit="percent")
+        
+        if report["incidents"]:
+            remediation_rate = round((len(report["remediations"]) / len(report["incidents"])) * 100, 2)
+            log_kpi(logger, "auto_remediation_rate", remediation_rate, unit="percent")
+            log_kpi(logger, "incidents_detected", len(report["incidents"]), unit="count")
+
         # Write ops log
         self._write_ops_log(report)
 
@@ -427,6 +439,14 @@ class SREOpsAgent:
         if self._hil_mode == "optional":
             return self._auto_remediate
         # "required" mode — log the proposal but don't execute
+        logger.warning(f"⚠️  [HIL-REQUIRED] Action needed for Incident {incident['type']}. Proposal: {playbook_name}. Please approve.")
+        from agents.common.logger import log_incident
+        log_incident(
+            logger,
+            incident_type="human_approval_pending",
+            message=f"HIL Approval needed for {incident['type']}. Recommended fix: {playbook_name}",
+            action_taken="WAITING_FOR_HUMAN",
+        )
         return False
 
     def _remediate(self, incident: dict) -> Optional[dict]:

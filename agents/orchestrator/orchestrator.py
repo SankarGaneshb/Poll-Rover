@@ -58,7 +58,7 @@ class AgentOrchestrator:
         Returns:
             Pipeline execution report.
         """
-        logger.info("🎯 Orchestrator starting pipeline...")
+        logger.info("[OR] Orchestrator starting pipeline...")
         start_time = time.time()
 
         if stages is None:
@@ -74,8 +74,8 @@ class AgentOrchestrator:
 
         # --- Stage 1: Data Harvester ---
         if "harvest" in stages:
-            logger.info("━" * 50)
-            logger.info("📥 Stage 1: Data Harvesting")
+            logger.info("-" * 50)
+            logger.info("[STAGE 1] Data Harvesting")
             try:
                 from agents.harvester.harvester_agent import DataHarvesterAgent
                 harvester = DataHarvesterAgent(self._config)
@@ -93,8 +93,8 @@ class AgentOrchestrator:
 
         # --- Stage 2: Data Quality ---
         if "quality" in stages:
-            logger.info("━" * 50)
-            logger.info("🔍 Stage 2: Data Quality Audit")
+            logger.info("-" * 50)
+            logger.info("[STAGE 2] Data Quality Audit")
             try:
                 from agents.quality.quality_agent import DataQualityAgent
                 quality = DataQualityAgent(self._config)
@@ -113,8 +113,8 @@ class AgentOrchestrator:
 
         # --- Stage 3: Site Generation ---
         if "generate" in stages:
-            logger.info("━" * 50)
-            logger.info("🏗️  Stage 3: Site Generation")
+            logger.info("-" * 50)
+            logger.info("[STAGE 3] Site Generation")
             try:
                 result = self._run_site_generator(dry_run)
                 report["stages"]["generate"] = result
@@ -125,8 +125,8 @@ class AgentOrchestrator:
 
         # --- Stage 4: SRE Health Checks ---
         if "sre" in stages:
-            logger.info("━" * 50)
-            logger.info("🏥 Stage 4: SRE Health Checks")
+            logger.info("-" * 50)
+            logger.info("[STAGE 4] SRE Health Checks")
             try:
                 from agents.sre_ops.sre_agent import SREOpsAgent
                 sre = SREOpsAgent(self._config)
@@ -143,9 +143,22 @@ class AgentOrchestrator:
         duration = round(time.time() - start_time, 2)
         report["duration_seconds"] = duration
 
-        logger.info("━" * 50)
+        # Log Global KPIs
+        from agents.common.logger import log_kpi
+        log_kpi(logger, "pipeline_duration", duration, unit="seconds")
+        
+        # Track Payload Efficiency (Verification of Lazy-Loading)
+        summary_path = Path("static") / "data" / "summary.json"
+        if summary_path.exists():
+            payload_size_kb = round(summary_path.stat().st_size / 1024, 2)
+            log_kpi(logger, "initial_map_payload", payload_size_kb, unit="KB")
+            # 27MB baseline
+            efficiency = round((1 - (payload_size_kb / 27648)) * 100, 2)
+            log_kpi(logger, "payload_reduction_efficiency", efficiency, unit="percent")
+
+        logger.info("-" * 50)
         logger.info(
-            f"🎯 Pipeline complete in {duration}s | "
+            f"[OR] Pipeline complete in {duration}s | "
             f"Status: {report['overall_status']}"
         )
 

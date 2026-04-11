@@ -5,6 +5,7 @@ Multi-lingual, accessibility-aware, with map integration for the web widget.
 """
 
 import math
+import time
 from datetime import date
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
@@ -87,6 +88,7 @@ Format your response as:
             }
 
         # Step 1: Parse query intent
+        start_time = time.time()
         intent = self._parse_intent(user_query, language)
 
         # Step 2: Find matching stations
@@ -107,6 +109,12 @@ Format your response as:
 
         # Step 4: Prepare map markers for web widget
         map_markers = self._to_map_markers(matches)
+
+        # Log KPIs
+        duration = round((time.time() - start_time) * 1000, 2)
+        from agents.common.logger import log_kpi
+        log_kpi(logger, "response_time", duration, unit="ms", language=language)
+        log_kpi(logger, "stations_found_per_query", len(matches), unit="count")
 
         result = {
             "text": response_text,

@@ -59,22 +59,22 @@ class HumanFormatter(logging.Formatter):
     }
     RESET = "\033[0m"
     AGENTS = {
-        "harvester": "🕷️",
-        "quality": "✅",
-        "sre_ops": "🔧",
-        "citizen_assist": "🧑‍🤝‍🧑",
-        "orchestrator": "🎯",
-        "system": "⚙️",
+        "harvester": "[HV]",
+        "quality": "[QA]",
+        "sre_ops": "[SRE]",
+        "citizen_assist": "[CA]",
+        "orchestrator": "[OR]",
+        "system": "[SYS]",
     }
 
     def format(self, record: logging.LogRecord) -> str:
         color = self.COLORS.get(record.levelname, "")
         agent = getattr(record, "agent", "system")
-        icon = self.AGENTS.get(agent, "⚙️")
+        icon = self.AGENTS.get(agent, "[SYS]")
         timestamp = datetime.now(IST).strftime("%H:%M:%S")
         return (
-            f"{color}[{timestamp}] {icon} {agent:>15} │ "
-            f"{record.levelname:<8} │ {record.getMessage()}{self.RESET}"
+            f"{color}[{timestamp}] {icon} {agent:>15} | "
+            f"{record.levelname:<8} | {record.getMessage()}{self.RESET}"
         )
 
 
