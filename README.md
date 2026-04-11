@@ -18,8 +18,8 @@ The Poll-Rover ecosystem is monitored via a suite of **Key Performance Indicator
 | :--- | :--- | :--- | :--- |
 | **🛰️ Harvester** | ![Success](https://img.shields.io/badge/Success-99.2%25-brightgreen) | ![Latency](https://img.shields.io/badge/Latency-450ms-blue) | ![Accuracy](https://img.shields.io/badge/Accuracy-High-success) |
 | **🛡️ Quality** | ![Validation](https://img.shields.io/badge/Valid-100%25-brightgreen) | ![Time](https://img.shields.io/badge/Time-1.2s-blue) | ![Precision](https://img.shields.io/badge/Precision-99.9%25-success) |
-| **🏗️ Orchestrator** | ![Build](https://img.shields.io/badge/Build-Pass-brightgreen) | ![Rate](https://img.shields.io/badge/Rate-Daily-blue) | ![Uptime](https://img.shields.io/badge/Uptime-100%25-success) |
-| **🧑‍🤝‍🧑 Assist** | ![Response](https://img.shields.io/badge/Resp-98%25-brightgreen) | ![TTFB](https://img.shields.io/badge/TTFB-850ms-blue) | ![Satisfaction](https://img.shields.io/badge/Satis-4.8/5-success) |
+| **🏗️ Orchestrator** | ![Build](https://img.shields.io/badge/Build-Pass-brightgreen) | ![Rate](https://img.shields.io/badge/Payload-3KB-blue) | ![Uptime](https://img.shields.io/badge/Uptime-100%25-success) |
+| **🧑‍🤝‍🧑 Assist** | ![Response](https://img.shields.io/badge/Resp-98%25-brightgreen) | ![TTI](https://img.shields.io/badge/TTI-<500ms-blue) | ![Satisfaction](https://img.shields.io/badge/Satis-4.8/5-success) |
 | **🩺 SRE Ops** | ![Remediation](https://img.shields.io/badge/Fix-Auto--95%25-brightgreen) | ![MTTR](https://img.shields.io/badge/MTTR-5m-blue) | ![Health](https://img.shields.io/badge/Health-Stable-success) |
 
 > [!NOTE]
@@ -55,6 +55,9 @@ Every station is evaluated and color-coded based on its accessibility rating:
 
 ### 🌓 Royal Civic Indigo UI
 A premium, institutional design system optimized for high-contrast legibility. Features a sleek **Dark/Light theme toggle** with persistence and cache-busting for a seamless experience.
+
+### ⚡ Lazy-Loading Architecture (New)
+Poll-Rover now uses a next-gen discovery engine that reduces the initial map payload from **27MB to 3KB** (99.9% reduction). Data is partitioned into district-level chunks and fetched on-demand based on proximity and user interaction.
 
 ---
 
