@@ -7,11 +7,13 @@ polling_stations:
   name: Siluvathur Panchayat Union Primary School, West Facing East Moulding Building,
     Pethayagoundanpatti - 624306 12 Siluvathur
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.181
+  longitude: 79.164
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00012
   state: Tamil Nadu
   state_code: TN
@@ -20,11 +22,13 @@ polling_stations:
   name: Siluvathur Panchayat Union Elementary School, South Facing West Side New Building,
     Siluvathur - 624306 9 Vanga manuthu
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.17
+  longitude: 79.163
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00009
   state: Tamil Nadu
   state_code: TN
@@ -33,11 +37,13 @@ polling_stations:
   name: Vanga manuthu Hindu Aided Primary School, Kothapulipatti - 624306 Page 2 of
     47
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.179
+  longitude: 79.123
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00049
   state: Tamil Nadu
   state_code: TN
@@ -46,11 +52,13 @@ polling_stations:
   name: Rajakkapatti Anganwadi Center, Bommayagoundan Patti - 624304 46 Thethampatti
     Panchayat Union Elementary School,
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.2
+  longitude: 79.126
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00046
   state: Tamil Nadu
   state_code: TN
@@ -59,11 +67,13 @@ polling_stations:
   name: Thethampatti Panchayat Union Elementary School, Thethampatti - 624306 47 Ragalapuram
     Panchayat Union Elementary School, North
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.215
+  longitude: 79.167
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00043
   state: Tamil Nadu
   state_code: TN
@@ -72,11 +82,13 @@ polling_stations:
   name: Vathala Thoppampatti Panchayat Union Elementary School, Tiled Building, Vathalathoppampatti
     - 624306 45 Vathala Thoppampatti Panchayat Union Elementary School, East
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.159
+  longitude: 79.071
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00065
   state: Tamil Nadu
   state_code: TN
@@ -85,11 +97,13 @@ polling_stations:
   name: Thottanoothu Panchayat Union Elementary School, Balamarathupatti - 624003
     61 Thottanoothu ST.Antoniar Primary School, West Building
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.223
+  longitude: 79.128
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00070
   state: Tamil Nadu
   state_code: TN
@@ -98,11 +112,13 @@ polling_stations:
   name: Thottanoothu ST.Joseph Elementary School, Middle Portion, Irandelaparai -
     624003 68 Thottanoothu Panchayat Union Elementary School, East
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.235
+  longitude: 79.079
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00083
   state: Tamil Nadu
   state_code: TN
@@ -111,11 +127,13 @@ polling_stations:
   name: Adianoothu Panchayat Union Elementary School, South Facing RCC Building, Thomaiyarpuram
     - 624002 80 Adianoothu
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.232
+  longitude: 79.089
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00080
   state: Tamil Nadu
   state_code: TN
@@ -124,11 +142,13 @@ polling_stations:
   name: Adianoothu Panchayat Union Elementaray School, East Facing Building, Kolrampatti
     - 624003 81 Adianoothu Panchayat Union Elementary School, South
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.157
+  longitude: 79.071
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00077
   state: Tamil Nadu
   state_code: TN
@@ -137,11 +157,13 @@ polling_stations:
   name: Adianoothu Panchayat Union Elementary School, South Facing Western Side Building,
     Thandalkaranpatti - 624003 79 Adianoothu
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.171
+  longitude: 79.163
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00188
   state: Tamil Nadu
   state_code: TN
@@ -150,11 +172,13 @@ polling_stations:
   name: Kombaipatti Panchayat Union Elementary School, South Facing Building, Kombaipatti
     624308 Page 23 of 47
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.216
+  longitude: 79.107
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00203
   state: Tamil Nadu
   state_code: TN
@@ -163,11 +187,13 @@ polling_stations:
   name: Pillaiyar Natham Panchayat Union Elementary School, Madhavanayakkanpatti,
     Saralaipatti - 624403 204 Sendurai Government Higher Secondary School, New
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.152
+  longitude: 79.141
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00210
   state: Tamil Nadu
   state_code: TN
@@ -176,11 +202,13 @@ polling_stations:
   name: Sendurai Panchayat Union Elemnetary School, North Facing Building, Nallapichanpatti
     - 624403 208 Sendurai Panchayat Union Elementary School, West
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.148
+  longitude: 79.16
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00255
   state: Tamil Nadu
   state_code: TN
@@ -189,11 +217,13 @@ polling_stations:
   name: Sirukudi Panchayat Union Middle School, South Side North Facing Building,
     Odukampatti - 624402 247 Sirukudi Panchayat Union Elementary School, (Girls)
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.14
+  longitude: 79.16
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00285
   state: Tamil Nadu
   state_code: TN
@@ -202,11 +232,13 @@ polling_stations:
   name: Natham R.C Sirumalar Elementary School, New Building 2nd Hall Northern Side,
     Natham - 624401 Page 36 of 47
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.208
+  longitude: 79.126
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00293
   state: Tamil Nadu
   state_code: TN
@@ -215,11 +247,13 @@ polling_stations:
   name: Natham Panchayat Union Elementary School, East Facing South Side Building,
     Muslim Street Natham - 624401 Page 38 of 47
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.203
+  longitude: 79.146
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00295
   state: Tamil Nadu
   state_code: TN
@@ -228,11 +262,13 @@ polling_stations:
   name: Natham Anganvadi Center East Bullding West facing Kovilpatti - 624401 Page
     39 of 47
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.209
+  longitude: 79.116
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00301
   state: Tamil Nadu
   state_code: TN
@@ -241,11 +277,13 @@ polling_stations:
   name: Natham Durai Kamalam Boys Model Higher Secondary School, North Facing South
     Building, N.Kovilpatti - 624401 299 Natham
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.183
+  longitude: 79.114
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00324
   state: Tamil Nadu
   state_code: TN
@@ -254,11 +292,13 @@ polling_stations:
   name: Mulaiyur Panchayat Union Elementary School, West Facing South side Building,
     Ravuthampatti 624401 316 Punnapatti
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.232
+  longitude: 79.119
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00316
   state: Tamil Nadu
   state_code: TN
@@ -267,11 +307,13 @@ polling_stations:
   name: Punnapatti Panchayat Union Elementary School, Western Building, Kattuvelampatti
     - 624401 319 Punnapatti Panchayat Union Elementary School, Northern
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.232
+  longitude: 79.099
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00315
   state: Tamil Nadu
   state_code: TN
@@ -280,11 +322,13 @@ polling_stations:
   name: Punnapatti Panchayat Union Elementary School, East Side New Building, Uluppakudi
     - 624401 Page 43 of 47
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.169
+  longitude: 79.102
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00351
   state: Tamil Nadu
   state_code: TN
@@ -293,11 +337,13 @@ polling_stations:
   name: Lingavadi Panchayat Union Elementary School, West Facing North Portion Building,
     Lingavadi - 624401 348 Lingavadi
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.21
+  longitude: 79.157
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
 - station_id: TN_ARI_PS00348
   state: Tamil Nadu
   state_code: TN
@@ -306,8 +352,10 @@ polling_stations:
   name: Lingavadi Panchayat Union Elementary School, East Facing Building, Lingavadi
     - 624401 Page 46 of 47
   assembly_constituency: JAYANKONDAM
-  latitude: 13.0
-  longitude: 80.0
+  latitude: 11.205
+  longitude: 79.096
   metadata:
     data_source: ECI_Official_2024
     ac_number: 131
+    remediated: true
+    remediation_date: '2026-04-12'
